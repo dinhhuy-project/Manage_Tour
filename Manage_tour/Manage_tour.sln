@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Manage_tour", "Manage_tour.csproj", "{06C6CB09-B0A5-4C12-BF3E-7FB9DE10DF2F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{06C6CB09-B0A5-4C12-BF3E-7FB9DE10DF2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06C6CB09-B0A5-4C12-BF3E-7FB9DE10DF2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06C6CB09-B0A5-4C12-BF3E-7FB9DE10DF2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06C6CB09-B0A5-4C12-BF3E-7FB9DE10DF2F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AD900914-C6BE-41C3-B837-7425038517A0}
+	EndGlobalSection
+EndGlobal
