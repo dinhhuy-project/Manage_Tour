@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace Manage_tour
 {
-    public partial class FormLogIn : Form
+    public partial class FormDashboard : Form
     {
-        public FormLogIn()
+        public FormDashboard()
         {
             InitializeComponent();
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -8,3 +8,4 @@ E:\Github\Manage_tour\Manage_tour\obj\Debug\Manage_tour.csproj.CoreCompileInputs
 E:\Github\Manage_tour\Manage_tour\obj\Debug\Manage_tour.exe
 E:\Github\Manage_tour\Manage_tour\obj\Debug\Manage_tour.pdb
 E:\Github\Manage_tour\Manage_tour\obj\Debug\Manage_tour.FormSignUp.resources
+E:\Github\Manage_tour\Manage_tour\obj\Debug\Manage_tour.FormDashboard.resources
