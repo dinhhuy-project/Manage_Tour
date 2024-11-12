@@ -16,7 +16,7 @@ namespace Manage_tour
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FormSignUp());
+            Application.Run(new Entrymain());
         }
     }
 }

@@ -9,3 +9,15 @@ E:\Github\Manage_tour\Manage_tour\obj\Debug\Manage_tour.exe
 E:\Github\Manage_tour\Manage_tour\obj\Debug\Manage_tour.pdb
 E:\Github\Manage_tour\Manage_tour\obj\Debug\Manage_tour.FormSignUp.resources
 E:\Github\Manage_tour\Manage_tour\obj\Debug\Manage_tour.FormDashboard.resources
+D:\hdt_java\manage_tour_c#\Manage_tour\bin\Debug\Manage_tour.exe.config
+D:\hdt_java\manage_tour_c#\Manage_tour\bin\Debug\Manage_tour.exe
+D:\hdt_java\manage_tour_c#\Manage_tour\bin\Debug\Manage_tour.pdb
+D:\hdt_java\manage_tour_c#\Manage_tour\obj\Debug\Manage_tour.csproj.AssemblyReference.cache
+D:\hdt_java\manage_tour_c#\Manage_tour\obj\Debug\Manage_tour.FormDashboard.resources
+D:\hdt_java\manage_tour_c#\Manage_tour\obj\Debug\Manage_tour.FormSignUp.resources
+D:\hdt_java\manage_tour_c#\Manage_tour\obj\Debug\Manage_tour.Properties.Resources.resources
+D:\hdt_java\manage_tour_c#\Manage_tour\obj\Debug\Manage_tour.csproj.GenerateResource.cache
+D:\hdt_java\manage_tour_c#\Manage_tour\obj\Debug\Manage_tour.csproj.CoreCompileInputs.cache
+D:\hdt_java\manage_tour_c#\Manage_tour\obj\Debug\Manage_tour.exe
+D:\hdt_java\manage_tour_c#\Manage_tour\obj\Debug\Manage_tour.pdb
+D:\hdt_java\manage_tour_c#\Manage_tour\obj\Debug\Manage_tour.Entrymain.resources
