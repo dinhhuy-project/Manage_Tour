@@ -9,3 +9,15 @@ E:\Github\Manage_tour\Manage_tour\obj\Debug\Manage_tour.exe
 E:\Github\Manage_tour\Manage_tour\obj\Debug\Manage_tour.pdb
 E:\Github\Manage_tour\Manage_tour\obj\Debug\Manage_tour.FormSignUp.resources
 E:\Github\Manage_tour\Manage_tour\obj\Debug\Manage_tour.FormDashboard.resources
+D:\Github\Manage_Tour\Manage_tour\bin\Debug\Manage_tour.exe.config
+D:\Github\Manage_Tour\Manage_tour\bin\Debug\Manage_tour.exe
+D:\Github\Manage_Tour\Manage_tour\bin\Debug\Manage_tour.pdb
+D:\Github\Manage_Tour\Manage_tour\obj\Debug\Manage_tour.csproj.AssemblyReference.cache
+D:\Github\Manage_Tour\Manage_tour\obj\Debug\Manage_tour.FormDashboard.resources
+D:\Github\Manage_Tour\Manage_tour\obj\Debug\Manage_tour.FormSignUp.resources
+D:\Github\Manage_Tour\Manage_tour\obj\Debug\Manage_tour.Properties.Resources.resources
+D:\Github\Manage_Tour\Manage_tour\obj\Debug\Manage_tour.csproj.GenerateResource.cache
+D:\Github\Manage_Tour\Manage_tour\obj\Debug\Manage_tour.csproj.CoreCompileInputs.cache
+D:\Github\Manage_Tour\Manage_tour\obj\Debug\Manage_tour.exe
+D:\Github\Manage_Tour\Manage_tour\obj\Debug\Manage_tour.pdb
+D:\Github\Manage_Tour\Manage_tour\obj\Debug\Manage_tour.Tour.resources
