@@ -1,6 +1,29 @@
+# Ignore build outputs
+Manage_tour/Manage_tour/bin/
+Manage_tour/Manage_tour/obj/
+Manage_Tour\Manage_tour\obj\Debug\
+Manage_Tour\Manage_tour\obj\bin\
+
+# Ignore user-specific files
 .vs/
-bin/
-obj/
-.cache
-Manage_tour/bin/
-Manage_tour/obj/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+*.pdb
+*.exe
+
+# Ignore NuGet packages
+packages/
+*.nupkg
+project.lock.json
+
+# Ignore log files
+*.log
+
+# Ignore OS files
+.DS_Store
+Thumbs.db
+
+# Ignore sensitive files (add templates instead)
+appsettings.json
