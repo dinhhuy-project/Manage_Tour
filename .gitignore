@@ -1,8 +1,6 @@
 # Ignore build outputs
-Manage_tour/Manage_tour/bin/
-Manage_tour/Manage_tour/obj/
-Manage_Tour\Manage_tour\obj\Debug\
-Manage_Tour\Manage_tour\obj\bin\
+bin/
+obj/
 
 # Ignore user-specific files
 .vs/
@@ -10,8 +8,6 @@ Manage_Tour\Manage_tour\obj\bin\
 *.user
 *.userosscache
 *.sln.docstates
-*.pdb
-*.exe
 
 # Ignore NuGet packages
 packages/
