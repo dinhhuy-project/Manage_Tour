@@ -62,7 +62,7 @@ namespace Manage_tour
         private bool CheckLogin(string username, string password)
         {
             // Chuỗi kết nối tới SQL Server
-            string connectionString = "Data Source=IKIENKINZERO\\SQLEXPRESS;Initial Catalog=manage_tour_1;Persist Security Info=True;User ID=sa;Password=123456";
+            string connectionString = "Data Source=DESKTOP-C2UG3F0\\SQLEXPRESS01;Initial Catalog=Tour;Persist Security Info=True;User ID=sa;Password=123";
 
             try
             {
@@ -71,7 +71,7 @@ namespace Manage_tour
                     conn.Open();
 
                     // Truy vấn kiểm tra đăng nhập
-                    string query = "SELECT COUNT(*) FROM HuongDanVien WHERE email = @Username AND pass_word = @Password";
+                    string query = "SELECT COUNT(*) FROM NHANVIEN WHERE email = @Username AND pass_word = @Password";
                     using (SqlCommand cmd = new SqlCommand(query, conn))
                     {
                         cmd.Parameters.AddWithValue("@Username", username);
