@@ -65,25 +65,52 @@
     <Compile Include="FormSignUp.Designer.cs">
       <DependentUpon>FormSignUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="listbooked.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="listbooked.Designer.cs">
+      <DependentUpon>listbooked.cs</DependentUpon>
+    </Compile>
+    <Compile Include="listpayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="listpayment.Designer.cs">
+      <DependentUpon>listpayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="payment.Designer.cs">
+      <DependentUpon>payment.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tour.cs">
       <SubType>Form</SubType>
     </Compile>
-	  <Compile Include="booktour.cs">
-		  <SubType>Form</SubType>
-	  </Compile>
+    <Compile Include="booktour.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Tour.Designer.cs">
       <DependentUpon>Tour.cs</DependentUpon>
     </Compile>
-	  <Compile Include="booktour.Designer.cs">
-		  <DependentUpon>booktour.cs</DependentUpon>
-	  </Compile>
+    <Compile Include="booktour.Designer.cs">
+      <DependentUpon>booktour.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="FormDashboard.resx">
       <DependentUpon>FormDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSignUp.resx">
       <DependentUpon>FormSignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="listbooked.resx">
+      <DependentUpon>listbooked.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="listpayment.resx">
+      <DependentUpon>listpayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="payment.resx">
+      <DependentUpon>payment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -98,9 +125,9 @@
     <EmbeddedResource Include="Tour.resx">
       <DependentUpon>Tour.cs</DependentUpon>
     </EmbeddedResource>
-	  <EmbeddedResource Include="booktour.resx">
-		  <DependentUpon>booktour.cs</DependentUpon>
-	  </EmbeddedResource>
+    <EmbeddedResource Include="booktour.resx">
+      <DependentUpon>booktour.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -130,6 +157,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\qr_vietin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\qr_bidv.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
