@@ -55,6 +55,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel_chuyenkhoan = new System.Windows.Forms.Panel();
             this.checkBox_viettinbank = new System.Windows.Forms.CheckBox();
             this.checkBox_bidv = new System.Windows.Forms.CheckBox();
@@ -62,10 +64,8 @@
             this.checkBox_chuyenkhoan = new System.Windows.Forms.CheckBox();
             this.checkBox_tienmat = new System.Windows.Forms.CheckBox();
             this.label25 = new System.Windows.Forms.Label();
-            this.panel_viettinbank = new System.Windows.Forms.Panel();
             this.panel_bidv = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.panel_viettinbank = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -77,8 +77,8 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(46)))), ((int)(((byte)(78)))));
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(86)))), ((int)(((byte)(108)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1, 0);
             this.panel1.Name = "panel1";
@@ -100,7 +100,7 @@
             // 
             // panel2
             // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.label24);
@@ -373,7 +373,7 @@
             // 
             // splitContainer1
             // 
-            this.splitContainer1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.splitContainer1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.splitContainer1.Location = new System.Drawing.Point(1, 430);
@@ -397,6 +397,28 @@
             this.splitContainer1.Size = new System.Drawing.Size(1010, 350);
             this.splitContainer1.SplitterDistance = 375;
             this.splitContainer1.TabIndex = 2;
+            // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(207, 271);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(157, 45);
+            this.button2.TabIndex = 5;
+            this.button2.Text = "Xác Nhận";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(10, 271);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(153, 45);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Hủy";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // panel_chuyenkhoan
             // 
@@ -482,18 +504,6 @@
             this.label25.TabIndex = 0;
             this.label25.Text = "Hình Thức Thanh Toán";
             // 
-            // panel_viettinbank
-            // 
-            this.panel_viettinbank.BackgroundImage = global::Manage_tour.Properties.Resources.qr_vietin;
-            this.panel_viettinbank.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel_viettinbank.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel_viettinbank.Cursor = System.Windows.Forms.Cursors.IBeam;
-            this.panel_viettinbank.Location = new System.Drawing.Point(150, 6);
-            this.panel_viettinbank.Name = "panel_viettinbank";
-            this.panel_viettinbank.Size = new System.Drawing.Size(354, 339);
-            this.panel_viettinbank.TabIndex = 0;
-            this.panel_viettinbank.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_viettinbank_Paint);
-            // 
             // panel_bidv
             // 
             this.panel_bidv.BackgroundImage = global::Manage_tour.Properties.Resources.qr_bidv;
@@ -505,27 +515,17 @@
             this.panel_bidv.Size = new System.Drawing.Size(354, 339);
             this.panel_bidv.TabIndex = 0;
             // 
-            // button1
+            // panel_viettinbank
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(10, 271);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(153, 45);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Hủy";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(207, 271);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(157, 45);
-            this.button2.TabIndex = 5;
-            this.button2.Text = "Xác Nhận";
-            this.button2.UseVisualStyleBackColor = true;
+            this.panel_viettinbank.BackgroundImage = global::Manage_tour.Properties.Resources.qr_vietin;
+            this.panel_viettinbank.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel_viettinbank.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel_viettinbank.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.panel_viettinbank.Location = new System.Drawing.Point(150, 6);
+            this.panel_viettinbank.Name = "panel_viettinbank";
+            this.panel_viettinbank.Size = new System.Drawing.Size(354, 339);
+            this.panel_viettinbank.TabIndex = 0;
+            this.panel_viettinbank.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_viettinbank_Paint);
             // 
             // payment
             // 

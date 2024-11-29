@@ -13,7 +13,7 @@ namespace Manage_tour
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new payment());
+            Application.Run(new FormDashBroad());
         }
     }
 }
