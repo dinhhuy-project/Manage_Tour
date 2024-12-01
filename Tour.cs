@@ -29,7 +29,7 @@ namespace Manage_tour
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+
 
             // Kiểm tra nếu cột là "Sửa"
             if (dataGridView1.Columns["Edit"] != null && e.ColumnIndex == dataGridView1.Columns["Edit"].Index && e.RowIndex >= 0)
@@ -93,7 +93,7 @@ namespace Manage_tour
         {
             tableLayoutPanel1.Visible = true;
             AdjustDataGridView();
-            isEditMode=true;
+            isEditMode = true;
             try
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
@@ -232,10 +232,11 @@ namespace Manage_tour
             tableLayoutPanel1.Visible = false;
             AdjustDataGridView();
         }
+
         private void AdjustDataGridView()
         {
             // Tính toán chiều cao khả dụng cho DataGridView
-            int availableHeight = this.ClientSize.Height  - 100 ; // 20 là khoảng cách trống phía dưới
+            int availableHeight = this.ClientSize.Height - 100; // 20 là khoảng cách trống phía dưới
 
             if (tableLayoutPanel1.Visible)
             {
@@ -254,7 +255,7 @@ namespace Manage_tour
             ADD.Top = dataGridView1.Bottom + 10; // Cách DataGridView 10px
 
             ClearInputFields();
-        }
+        }   
 
         private void ClearInputFields()
         {
@@ -262,20 +263,20 @@ namespace Manage_tour
             txtTourName.Text = string.Empty;
             txtPrice.Text = string.Empty;
             startDate.Value = DateTime.Now;
-            endDate.Value = DateTime.Now;   
+            endDate.Value = DateTime.Now;
         }
         private void Save_Click(object sender, EventArgs e)
         {
             String TourID = txtTourID.Text;
-            String TourName=txtTourName.Text;
-            DateTime startDateT=startDate.Value;
+            String TourName = txtTourName.Text;
+            DateTime startDateT = startDate.Value;
             DateTime endDateT = endDate.Value;
             float PriceT;
 
             // Kiểm tra nếu các trường tourID và tourName bị rỗng
             if (string.IsNullOrEmpty(TourID) || string.IsNullOrEmpty(TourName))
             {
-                MessageBox.Show("Please enter all required information!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+                    MessageBox.Show("Please enter all required information!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
             }
 
 
@@ -306,19 +307,21 @@ namespace Manage_tour
             if (isEditMode)
             {
                 UpdateTour(); // Cập nhật tour
+                AdjustDataGridView();
             }
             else
             {
                 AddTour(TourID, TourName, startDateT, endDateT, PriceT); // Thêm mới tour
             }
-            
+
             isEditMode = false;
-            txtTourID.Enabled = true; 
+            txtTourID.Enabled = true;
             ClearInputFields();
             tableLayoutPanel1.Visible = false;
+            AdjustDataGridView();
         }
 
-        private void AddTour(String TourID,String TourName, DateTime startDateT,DateTime endDateT,float PriceT )
+        private void AddTour(String TourID, String TourName, DateTime startDateT, DateTime endDateT, float PriceT)
         {
             try
             {
@@ -339,7 +342,7 @@ namespace Manage_tour
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Tour added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            dataGridView1.Rows.Add(TourID, TourName, PriceT ,startDateT.ToShortDateString(), endDateT.ToShortDateString());
+                            dataGridView1.Rows.Add(TourID, TourName, PriceT, startDateT.ToShortDateString(), endDateT.ToShortDateString());
                             ClearInputFields();
                         }
                         else
@@ -399,12 +402,12 @@ namespace Manage_tour
 
 
             }
-        
+
         }
 
         private void Search_Click(object sender, EventArgs e)
         {
-            string keyword = txtSearch.Text.Trim(); 
+            string keyword = txtSearch.Text.Trim();
 
             if (string.IsNullOrEmpty(keyword))
             {
@@ -412,7 +415,22 @@ namespace Manage_tour
                 return;
             }
 
-            SearchTours(keyword); 
+            SearchTours(keyword);
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPrice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPrice_TextChanged_1(object sender, EventArgs e)
+        {
+
         }
     }
 }
