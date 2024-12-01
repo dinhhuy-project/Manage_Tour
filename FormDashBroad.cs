@@ -17,6 +17,12 @@ namespace Manage_tour
             InitializeComponent();
             panel_thontintaikhoan.Visible = false;
         }
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            // Thoát toàn bộ ứng dụng khi form này bị đóng
+            Application.Exit();
+        }
 
         private void label4_Click(object sender, EventArgs e)
         {

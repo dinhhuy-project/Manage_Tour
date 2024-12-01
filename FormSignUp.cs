@@ -17,6 +17,12 @@ namespace Manage_tour
             InitializeComponent();
             panel_signup.Visible = false;
         }
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            // Thoát toàn bộ ứng dụng khi form này bị đóng
+            Application.Exit();
+        }
 
         private void label2_Click(object sender, EventArgs e)
         {
@@ -33,16 +39,47 @@ namespace Manage_tour
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void changeToSignUpButton_Click(object sender, EventArgs e)
         {
             panel_signup.Visible = true;
             panel_signin.Visible = false;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void changeToSignInButton_Click(object sender, EventArgs e)
         {
             panel_signin.Visible = true;
             panel_signup.Visible = false;
+        }
+
+        private void signInButton_Click(object sender, EventArgs e)
+        {
+            if (DbQueries.Queries.logIn(signInEmailTextbox.Text, signInPasswordTextbox.Text))
+            {
+                // Tạo và hiển thị form mới
+                FormDashBroad newForm = new FormDashBroad();
+                newForm.Show();
+
+                // Tắt form hiện tại
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Wrong email or password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void signUpButton_Click(object sender, EventArgs e)
+        {
+            if(DbQueries.Queries.signUp(nameTextbox.Text, identificationCardTextbox.Text, signUpEmailTextbox.Text, signUpPasswordTextbox.Text))
+            {
+                MessageBox.Show("Sign up successful", "True", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                panel_signin.Visible = true;
+                panel_signup.Visible = false;
+            }
+            else
+            {
+                MessageBox.Show("Can't sign up!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
