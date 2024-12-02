@@ -47,29 +47,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="customer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="customer.Designer.cs">
-      <DependentUpon>customer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="DTQ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="DTQ.Designer.cs">
-      <DependentUpon>DTQ.cs</DependentUpon>
-    </Compile>
+    <Compile Include="DbQueries\DbConnection.cs" />
+    <Compile Include="DbQueries\Queries.cs" />
     <Compile Include="Entrymain.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Entrymain.Designer.cs">
       <DependentUpon>Entrymain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDashboard.cs">
+    <Compile Include="FormDashBroad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDashboard.Designer.cs">
-      <DependentUpon>FormDashboard.cs</DependentUpon>
+    <Compile Include="FormDashBroad.Designer.cs">
+      <DependentUpon>FormDashBroad.cs</DependentUpon>
     </Compile>
     <Compile Include="FormSignUp.cs">
       <SubType>Form</SubType>
@@ -77,11 +67,23 @@
     <Compile Include="FormSignUp.Designer.cs">
       <DependentUpon>FormSignUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="HDV.cs">
+    <Compile Include="listbooked.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="HDV.Designer.cs">
-      <DependentUpon>HDV.cs</DependentUpon>
+    <Compile Include="listbooked.Designer.cs">
+      <DependentUpon>listbooked.cs</DependentUpon>
+    </Compile>
+    <Compile Include="listpayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="listpayment.Designer.cs">
+      <DependentUpon>listpayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="payment.Designer.cs">
+      <DependentUpon>payment.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -97,32 +99,23 @@
     <Compile Include="booktour.Designer.cs">
       <DependentUpon>booktour.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tour_DTQ.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Tour_DTQ.Designer.cs">
-      <DependentUpon>Tour_DTQ.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Tour_HDV.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Tour_HDV.Designer.cs">
-      <DependentUpon>Tour_HDV.cs</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="customer.resx">
-      <DependentUpon>customer.cs</DependentUpon>
+    <EmbeddedResource Include="Entrymain.resx">
+      <DependentUpon>Entrymain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DTQ.resx">
-      <DependentUpon>DTQ.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormDashboard.resx">
-      <DependentUpon>FormDashboard.cs</DependentUpon>
+    <EmbeddedResource Include="FormDashBroad.resx">
+      <DependentUpon>FormDashBroad.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormSignUp.resx">
       <DependentUpon>FormSignUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="HDV.resx">
-      <DependentUpon>HDV.cs</DependentUpon>
+    <EmbeddedResource Include="listbooked.resx">
+      <DependentUpon>listbooked.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="listpayment.resx">
+      <DependentUpon>listpayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="payment.resx">
+      <DependentUpon>payment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -139,12 +132,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="booktour.resx">
       <DependentUpon>booktour.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tour_DTQ.resx">
-      <DependentUpon>Tour_DTQ.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Tour_HDV.resx">
-      <DependentUpon>Tour_HDV.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -175,6 +162,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\qr_vietin.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\qr_bidv.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dulichc#.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

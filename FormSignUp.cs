@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -16,76 +15,70 @@ namespace Manage_tour
         public FormSignUp()
         {
             InitializeComponent();
+            panel_signup.Visible = false;
+        }
+        protected override void OnFormClosing(FormClosingEventArgs e)
+        {
+            base.OnFormClosing(e);
+            // Thoát toàn bộ ứng dụng khi form này bị đóng
+            Application.Exit();
         }
 
-        public string dbcon = "Data Source = IKIENKINZERO\\SQLEXPRESS;Initial Catalog = manage_tour_1; Persist Security Info=True;User ID = sa; Password=***********;Trust Server Certificate=True";
-
-        private void label1_Click(object sender, EventArgs e)
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void label3_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void label9_Click(object sender, EventArgs e)
         {
-            panel1.Visible = !panel1.Visible;
-            panel2.Visible = !panel2.Visible;
-        }
-        private void button4_Click(object sender, EventArgs e)
-        {
-            panel2.Visible = !panel2.Visible;
-            panel1.Visible = !panel1.Visible;
+
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void changeToSignUpButton_Click(object sender, EventArgs e)
         {
-            
+            panel_signup.Visible = true;
+            panel_signin.Visible = false;
         }
-        private void button3_Click(object sender, EventArgs e)
+
+        private void changeToSignInButton_Click(object sender, EventArgs e)
         {
-            string username = textBox6.Text;
-            string password = textBox5.Text;
-            if (CheckLogin(username, password))
+            panel_signin.Visible = true;
+            panel_signup.Visible = false;
+        }
+
+        private void signInButton_Click(object sender, EventArgs e)
+        {
+            if (DbQueries.Queries.logIn(signInEmailTextbox.Text, signInPasswordTextbox.Text))
             {
-                MessageBox.Show("Login successful!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                // Tạo và hiển thị form mới
+                FormDashBroad newForm = new FormDashBroad();
+                newForm.Show();
+
+                // Tắt form hiện tại
+                this.Hide();
             }
             else
             {
-                MessageBox.Show("Invalid username or password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Wrong email or password!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        private bool CheckLogin(string username, string password)
+        private void signUpButton_Click(object sender, EventArgs e)
         {
-            // Chuỗi kết nối tới SQL Server
-            string connectionString = "Data Source=DESKTOP-C2UG3F0\\SQLEXPRESS01;Initial Catalog=Tour;Persist Security Info=True;User ID=sa;Password=123";
-
-            try
+            if(DbQueries.Queries.signUp(nameTextbox.Text, identificationCardTextbox.Text, signUpEmailTextbox.Text, signUpPasswordTextbox.Text))
             {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-
-                    // Truy vấn kiểm tra đăng nhập
-                    string query = "SELECT COUNT(*) FROM NHANVIEN WHERE email = @Username AND pass_word = @Password";
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@Username", username);
-                        cmd.Parameters.AddWithValue("@Password", password);
-
-                        int result = (int)cmd.ExecuteScalar();
-                        return result > 0;
-                    }
-                }
+                MessageBox.Show("Sign up successful", "True", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                panel_signin.Visible = true;
+                panel_signup.Visible = false;
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show($"Database error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                MessageBox.Show("Can't sign up!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
