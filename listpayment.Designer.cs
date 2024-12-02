@@ -46,14 +46,15 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(3, 1);
+            this.panel1.Location = new System.Drawing.Point(104, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1005, 76);
+            this.panel1.Size = new System.Drawing.Size(754, 62);
             this.panel1.TabIndex = 1;
             // 
             // label1
@@ -61,9 +62,10 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(664, 24);
+            this.label1.Location = new System.Drawing.Point(498, 20);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(268, 29);
+            this.label1.Size = new System.Drawing.Size(215, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "Thông Tin Thanh Toán";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -71,9 +73,10 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(261, 19);
+            this.button1.Location = new System.Drawing.Point(196, 15);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(83, 34);
+            this.button1.Size = new System.Drawing.Size(62, 28);
             this.button1.TabIndex = 1;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
@@ -81,14 +84,15 @@
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(26, 23);
+            this.textBox1.Location = new System.Drawing.Point(20, 19);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(229, 30);
+            this.textBox1.Size = new System.Drawing.Size(173, 26);
             this.textBox1.TabIndex = 0;
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dataGridView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -97,11 +101,12 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dataGridView1.Location = new System.Drawing.Point(2, 82);
+            this.dataGridView1.Location = new System.Drawing.Point(104, 67);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1005, 471);
+            this.dataGridView1.Size = new System.Drawing.Size(754, 383);
             this.dataGridView1.TabIndex = 2;
             // 
             // Column1
@@ -141,21 +146,22 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.panel1);
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1008, 553);
+            this.panel2.Size = new System.Drawing.Size(961, 449);
             this.panel2.TabIndex = 3;
             // 
             // listpayment
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 553);
-            this.Controls.Add(this.panel1);
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.Controls.Add(this.panel2);
-            this.Name = "listpayment";
+            this.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.Size = new System.Drawing.Size(961, 449);
             this.Text = "listpayment";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

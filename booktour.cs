@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Manage_tour
 {
-    public partial class booktour : Form
+    public partial class booktour : Panel
     {
         public booktour()
         {

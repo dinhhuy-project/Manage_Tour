@@ -11,9 +11,8 @@ using System.Windows.Forms;
 
 namespace Manage_tour
 {
-    public partial class HDV : Form
+    public partial class HDV : Panel
     {
-        public string connectionString = "Data Source=DESKTOP-C2UG3F0\\SQLEXPRESS01;Initial Catalog=Tour;Persist Security Info=True;User ID=sa;Password=123";
         private bool isEditMode = false;
 
         public HDV()
@@ -21,7 +20,7 @@ namespace Manage_tour
             InitializeComponent();
             tableLayoutPanel1.Visible = false;
             AdjustDataGridView();
-            LoadData();
+            //LoadData();
             dataGridViewHDV.ClearSelection();
             dataGridViewHDV.CellContentClick += dataGridViewHDV_CellContentClick;
         }
@@ -38,37 +37,7 @@ namespace Manage_tour
                 return;
             }
 
-            Search(keyword);
-        }
-
-        private void Search(string keyword)
-        {
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string query = "SELECT ma_hdv, full_name, cccd FROM HuongDanVien WHERE ma_hdv LIKE @Keyword OR full_name LIKE @Keyword OR cccd LIKE @Keyword";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@Keyword", "%" + keyword + "%");
-                    conn.Open();
-
-                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                    DataTable dt = new DataTable();
-                    adapter.Fill(dt);
-
-                    // Xóa các dòng hiện tại trong DataGridView
-                    dataGridViewHDV.Rows.Clear();
-
-                    // Duyệt qua DataTable và thêm từng dòng vào DataGridView
-                    foreach (DataRow row in dt.Rows)
-                    {
-                        // Tạo một mảng các giá trị từ dòng
-                        object[] rowData = row.ItemArray;
-
-                        // Thêm dòng vào DataGridView
-                        dataGridViewHDV.Rows.Add(rowData);
-                    }
-                }
-            }
+            //Search(keyword);
         }
 
         private void dataGridViewHDV_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -81,7 +50,7 @@ namespace Manage_tour
 
                 // Gọi hàm để xử lý sửa
 
-                EditHDV(GuideID);
+                //EditHDV(GuideID);
             }
 
             // Kiểm tra nếu cột là "Xoá"
@@ -98,83 +67,22 @@ namespace Manage_tour
 
                 if (result == DialogResult.Yes)
                 {
-                    DeleteHDV(GuideID);
+                    //DeleteHDV(GuideID);
                 }
 
 
             }
 
         }
-
-        private void DeleteHDV(String GuideID)
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    string query = "DELETE FROM HuongDanVien WHERE ma_hdv = @GuideID";
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@GuideID", GuideID);
-
-                        int rowsAffected = cmd.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Deleted successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LoadData(); // Tải lại dữ liệu
-                        }
-                        else
-                        {
-                            MessageBox.Show("Error: Could not delete tour.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void EditHDV(String GuideID)
-        {
-            tableLayoutPanel1.Visible = true;
-            AdjustDataGridView();
-            isEditMode = true;
-
-            try
-            {
-                DataGridViewRow selectedRow = dataGridViewHDV.Rows.Cast<DataGridViewRow>().FirstOrDefault(row => row.Cells["GuideID"].Value.ToString() == GuideID);
-                if (selectedRow != null)
-                {
-                    txtGuideID.Text = selectedRow.Cells["GuideID"].Value.ToString();
-                    txtFullName.Text = selectedRow.Cells["FullName"].Value.ToString();
-                    txtCCCD.Text = selectedRow.Cells["CCCD"].Value.ToString();
-
-
-                    txtGuideID.Enabled = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                {
-                    MessageBox.Show("Error" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
         private void AdjustDataGridView()
         {
             // Tính toán chiều cao khả dụng cho DataGridView
-            int availableHeight = this.ClientSize.Height - 100; // 20 là khoảng cách trống phía dưới
+            int availableHeight = 400; // 20 là khoảng cách trống phía dưới
 
             if (tableLayoutPanel1.Visible)
             {
-                // Nếu bảng hiển thị, giảm chiều cao DataGridView
                 ADD.Visible = false;
-                dataGridViewHDV.Height = availableHeight - tableLayoutPanel1.Height + 30; // Giảm thêm để có khoảng trống nút Add
+                dataGridViewHDV.Height = availableHeight - tableLayoutPanel1.Height + 100; // Giảm thêm để có khoảng trống nút Add
             }
             else
             {
@@ -187,53 +95,6 @@ namespace Manage_tour
             ADD.Top = dataGridViewHDV.Bottom + 5; // Cách DataGridView 10px
 
             ClearInputFields();
-        }
-
-        private void LoadData()
-        {
-            // Xóa tất cả các dòng hiện tại trong DataGridView (nếu có)
-            dataGridViewHDV.Rows.Clear();
-
-            // Kết nối tới cơ sở dữ liệu
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                try
-                {
-                    // Mở kết nối
-                    connection.Open();
-
-                    // Câu lệnh SQL để lấy dữ liệu
-                    string query = "SELECT ma_hdv, full_name, cccd FROM HuongDanVien"; // Thay đổi câu lệnh SQL nếu cần
-
-                    // Tạo SqlDataAdapter để lấy dữ liệu
-                    SqlDataAdapter dataAdapter = new SqlDataAdapter(query, connection);
-
-                    // Tạo DataTable để chứa dữ liệu
-                    DataTable dataTable = new DataTable();
-
-                    // Điền dữ liệu vào DataTable
-                    dataAdapter.Fill(dataTable);
-
-                    // Duyệt qua DataTable và thêm từng dòng vào DataGridView
-                    foreach (DataRow row in dataTable.Rows)
-                    {
-                        // Tạo một mảng các giá trị từ dòng
-                        object[] rowData = row.ItemArray;
-
-                        // Thêm dòng vào DataGridView
-                        dataGridViewHDV.Rows.Add(rowData);
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    // Xử lý lỗi (nếu có)
-                    MessageBox.Show("Lỗi khi tải dữ liệu: " + ex.Message);
-                }
-
-
-            }
-
         }
 
         private void ClearInputFields()
@@ -266,12 +127,12 @@ namespace Manage_tour
             // Kiểm tra trạng thái để thực hiện Add hoặc Update
             if (isEditMode)
             {
-                UpdateHDV(); // Cập nhật tour
+                //UpdateHDV(); // Cập nhật tour
                 AdjustDataGridView();
             }
             else
             {
-                AddHDV(GuideID, FullName, CCCD); // Thêm mới tour
+                //AddHDV(GuideID, FullName, CCCD); // Thêm mới tour
             }
 
             isEditMode = false;
@@ -279,78 +140,6 @@ namespace Manage_tour
             ClearInputFields();
             tableLayoutPanel1.Visible = false;
             AdjustDataGridView();
-        }
-
-        private void UpdateHDV()
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-
-                    // Truy vấn cập nhật thông tin tour
-                    string query = "UPDATE HuongDanVien SET full_name = @FullName, cccd = @CCCD WHERE ma_hdv = @GuideID";
-                    using (SqlCommand cmd = new SqlCommand(query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@FullName", txtFullName.Text);
-                        cmd.Parameters.AddWithValue("@CCCD", txtCCCD.Text);
-                        cmd.Parameters.AddWithValue("@GuideID", txtGuideID.Text);
-
-                        int rowsAffected = cmd.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Tour updated successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            LoadData(); // Tải lại dữ liệu sau khi cập nhật
-                            tableLayoutPanel1.Visible = false; // Ẩn bảng chỉnh sửa
-                        }
-                        else
-                        {
-                            MessageBox.Show("Error: Could not update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void AddHDV(String GuideID, String FullName, String CCCD)
-        {
-            try
-            {
-                using (SqlConnection conn = new SqlConnection(connectionString))
-                {
-                    conn.Open();
-                    String Query = "INSERT INTO HuongDanVien(ma_hdv, full_name, cccd) VALUES (@GuideID, @FullName ,@CCCD)";
-                    using (SqlCommand cmd = new SqlCommand(Query, conn))
-                    {
-                        cmd.Parameters.AddWithValue("@GuideID", GuideID);
-                        cmd.Parameters.AddWithValue("@FullName", FullName);
-                        cmd.Parameters.AddWithValue("@CCCD", CCCD);
-
-                        int rowsAffected = cmd.ExecuteNonQuery();
-
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Added successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            dataGridViewHDV.Rows.Add(GuideID, FullName, CCCD);
-                            ClearInputFields();
-                        }
-                        else
-                        {
-                            MessageBox.Show("Error: Could not add HDV.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void ADD_Click(object sender, EventArgs e)

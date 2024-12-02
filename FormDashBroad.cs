@@ -13,6 +13,8 @@ namespace Manage_tour
 {
     public partial class FormDashBroad : Form
     {
+        private Panel childPanel;
+        string currentButton;
         public FormDashBroad(NhanVien nhanVien)
         {
             InitializeComponent();
@@ -62,9 +64,175 @@ namespace Manage_tour
             this.Hide();
         }
 
-        private void panel2_Paint_1(object sender, PaintEventArgs e)
+        private void tourButton_Click(object sender, EventArgs e)
         {
+            if (currentButton == tourButton.Text)
+            {
+                this.splitContainer1.Panel2.Controls.Remove(childPanel);
+                currentButton = "";
+            }
+            else
+            {
+                if (this.splitContainer1.Panel2.Contains(childPanel))
+                {
+                    this.splitContainer1.Panel2.Controls.Remove(childPanel);
+                }
+                childPanel = new Tour();
+                currentButton = tourButton.Text;
+                this.splitContainer1.Panel2.Controls.Add(childPanel);
+            }
+        }
 
+        private void customerButton_Click(object sender, EventArgs e)
+        {
+            if (currentButton == customerButton.Text)
+            {
+                this.splitContainer1.Panel2.Controls.Remove(childPanel);
+                currentButton = "";
+            }
+            else
+            {
+                if (this.splitContainer1.Panel2.Contains(childPanel))
+                {
+                    this.splitContainer1.Panel2.Controls.Remove(childPanel);
+                }
+                childPanel = new customer();
+                currentButton = customerButton.Text;
+                this.splitContainer1.Panel2.Controls.Add(childPanel);
+            }
+        }
+
+        private void HDVButton_Click(object sender, EventArgs e)
+        {
+            if (currentButton == HDVButton.Text)
+            {
+                this.splitContainer1.Panel2.Controls.Remove(childPanel);
+                currentButton = "";
+            }
+            else
+            {
+                if (this.splitContainer1.Panel2.Contains(childPanel))
+                {
+                    this.splitContainer1.Panel2.Controls.Remove(childPanel);
+                }
+                childPanel = new HDV();
+                currentButton = HDVButton.Text;
+                this.splitContainer1.Panel2.Controls.Add(childPanel);
+            }
+        }
+
+        private void DTQButton_Click(object sender, EventArgs e)
+        {
+            if (currentButton == DTQButton.Text)
+            {
+                this.splitContainer1.Panel2.Controls.Remove(childPanel);
+                currentButton = "";
+            }
+            else
+            {
+                if (this.splitContainer1.Panel2.Contains(childPanel))
+                {
+                    this.splitContainer1.Panel2.Controls.Remove(childPanel);
+                }
+                childPanel = new DTQ();
+                currentButton = DTQButton.Text;
+                this.splitContainer1.Panel2.Controls.Add(childPanel);
+            }
+        }
+
+        private void TourHDVButton_Click(object sender, EventArgs e)
+        {
+            if (currentButton == TourHDVButton.Text)
+            {
+                this.splitContainer1.Panel2.Controls.Remove(childPanel);
+                currentButton = "";
+            }
+            else
+            {
+                if (this.splitContainer1.Panel2.Contains(childPanel))
+                {
+                    this.splitContainer1.Panel2.Controls.Remove(childPanel);
+                }
+                childPanel = new Tour_HDV();
+                currentButton = TourHDVButton.Text;
+                this.splitContainer1.Panel2.Controls.Add(childPanel);
+            }
+        }
+
+        private void TourDTQButton_Click(object sender, EventArgs e)
+        {
+            if (currentButton == TourDTQButton.Text)
+            {
+                this.splitContainer1.Panel2.Controls.Remove(childPanel);
+                currentButton = "";
+            }
+            else
+            {
+                if (this.splitContainer1.Panel2.Contains(childPanel))
+                {
+                    this.splitContainer1.Panel2.Controls.Remove(childPanel);
+                }
+                childPanel = new Tour_DTQ();
+                currentButton = TourDTQButton.Text;
+                this.splitContainer1.Panel2.Controls.Add(childPanel);
+            }
+        }
+
+        private void listBookedButton_Click(object sender, EventArgs e)
+        {
+            if (currentButton == listBookedButton.Text)
+            {
+                this.splitContainer1.Panel2.Controls.Remove(childPanel);
+                currentButton = "";
+            }
+            else
+            {
+                if (this.splitContainer1.Panel2.Contains(childPanel))
+                {
+                    this.splitContainer1.Panel2.Controls.Remove(childPanel);
+                }
+                childPanel = new listbooked();
+                currentButton = listBookedButton.Text;
+                this.splitContainer1.Panel2.Controls.Add(childPanel);
+            }
+        }
+
+        private void bookTourButton_Click(object sender, EventArgs e)
+        {
+            if (currentButton == bookTourButton.Text)
+            {
+                this.splitContainer1.Panel2.Controls.Remove(childPanel);
+                currentButton = "";
+            }
+            else
+            {
+                if (this.splitContainer1.Panel2.Contains(childPanel))
+                {
+                    this.splitContainer1.Panel2.Controls.Remove(childPanel);
+                }
+                childPanel = new booktour();
+                currentButton = bookTourButton.Text;
+                this.splitContainer1.Panel2.Controls.Add(childPanel);
+            }
+        }
+
+        private void listPaymentButton_Click(object sender, EventArgs e)
+        {
+            if (currentButton == listPaymentButton.Text)
+            {
+                this.splitContainer1.Panel2.Controls.Remove(childPanel);
+                currentButton = "";
+            }
+            else
+            {
+                if (this.splitContainer1.Panel2.Contains(childPanel))
+                {
+                    this.splitContainer1.Panel2.Controls.Remove(childPanel);
+                }
+                childPanel = new listpayment();
+                currentButton = listPaymentButton.Text;
+                this.splitContainer1.Panel2.Controls.Add(childPanel);
+            }
         }
     }
 }

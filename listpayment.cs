@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Manage_tour
 {
-    public partial class listpayment : Form
+    public partial class listpayment : Panel
     {
         public listpayment()
         {
