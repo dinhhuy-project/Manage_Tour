@@ -61,5 +61,10 @@ namespace Manage_tour
             // Tắt form hiện tại
             this.Hide();
         }
+
+        private void panel2_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
