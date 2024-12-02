@@ -71,7 +71,7 @@
       <DependentUpon>DTQ.cs</DependentUpon>
     </Compile>
     <Compile Include="Employee.cs">
-      <SubType>Form</SubType>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Employee.Designer.cs">
       <DependentUpon>Employee.cs</DependentUpon>

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace Manage_tour
 {
-    public partial class Employee : Form
+    public partial class Employee : Panel
     {
         public Employee()
         {

@@ -41,7 +41,7 @@ namespace Manage_tour
             this.listBookedButton = new System.Windows.Forms.Button();
             this.TourDTQButton = new System.Windows.Forms.Button();
             this.TourHDVButton = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
+            this.employeeButton = new System.Windows.Forms.Button();
             this.DTQButton = new System.Windows.Forms.Button();
             this.HDVButton = new System.Windows.Forms.Button();
             this.customerButton = new System.Windows.Forms.Button();
@@ -148,7 +148,7 @@ namespace Manage_tour
             this.splitContainer1.Panel1.Controls.Add(this.listBookedButton);
             this.splitContainer1.Panel1.Controls.Add(this.TourDTQButton);
             this.splitContainer1.Panel1.Controls.Add(this.TourHDVButton);
-            this.splitContainer1.Panel1.Controls.Add(this.button5);
+            this.splitContainer1.Panel1.Controls.Add(this.employeeButton);
             this.splitContainer1.Panel1.Controls.Add(this.DTQButton);
             this.splitContainer1.Panel1.Controls.Add(this.HDVButton);
             this.splitContainer1.Panel1.Controls.Add(this.customerButton);
@@ -236,18 +236,19 @@ namespace Manage_tour
             this.TourHDVButton.UseVisualStyleBackColor = true;
             this.TourHDVButton.Click += new System.EventHandler(this.TourHDVButton_Click);
             // 
-            // button5
+            // employeeButton
             // 
-            this.button5.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(80, 365);
-            this.button5.Margin = new System.Windows.Forms.Padding(2);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(152, 33);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Nhân Sự";
-            this.button5.UseVisualStyleBackColor = true;
+            this.employeeButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.employeeButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.employeeButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.employeeButton.Location = new System.Drawing.Point(80, 365);
+            this.employeeButton.Margin = new System.Windows.Forms.Padding(2);
+            this.employeeButton.Name = "employeeButton";
+            this.employeeButton.Size = new System.Drawing.Size(152, 33);
+            this.employeeButton.TabIndex = 5;
+            this.employeeButton.Text = "Nhân Sự";
+            this.employeeButton.UseVisualStyleBackColor = true;
+            this.employeeButton.Click += new System.EventHandler(this.employeeButton_Click);
             // 
             // DTQButton
             // 
@@ -334,7 +335,7 @@ namespace Manage_tour
             this.panel_thontintaikhoan.Controls.Add(this.label5);
             this.panel_thontintaikhoan.Controls.Add(this.label4);
             this.panel_thontintaikhoan.Controls.Add(this.label3);
-            this.panel_thontintaikhoan.Location = new System.Drawing.Point(565, 2);
+            this.panel_thontintaikhoan.Location = new System.Drawing.Point(566, 2);
             this.panel_thontintaikhoan.Margin = new System.Windows.Forms.Padding(2);
             this.panel_thontintaikhoan.Name = "panel_thontintaikhoan";
             this.panel_thontintaikhoan.Size = new System.Drawing.Size(405, 177);
@@ -522,7 +523,7 @@ namespace Manage_tour
         private System.Windows.Forms.Button listBookedButton;
         private System.Windows.Forms.Button TourDTQButton;
         private System.Windows.Forms.Button TourHDVButton;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button employeeButton;
         private System.Windows.Forms.Button DTQButton;
         private System.Windows.Forms.Button HDVButton;
         private System.Windows.Forms.Button customerButton;

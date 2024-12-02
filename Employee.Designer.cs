@@ -33,6 +33,9 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtRole = new System.Windows.Forms.ComboBox();
+            this.textEmail = new System.Windows.Forms.TextBox();
+            this.textCCCD = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,9 +54,6 @@
             this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Role = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Del = new System.Windows.Forms.DataGridViewImageColumn();
-            this.textCCCD = new System.Windows.Forms.TextBox();
-            this.textEmail = new System.Windows.Forms.TextBox();
-            this.txtRole = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -62,6 +62,7 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.txtSearch);
             this.panel1.Controls.Add(this.Search);
@@ -108,6 +109,36 @@
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Employee information";
+            // 
+            // txtRole
+            // 
+            this.txtRole.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRole.FormattingEnabled = true;
+            this.txtRole.Items.AddRange(new object[] {
+            "",
+            "Nhân viên",
+            "Quản lý"});
+            this.txtRole.Location = new System.Drawing.Point(595, 29);
+            this.txtRole.Name = "txtRole";
+            this.txtRole.Size = new System.Drawing.Size(121, 27);
+            this.txtRole.TabIndex = 17;
+            // 
+            // textEmail
+            // 
+            this.textEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textEmail.Location = new System.Drawing.Point(352, 66);
+            this.textEmail.Name = "textEmail";
+            this.textEmail.Size = new System.Drawing.Size(133, 26);
+            this.textEmail.TabIndex = 16;
+            // 
+            // textCCCD
+            // 
+            this.textCCCD.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textCCCD.Location = new System.Drawing.Point(352, 29);
+            this.textCCCD.Name = "textCCCD";
+            this.textCCCD.Size = new System.Drawing.Size(133, 26);
+            this.textCCCD.TabIndex = 15;
+            this.textCCCD.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label5
             // 
@@ -307,43 +338,12 @@
             this.Del.Name = "Del";
             this.Del.ReadOnly = true;
             // 
-            // textCCCD
-            // 
-            this.textCCCD.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textCCCD.Location = new System.Drawing.Point(352, 29);
-            this.textCCCD.Name = "textCCCD";
-            this.textCCCD.Size = new System.Drawing.Size(133, 26);
-            this.textCCCD.TabIndex = 15;
-            this.textCCCD.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
-            // textEmail
-            // 
-            this.textEmail.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textEmail.Location = new System.Drawing.Point(352, 66);
-            this.textEmail.Name = "textEmail";
-            this.textEmail.Size = new System.Drawing.Size(133, 26);
-            this.textEmail.TabIndex = 16;
-            // 
-            // txtRole
-            // 
-            this.txtRole.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRole.FormattingEnabled = true;
-            this.txtRole.Items.AddRange(new object[] {
-            "",
-            "Nhân viên",
-            "Quản lý"});
-            this.txtRole.Location = new System.Drawing.Point(595, 29);
-            this.txtRole.Name = "txtRole";
-            this.txtRole.Size = new System.Drawing.Size(121, 27);
-            this.txtRole.TabIndex = 17;
-            // 
             // Employee
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 537);
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.Controls.Add(this.panel1);
-            this.Name = "Employee";
+            this.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Size = new System.Drawing.Size(800, 537);
             this.Text = "Employee";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

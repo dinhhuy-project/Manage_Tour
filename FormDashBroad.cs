@@ -234,5 +234,24 @@ namespace Manage_tour
                 this.splitContainer1.Panel2.Controls.Add(childPanel);
             }
         }
+
+        private void employeeButton_Click(object sender, EventArgs e)
+        {
+            if (currentButton == employeeButton.Text)
+            {
+                this.splitContainer1.Panel2.Controls.Remove(childPanel);
+                currentButton = "";
+            }
+            else
+            {
+                if (this.splitContainer1.Panel2.Contains(childPanel))
+                {
+                    this.splitContainer1.Panel2.Controls.Remove(childPanel);
+                }
+                childPanel = new Employee();
+                currentButton = employeeButton.Text;
+                this.splitContainer1.Panel2.Controls.Add(childPanel);
+            }
+        }
     }
 }
