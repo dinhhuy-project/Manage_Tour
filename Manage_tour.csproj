@@ -48,6 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbQueries\DbConnection.cs" />
+    <Compile Include="DbQueries\DatTour.cs" />
+    <Compile Include="DbQueries\DiemThamQuan.cs" />
+    <Compile Include="DbQueries\HuongDanVien.cs" />
+    <Compile Include="DbQueries\KhachHang.cs" />
     <Compile Include="DbQueries\NhanVien.cs" />
     <Compile Include="DbQueries\Queries.cs" />
     <Compile Include="customer.cs">
@@ -56,6 +60,10 @@
     <Compile Include="customer.Designer.cs">
       <DependentUpon>customer.cs</DependentUpon>
     </Compile>
+    <Compile Include="DbQueries\ThanhToan.cs" />
+    <Compile Include="DbQueries\Tour.cs" />
+    <Compile Include="DbQueries\TourDTQ.cs" />
+    <Compile Include="DbQueries\TourHDV.cs" />
     <Compile Include="DTQ.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -81,6 +89,7 @@
       <DependentUpon>FormSignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="listbooked.cs">
+      <SubType>Component</SubType>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="listbooked.Designer.cs">
@@ -217,6 +226,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\dulichc#.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_thi.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
