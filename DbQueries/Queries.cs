@@ -12,28 +12,43 @@ namespace Manage_tour.DbQueries
     internal class Queries
     {
         private static SqlConnection _connection = DbConnection.getInstance().GetSqlConnection();
-        public static bool logIn(String email, String password)
+        public static NhanVien logIn(String email, String password)
         {
+            NhanVien nhanVien = null;
             try
             {
                 _connection.Open();
                 // Truy vấn kiểm tra đăng nhập
-                string query = "SELECT COUNT(*) FROM NhanVien WHERE email = @Email AND pass_word = @Password";
+                string query = "SELECT * FROM NhanVien WHERE email = @Email AND pass_word = @Password";
                 using (SqlCommand cmd = new SqlCommand(query, _connection))
                 {
                     cmd.Parameters.AddWithValue("@Email", email);
                     cmd.Parameters.AddWithValue("@Password", password);
 
-                    int result = (int)cmd.ExecuteScalar();
-                    _connection.Close();
-                    return result > 0;
+                    // Sử dụng ExecuteReader để lấy dữ liệu
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            nhanVien = new NhanVien(reader);
+                            break;
+                        }
+                    }
+                    return nhanVien;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Database error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                _connection.Close();
-                return false;
+                return null;
+            }
+            finally
+            {
+                // Đảm bảo kết nối luôn được đóng
+                if (_connection.State == System.Data.ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
             }
         }
         public static bool signUp(String fullname, String cccd, String email, String password)

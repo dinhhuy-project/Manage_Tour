@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Manage_tour.DbQueries;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -53,10 +54,12 @@ namespace Manage_tour
 
         private void signInButton_Click(object sender, EventArgs e)
         {
-            if (DbQueries.Queries.logIn(signInEmailTextbox.Text, signInPasswordTextbox.Text))
+            NhanVien nv = null;
+            nv = DbQueries.Queries.logIn(signInEmailTextbox.Text, signInPasswordTextbox.Text);
+            if (nv != null)
             {
                 // Tạo và hiển thị form mới
-                FormDashBroad newForm = new FormDashBroad();
+                FormDashBroad newForm = new FormDashBroad(nv);
                 newForm.Show();
 
                 // Tắt form hiện tại

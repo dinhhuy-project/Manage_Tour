@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbQueries\DbConnection.cs" />
+    <Compile Include="DbQueries\NhanVien.cs" />
     <Compile Include="DbQueries\Queries.cs" />
     <Compile Include="Entrymain.cs">
       <SubType>Form</SubType>

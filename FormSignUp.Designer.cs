@@ -219,6 +219,7 @@
             this.signUpPasswordTextbox.Name = "signUpPasswordTextbox";
             this.signUpPasswordTextbox.Size = new System.Drawing.Size(332, 27);
             this.signUpPasswordTextbox.TabIndex = 4;
+            this.signUpPasswordTextbox.UseSystemPasswordChar = true;
             // 
             // label6
             // 
@@ -380,6 +381,7 @@
             this.signInPasswordTextbox.Name = "signInPasswordTextbox";
             this.signInPasswordTextbox.Size = new System.Drawing.Size(332, 27);
             this.signInPasswordTextbox.TabIndex = 4;
+            this.signInPasswordTextbox.UseSystemPasswordChar = true;
             // 
             // label3
             // 

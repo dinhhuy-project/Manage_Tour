@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Manage_tour.DbQueries;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,7 +13,7 @@ namespace Manage_tour
 {
     public partial class FormDashBroad : Form
     {
-        public FormDashBroad()
+        public FormDashBroad(NhanVien nhanVien)
         {
             InitializeComponent();
             panel_thontintaikhoan.Visible = false;
@@ -34,11 +35,6 @@ namespace Manage_tour
 
         }
 
-        private void label11_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
            
@@ -54,6 +50,16 @@ namespace Manage_tour
             // bam de hien thi thongtintaikhoan
             isPanelVisible = !isPanelVisible;
             panel_thontintaikhoan.Visible = isPanelVisible;
+        }
+
+        private void logOutIcon_Click(object sender, EventArgs e)
+        {
+            // Tạo và hiển thị form mới
+            Entrymain newForm = new Entrymain();
+            newForm.Show();
+
+            // Tắt form hiện tại
+            this.Hide();
         }
     }
 }
