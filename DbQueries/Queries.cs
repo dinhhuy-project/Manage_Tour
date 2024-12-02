@@ -67,19 +67,21 @@ namespace Manage_tour.DbQueries
                     cmd.Parameters.AddWithValue("@Chucvu", "Nhân Viên");
 
                     int rowsAffected = cmd.ExecuteNonQuery();
-                    _connection.Close();
                     return rowsAffected > 0;
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Database error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            finally
+            {
+                // Đảm bảo kết nối luôn được đóng
                 if (_connection.State == System.Data.ConnectionState.Open)
                 {
                     _connection.Close();
                 }
-
-                return false;
             }
         }
     }

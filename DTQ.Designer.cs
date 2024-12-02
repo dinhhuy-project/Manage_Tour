@@ -28,13 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.Cancel = new System.Windows.Forms.Button();
-            this.Save = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtDTQName = new System.Windows.Forms.TextBox();
             this.txtAddress = new System.Windows.Forms.TextBox();
@@ -42,6 +40,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtDTQID = new System.Windows.Forms.TextBox();
+            this.Save = new System.Windows.Forms.Button();
+            this.Cancel = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.SearchDTQ = new System.Windows.Forms.Button();
             this.ADD = new System.Windows.Forms.Button();
@@ -59,7 +59,7 @@
             // 
             // panel1
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.txtSearch);
             this.panel1.Controls.Add(this.SearchDTQ);
@@ -88,40 +88,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(736, 128);
             this.tableLayoutPanel1.TabIndex = 7;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
-            // 
-            // Cancel
-            // 
-            this.Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Cancel.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.Cancel.Font = new System.Drawing.Font("Gabriola", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cancel.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Cancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Cancel.Location = new System.Drawing.Point(499, 92);
-            this.Cancel.Margin = new System.Windows.Forms.Padding(0);
-            this.Cancel.Name = "Cancel";
-            this.Cancel.Size = new System.Drawing.Size(75, 30);
-            this.Cancel.TabIndex = 9;
-            this.Cancel.TabStop = false;
-            this.Cancel.Text = "Cancel";
-            this.Cancel.UseVisualStyleBackColor = false;
-            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
-            // 
-            // Save
-            // 
-            this.Save.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.Save.BackColor = System.Drawing.Color.Cyan;
-            this.Save.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.Save.Font = new System.Drawing.Font("Gabriola", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
-            this.Save.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Save.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.Save.Location = new System.Drawing.Point(130, 92);
-            this.Save.Name = "Save";
-            this.Save.Size = new System.Drawing.Size(77, 30);
-            this.Save.TabIndex = 6;
-            this.Save.Text = "Save";
-            this.Save.UseVisualStyleBackColor = false;
-            this.Save.Click += new System.EventHandler(this.Save_Click);
             // 
             // groupBox1
             // 
@@ -194,8 +160,43 @@
             this.txtDTQID.Size = new System.Drawing.Size(133, 26);
             this.txtDTQID.TabIndex = 6;
             // 
+            // Save
+            // 
+            this.Save.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Save.BackColor = System.Drawing.Color.Cyan;
+            this.Save.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.Save.Font = new System.Drawing.Font("Gabriola", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(186)));
+            this.Save.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Save.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Save.Location = new System.Drawing.Point(130, 92);
+            this.Save.Name = "Save";
+            this.Save.Size = new System.Drawing.Size(77, 30);
+            this.Save.TabIndex = 6;
+            this.Save.Text = "Save";
+            this.Save.UseVisualStyleBackColor = false;
+            this.Save.Click += new System.EventHandler(this.Save_Click);
+            // 
+            // Cancel
+            // 
+            this.Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.Cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Cancel.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.Cancel.Font = new System.Drawing.Font("Gabriola", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cancel.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Cancel.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Cancel.Location = new System.Drawing.Point(499, 92);
+            this.Cancel.Margin = new System.Windows.Forms.Padding(0);
+            this.Cancel.Name = "Cancel";
+            this.Cancel.Size = new System.Drawing.Size(75, 30);
+            this.Cancel.TabIndex = 9;
+            this.Cancel.TabStop = false;
+            this.Cancel.Text = "Cancel";
+            this.Cancel.UseVisualStyleBackColor = false;
+            this.Cancel.Click += new System.EventHandler(this.Cancel_Click);
+            // 
             // txtSearch
             // 
+            this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(238, 13);
             this.txtSearch.Name = "txtSearch";
@@ -205,6 +206,7 @@
             // 
             // SearchDTQ
             // 
+            this.SearchDTQ.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SearchDTQ.AutoSize = true;
             this.SearchDTQ.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.SearchDTQ.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
@@ -238,19 +240,19 @@
             this.dataGridViewDTQ.AllowUserToAddRows = false;
             this.dataGridViewDTQ.AllowUserToResizeColumns = false;
             this.dataGridViewDTQ.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dataGridViewDTQ.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewDTQ.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewDTQ.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridViewDTQ.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewDTQ.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewDTQ.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewDTQ.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridViewDTQ.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDTQ.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DTQID,
@@ -258,14 +260,14 @@
             this.Address,
             this.Del,
             this.Edit});
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewDTQ.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewDTQ.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewDTQ.GridColor = System.Drawing.Color.Teal;
             this.dataGridViewDTQ.Location = new System.Drawing.Point(-1, 45);
             this.dataGridViewDTQ.MultiSelect = false;
@@ -317,11 +319,10 @@
             // 
             // DTQ
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(743, 580);
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.Controls.Add(this.panel1);
-            this.Name = "DTQ";
+            this.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Size = new System.Drawing.Size(743, 580);
             this.Text = "DTQ";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

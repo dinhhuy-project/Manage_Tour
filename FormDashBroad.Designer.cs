@@ -30,30 +30,22 @@ namespace Manage_tour
         /// </summary>
         private void InitializeComponent(/*NhanVien nhanvien = null*/)
         {
-            //if(nhanvien == null)
-            //{
-                nv = new NhanVien("", "", "", "", "", "");
-            //}
-            //else
-            //{
-            //    nv = nhanvien;
-            //}
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.logOutIcon = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.button10 = new System.Windows.Forms.Button();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.bookTourButton = new System.Windows.Forms.Button();
+            this.listPaymentButton = new System.Windows.Forms.Button();
+            this.listBookedButton = new System.Windows.Forms.Button();
+            this.TourDTQButton = new System.Windows.Forms.Button();
+            this.TourHDVButton = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.DTQButton = new System.Windows.Forms.Button();
+            this.HDVButton = new System.Windows.Forms.Button();
+            this.customerButton = new System.Windows.Forms.Button();
+            this.tourButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.panel_thontintaikhoan = new System.Windows.Forms.Panel();
             this.chucVuLabel = new System.Windows.Forms.Label();
@@ -87,7 +79,7 @@ namespace Manage_tour
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1006, 73);
+            this.panel1.Size = new System.Drawing.Size(1284, 73);
             this.panel1.TabIndex = 0;
             // 
             // label1
@@ -120,7 +112,7 @@ namespace Manage_tour
             this.logOutIcon.BackgroundImage = global::Manage_tour.Properties.Resources.import;
             this.logOutIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.logOutIcon.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.logOutIcon.Location = new System.Drawing.Point(922, 19);
+            this.logOutIcon.Location = new System.Drawing.Point(1200, 19);
             this.logOutIcon.Margin = new System.Windows.Forms.Padding(2);
             this.logOutIcon.Name = "logOutIcon";
             this.logOutIcon.Size = new System.Drawing.Size(32, 36);
@@ -134,7 +126,7 @@ namespace Manage_tour
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel2.Location = new System.Drawing.Point(853, 19);
+            this.panel2.Location = new System.Drawing.Point(1131, 19);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(35, 36);
@@ -151,16 +143,16 @@ namespace Manage_tour
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(57)))), ((int)(((byte)(125)))), ((int)(((byte)(148)))));
-            this.splitContainer1.Panel1.Controls.Add(this.button10);
-            this.splitContainer1.Panel1.Controls.Add(this.button9);
-            this.splitContainer1.Panel1.Controls.Add(this.button8);
-            this.splitContainer1.Panel1.Controls.Add(this.button7);
-            this.splitContainer1.Panel1.Controls.Add(this.button6);
+            this.splitContainer1.Panel1.Controls.Add(this.bookTourButton);
+            this.splitContainer1.Panel1.Controls.Add(this.listPaymentButton);
+            this.splitContainer1.Panel1.Controls.Add(this.listBookedButton);
+            this.splitContainer1.Panel1.Controls.Add(this.TourDTQButton);
+            this.splitContainer1.Panel1.Controls.Add(this.TourHDVButton);
             this.splitContainer1.Panel1.Controls.Add(this.button5);
-            this.splitContainer1.Panel1.Controls.Add(this.button4);
-            this.splitContainer1.Panel1.Controls.Add(this.button3);
-            this.splitContainer1.Panel1.Controls.Add(this.button2);
-            this.splitContainer1.Panel1.Controls.Add(this.button1);
+            this.splitContainer1.Panel1.Controls.Add(this.DTQButton);
+            this.splitContainer1.Panel1.Controls.Add(this.HDVButton);
+            this.splitContainer1.Panel1.Controls.Add(this.customerButton);
+            this.splitContainer1.Panel1.Controls.Add(this.tourButton);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
             // 
             // splitContainer1.Panel2
@@ -169,82 +161,87 @@ namespace Manage_tour
             this.splitContainer1.Panel2.BackgroundImage = global::Manage_tour.Properties.Resources.dulichc_;
             this.splitContainer1.Panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.splitContainer1.Panel2.Controls.Add(this.panel_thontintaikhoan);
-            this.splitContainer1.Size = new System.Drawing.Size(1006, 576);
-            this.splitContainer1.SplitterDistance = 251;
+            this.splitContainer1.Size = new System.Drawing.Size(1284, 738);
+            this.splitContainer1.SplitterDistance = 320;
             this.splitContainer1.SplitterWidth = 3;
             this.splitContainer1.TabIndex = 1;
             // 
-            // button10
+            // bookTourButton
             // 
-            this.button10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button10.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.Location = new System.Drawing.Point(45, 513);
-            this.button10.Margin = new System.Windows.Forms.Padding(2);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(152, 33);
-            this.button10.TabIndex = 10;
-            this.button10.Text = "Đặt Tour";
-            this.button10.UseVisualStyleBackColor = true;
+            this.bookTourButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.bookTourButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bookTourButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bookTourButton.Location = new System.Drawing.Point(80, 594);
+            this.bookTourButton.Margin = new System.Windows.Forms.Padding(2);
+            this.bookTourButton.Name = "bookTourButton";
+            this.bookTourButton.Size = new System.Drawing.Size(152, 33);
+            this.bookTourButton.TabIndex = 10;
+            this.bookTourButton.Text = "Đặt Tour";
+            this.bookTourButton.UseVisualStyleBackColor = true;
+            this.bookTourButton.Click += new System.EventHandler(this.bookTourButton_Click);
             // 
-            // button9
+            // listPaymentButton
             // 
-            this.button9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button9.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.Location = new System.Drawing.Point(45, 467);
-            this.button9.Margin = new System.Windows.Forms.Padding(2);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(152, 33);
-            this.button9.TabIndex = 9;
-            this.button9.Text = "Thông Tin Bill";
-            this.button9.UseVisualStyleBackColor = true;
+            this.listPaymentButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.listPaymentButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.listPaymentButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listPaymentButton.Location = new System.Drawing.Point(80, 548);
+            this.listPaymentButton.Margin = new System.Windows.Forms.Padding(2);
+            this.listPaymentButton.Name = "listPaymentButton";
+            this.listPaymentButton.Size = new System.Drawing.Size(152, 33);
+            this.listPaymentButton.TabIndex = 9;
+            this.listPaymentButton.Text = "Thông Tin Bill";
+            this.listPaymentButton.UseVisualStyleBackColor = true;
+            this.listPaymentButton.Click += new System.EventHandler(this.listPaymentButton_Click);
             // 
-            // button8
+            // listBookedButton
             // 
-            this.button8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.Location = new System.Drawing.Point(45, 422);
-            this.button8.Margin = new System.Windows.Forms.Padding(2);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(152, 33);
-            this.button8.TabIndex = 8;
-            this.button8.Text = "Chuyến Đi Đã Đặt";
-            this.button8.UseVisualStyleBackColor = true;
+            this.listBookedButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.listBookedButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.listBookedButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBookedButton.Location = new System.Drawing.Point(80, 503);
+            this.listBookedButton.Margin = new System.Windows.Forms.Padding(2);
+            this.listBookedButton.Name = "listBookedButton";
+            this.listBookedButton.Size = new System.Drawing.Size(152, 33);
+            this.listBookedButton.TabIndex = 8;
+            this.listBookedButton.Text = "Chuyến Đi Đã Đặt";
+            this.listBookedButton.UseVisualStyleBackColor = true;
+            this.listBookedButton.Click += new System.EventHandler(this.listBookedButton_Click);
             // 
-            // button7
+            // TourDTQButton
             // 
-            this.button7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Location = new System.Drawing.Point(45, 375);
-            this.button7.Margin = new System.Windows.Forms.Padding(2);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(152, 33);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "Tour DTQ";
-            this.button7.UseVisualStyleBackColor = true;
+            this.TourDTQButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TourDTQButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TourDTQButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TourDTQButton.Location = new System.Drawing.Point(80, 456);
+            this.TourDTQButton.Margin = new System.Windows.Forms.Padding(2);
+            this.TourDTQButton.Name = "TourDTQButton";
+            this.TourDTQButton.Size = new System.Drawing.Size(152, 33);
+            this.TourDTQButton.TabIndex = 7;
+            this.TourDTQButton.Text = "Tour DTQ";
+            this.TourDTQButton.UseVisualStyleBackColor = true;
+            this.TourDTQButton.Click += new System.EventHandler(this.TourDTQButton_Click);
             // 
-            // button6
+            // TourHDVButton
             // 
-            this.button6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.Location = new System.Drawing.Point(45, 330);
-            this.button6.Margin = new System.Windows.Forms.Padding(2);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(152, 33);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "Hành Trình HDV";
-            this.button6.UseVisualStyleBackColor = true;
+            this.TourHDVButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.TourHDVButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TourHDVButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TourHDVButton.Location = new System.Drawing.Point(80, 411);
+            this.TourHDVButton.Margin = new System.Windows.Forms.Padding(2);
+            this.TourHDVButton.Name = "TourHDVButton";
+            this.TourHDVButton.Size = new System.Drawing.Size(152, 33);
+            this.TourHDVButton.TabIndex = 6;
+            this.TourHDVButton.Text = "Hành Trình HDV";
+            this.TourHDVButton.UseVisualStyleBackColor = true;
+            this.TourHDVButton.Click += new System.EventHandler(this.TourHDVButton_Click);
             // 
             // button5
             // 
             this.button5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(45, 284);
+            this.button5.Location = new System.Drawing.Point(80, 365);
             this.button5.Margin = new System.Windows.Forms.Padding(2);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(152, 33);
@@ -252,57 +249,61 @@ namespace Manage_tour
             this.button5.Text = "Nhân Sự";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // button4
+            // DTQButton
             // 
-            this.button4.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(45, 238);
-            this.button4.Margin = new System.Windows.Forms.Padding(2);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(152, 33);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Điểm Tham Quan";
-            this.button4.UseVisualStyleBackColor = true;
+            this.DTQButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.DTQButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.DTQButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DTQButton.Location = new System.Drawing.Point(80, 319);
+            this.DTQButton.Margin = new System.Windows.Forms.Padding(2);
+            this.DTQButton.Name = "DTQButton";
+            this.DTQButton.Size = new System.Drawing.Size(152, 33);
+            this.DTQButton.TabIndex = 4;
+            this.DTQButton.Text = "Điểm Tham Quan";
+            this.DTQButton.UseVisualStyleBackColor = true;
+            this.DTQButton.Click += new System.EventHandler(this.DTQButton_Click);
             // 
-            // button3
+            // HDVButton
             // 
-            this.button3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(45, 192);
-            this.button3.Margin = new System.Windows.Forms.Padding(2);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(152, 33);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Hướng Dẫn Viên";
-            this.button3.UseVisualStyleBackColor = true;
+            this.HDVButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.HDVButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.HDVButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HDVButton.Location = new System.Drawing.Point(80, 273);
+            this.HDVButton.Margin = new System.Windows.Forms.Padding(2);
+            this.HDVButton.Name = "HDVButton";
+            this.HDVButton.Size = new System.Drawing.Size(152, 33);
+            this.HDVButton.TabIndex = 3;
+            this.HDVButton.Text = "Hướng Dẫn Viên";
+            this.HDVButton.UseVisualStyleBackColor = true;
+            this.HDVButton.Click += new System.EventHandler(this.HDVButton_Click);
             // 
-            // button2
+            // customerButton
             // 
-            this.button2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(45, 146);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(152, 33);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Khách Hàng";
-            this.button2.UseVisualStyleBackColor = true;
+            this.customerButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.customerButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.customerButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.customerButton.Location = new System.Drawing.Point(80, 227);
+            this.customerButton.Margin = new System.Windows.Forms.Padding(2);
+            this.customerButton.Name = "customerButton";
+            this.customerButton.Size = new System.Drawing.Size(152, 33);
+            this.customerButton.TabIndex = 2;
+            this.customerButton.Text = "Khách Hàng";
+            this.customerButton.UseVisualStyleBackColor = true;
+            this.customerButton.Click += new System.EventHandler(this.customerButton_Click);
             // 
-            // button1
+            // tourButton
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(45, 101);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(152, 33);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Tour";
-            this.button1.UseVisualStyleBackColor = true;
+            this.tourButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tourButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.tourButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tourButton.Location = new System.Drawing.Point(80, 182);
+            this.tourButton.Margin = new System.Windows.Forms.Padding(2);
+            this.tourButton.Name = "tourButton";
+            this.tourButton.Size = new System.Drawing.Size(152, 33);
+            this.tourButton.TabIndex = 1;
+            this.tourButton.Text = "Tour";
+            this.tourButton.UseVisualStyleBackColor = true;
+            this.tourButton.Click += new System.EventHandler(this.tourButton_Click);
             // 
             // label2
             // 
@@ -310,7 +311,7 @@ namespace Manage_tour
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(40, 37);
+            this.label2.Location = new System.Drawing.Point(75, 118);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(169, 31);
@@ -333,7 +334,7 @@ namespace Manage_tour
             this.panel_thontintaikhoan.Controls.Add(this.label5);
             this.panel_thontintaikhoan.Controls.Add(this.label4);
             this.panel_thontintaikhoan.Controls.Add(this.label3);
-            this.panel_thontintaikhoan.Location = new System.Drawing.Point(347, 2);
+            this.panel_thontintaikhoan.Location = new System.Drawing.Point(565, 2);
             this.panel_thontintaikhoan.Margin = new System.Windows.Forms.Padding(2);
             this.panel_thontintaikhoan.Name = "panel_thontintaikhoan";
             this.panel_thontintaikhoan.Size = new System.Drawing.Size(405, 177);
@@ -348,9 +349,8 @@ namespace Manage_tour
             this.chucVuLabel.Location = new System.Drawing.Point(312, 133);
             this.chucVuLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.chucVuLabel.Name = "chucVuLabel";
-            this.chucVuLabel.Size = new System.Drawing.Size(79, 18);
+            this.chucVuLabel.Size = new System.Drawing.Size(0, 18);
             this.chucVuLabel.TabIndex = 11;
-            this.chucVuLabel.Text = nv.chuc_vu;
             // 
             // emailLabel
             // 
@@ -360,9 +360,8 @@ namespace Manage_tour
             this.emailLabel.Location = new System.Drawing.Point(201, 133);
             this.emailLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(67, 18);
+            this.emailLabel.Size = new System.Drawing.Size(0, 18);
             this.emailLabel.TabIndex = 10;
-            this.emailLabel.Text = nv.email;
             // 
             // fullNameLabel
             // 
@@ -372,9 +371,8 @@ namespace Manage_tour
             this.fullNameLabel.Location = new System.Drawing.Point(111, 133);
             this.fullNameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.fullNameLabel.Name = "fullNameLabel";
-            this.fullNameLabel.Size = new System.Drawing.Size(60, 18);
+            this.fullNameLabel.Size = new System.Drawing.Size(0, 18);
             this.fullNameLabel.TabIndex = 9;
-            this.fullNameLabel.Text = nv.full_name;
             // 
             // maNVLabel
             // 
@@ -384,9 +382,8 @@ namespace Manage_tour
             this.maNVLabel.Location = new System.Drawing.Point(28, 133);
             this.maNVLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.maNVLabel.Name = "maNVLabel";
-            this.maNVLabel.Size = new System.Drawing.Size(61, 18);
+            this.maNVLabel.Size = new System.Drawing.Size(0, 18);
             this.maNVLabel.TabIndex = 8;
-            this.maNVLabel.Text = nv.id;
             // 
             // label10
             // 
@@ -490,7 +487,7 @@ namespace Manage_tour
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 649);
+            this.ClientSize = new System.Drawing.Size(1284, 811);
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -519,16 +516,16 @@ namespace Manage_tour
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button tourButton;
+        private System.Windows.Forms.Button bookTourButton;
+        private System.Windows.Forms.Button listPaymentButton;
+        private System.Windows.Forms.Button listBookedButton;
+        private System.Windows.Forms.Button TourDTQButton;
+        private System.Windows.Forms.Button TourHDVButton;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button DTQButton;
+        private System.Windows.Forms.Button HDVButton;
+        private System.Windows.Forms.Button customerButton;
         private System.Windows.Forms.Panel panel_thontintaikhoan;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

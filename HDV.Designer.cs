@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.Cancel = new System.Windows.Forms.Button();
@@ -58,7 +58,7 @@
             // 
             // panel1
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.txtSearch);
             this.panel1.Controls.Add(this.SearchHDV);
@@ -185,18 +185,20 @@
             // 
             // txtSearch
             // 
+            this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(237, 8);
+            this.txtSearch.Location = new System.Drawing.Point(238, 9);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(239, 26);
             this.txtSearch.TabIndex = 3;
             // 
             // SearchHDV
             // 
+            this.SearchHDV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.SearchHDV.BackColor = System.Drawing.Color.MediumTurquoise;
             this.SearchHDV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.SearchHDV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchHDV.Location = new System.Drawing.Point(482, 6);
+            this.SearchHDV.Location = new System.Drawing.Point(483, 7);
             this.SearchHDV.Name = "SearchHDV";
             this.SearchHDV.Size = new System.Drawing.Size(75, 28);
             this.SearchHDV.TabIndex = 2;
@@ -209,7 +211,7 @@
             this.ADD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ADD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ADD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ADD.Location = new System.Drawing.Point(682, 405);
+            this.ADD.Location = new System.Drawing.Point(683, 406);
             this.ADD.Name = "ADD";
             this.ADD.Size = new System.Drawing.Size(52, 26);
             this.ADD.TabIndex = 1;
@@ -225,14 +227,14 @@
             this.dataGridViewHDV.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridViewHDV.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewHDV.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewHDV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewHDV.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewHDV.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewHDV.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.GuideID,
@@ -240,16 +242,16 @@
             this.CCCD,
             this.Del,
             this.Edit});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridViewHDV.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewHDV.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewHDV.GridColor = System.Drawing.Color.Teal;
-            this.dataGridViewHDV.Location = new System.Drawing.Point(-1, 49);
+            this.dataGridViewHDV.Location = new System.Drawing.Point(0, 50);
             this.dataGridViewHDV.MultiSelect = false;
             this.dataGridViewHDV.Name = "dataGridViewHDV";
             this.dataGridViewHDV.ReadOnly = true;
@@ -299,11 +301,10 @@
             // 
             // HDV
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(740, 565);
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.Controls.Add(this.panel1);
-            this.Name = "HDV";
+            this.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Size = new System.Drawing.Size(740, 565);
             this.Text = "HDV";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

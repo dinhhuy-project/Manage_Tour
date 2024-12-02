@@ -62,6 +62,8 @@
             // 
             // panel1
             // 
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.panel1.Controls.Add(this.tableLayoutPanel1);
             this.panel1.Controls.Add(this.txtSearch);
             this.panel1.Controls.Add(this.Search);
@@ -74,6 +76,7 @@
             // 
             // tableLayoutPanel1
             // 
+            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel1.ColumnCount = 2;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 402F));
@@ -92,6 +95,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tableLayoutPanel1.SetColumnSpan(this.groupBox1, 2);
             this.groupBox1.Controls.Add(this.txtPrice);
             this.groupBox1.Controls.Add(this.label5);
@@ -234,6 +238,7 @@
             // 
             // txtSearch
             // 
+            this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtSearch.Location = new System.Drawing.Point(238, 13);
             this.txtSearch.Name = "txtSearch";
@@ -243,6 +248,7 @@
             // 
             // Search
             // 
+            this.Search.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Search.BackColor = System.Drawing.Color.MediumTurquoise;
             this.Search.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.Search.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -349,11 +355,10 @@
             // 
             // Tour
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 572);
+            this.BackColor = System.Drawing.SystemColors.Control;
             this.Controls.Add(this.panel1);
-            this.Name = "Tour";
+            this.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Size = new System.Drawing.Size(800, 572);
             this.Text = "Tour";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

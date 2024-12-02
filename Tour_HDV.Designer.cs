@@ -40,13 +40,13 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.TourID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuideID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DEL1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtKeyword = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TourID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuideID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DEL1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -59,7 +59,7 @@
             // 
             // panel1
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.splitContainer1);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Location = new System.Drawing.Point(2, 2);
@@ -201,48 +201,6 @@
             this.dataGridView2.Size = new System.Drawing.Size(445, 398);
             this.dataGridView2.TabIndex = 0;
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.btnSearch);
-            this.panel2.Controls.Add(this.txtKeyword);
-            this.panel2.Controls.Add(this.groupBox1);
-            this.panel2.Location = new System.Drawing.Point(3, 3);
-            this.panel2.Margin = new System.Windows.Forms.Padding(0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(677, 44);
-            this.panel2.TabIndex = 0;
-            // 
-            // btnSearch
-            // 
-            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnSearch.Location = new System.Drawing.Point(453, 7);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(62, 27);
-            this.btnSearch.TabIndex = 2;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = false;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
-            // 
-            // txtKeyword
-            // 
-            this.txtKeyword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtKeyword.Location = new System.Drawing.Point(228, 7);
-            this.txtKeyword.Name = "txtKeyword";
-            this.txtKeyword.Size = new System.Drawing.Size(209, 26);
-            this.txtKeyword.TabIndex = 1;
-            this.txtKeyword.UseWaitCursor = true;
-            this.txtKeyword.TextChanged += new System.EventHandler(this.txtKeyword_TextChanged);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Location = new System.Drawing.Point(0, 44);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(222, 398);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
             // TourID1
             // 
             this.TourID1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -263,13 +221,57 @@
             this.DEL1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.DEL1.Width = 50;
             // 
+            // panel2
+            // 
+            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panel2.Controls.Add(this.btnSearch);
+            this.panel2.Controls.Add(this.txtKeyword);
+            this.panel2.Controls.Add(this.groupBox1);
+            this.panel2.Location = new System.Drawing.Point(4, 4);
+            this.panel2.Margin = new System.Windows.Forms.Padding(0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(677, 44);
+            this.panel2.TabIndex = 0;
+            // 
+            // btnSearch
+            // 
+            this.btnSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnSearch.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSearch.Location = new System.Drawing.Point(453, 7);
+            this.btnSearch.Name = "btnSearch";
+            this.btnSearch.Size = new System.Drawing.Size(62, 27);
+            this.btnSearch.TabIndex = 2;
+            this.btnSearch.Text = "Search";
+            this.btnSearch.UseVisualStyleBackColor = false;
+            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            // 
+            // txtKeyword
+            // 
+            this.txtKeyword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.txtKeyword.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtKeyword.Location = new System.Drawing.Point(228, 7);
+            this.txtKeyword.Name = "txtKeyword";
+            this.txtKeyword.Size = new System.Drawing.Size(209, 26);
+            this.txtKeyword.TabIndex = 1;
+            this.txtKeyword.UseWaitCursor = true;
+            this.txtKeyword.TextChanged += new System.EventHandler(this.txtKeyword_TextChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(0, 44);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(222, 398);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "groupBox1";
+            // 
             // Tour_HDV
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 450);
+            this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.Controls.Add(this.panel1);
-            this.Name = "Tour_HDV";
+            this.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Size = new System.Drawing.Size(688, 450);
             this.Text = "Tour_HDV";
             this.panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
