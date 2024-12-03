@@ -125,5 +125,10 @@ namespace Manage_tour
                 panel_bidv.Visible = false;
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

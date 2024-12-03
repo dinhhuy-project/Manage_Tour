@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -9,13 +10,13 @@ namespace Manage_tour.DbQueries
 {
     public class ThanhToanModel
     {
-        public ThanhToanModel(SqlDataReader reader)
+        public ThanhToanModel(object[] dataRow)
         {
-            ma_thanh_toan = reader["ma_thanh_toan"].ToString();  
-            ma_dat_tour = reader["ma_dat_tour"].ToString();  
-            ngay_thanh_toan = reader["ngay_thanh_toan"] != DBNull.Value ? Convert.ToDateTime(reader["ngay_thanh_toan"]) : DateTime.MinValue;  
-            hinh_thuc = reader["hinh_thuc"].ToString();  
-            tong_tien = reader["tong_tien"] != DBNull.Value ? Convert.ToDecimal(reader["tong_tien"]) : 0;  
+            ma_thanh_toan = dataRow[0].ToString();
+            ma_dat_tour = dataRow[1].ToString();
+            ngay_thanh_toan = dataRow[2] != DBNull.Value ? Convert.ToDateTime(dataRow[2]) : DateTime.MinValue;
+            hinh_thuc = dataRow[3].ToString();
+            tong_tien = dataRow[4] != DBNull.Value ? Convert.ToDecimal(dataRow[4]) : 0;
         }
 
 
@@ -28,7 +29,71 @@ namespace Manage_tour.DbQueries
             tong_tien = Tong_tien;
         }
 
-        public string ma_thanh_toan { get; set; } 
+        public static ArrayList selectAll()
+        {
+            return DbQueries.Queries.Select(QUERY_SELECT_ALL);
+        }
+
+        public static ThanhToanModel selectByKey(string id)
+        {
+            ThanhToanModel thanhToan = null;
+            var dataRows = DbQueries.Queries.Select(QUERY_SELECT_BY_KEY, id);
+
+            foreach (object[] dataRow in dataRows)
+            {
+                thanhToan = new ThanhToanModel(dataRow);
+            }
+
+            return thanhToan;
+        }
+
+        public static int insert(ThanhToanModel thanhToan)
+        {
+            int result = DbQueries.Queries.Update(QUERY_INSERT, thanhToan.ma_thanh_toan, thanhToan.ma_dat_tour, thanhToan.ngay_thanh_toan, thanhToan.hinh_thuc, thanhToan.tong_tien);
+            return result;
+        }
+
+        public static int insert(string ma_thanh_toan, string ma_dat_tour, DateTime ngay_thanh_toan, string hinh_thuc, decimal tong_tien)
+        {
+            int result = DbQueries.Queries.Update(QUERY_INSERT, ma_thanh_toan, ma_dat_tour, ngay_thanh_toan, hinh_thuc, tong_tien);
+            return result;
+        }
+
+        public static int update(ThanhToanModel thanhToan)
+        {
+            int result = DbQueries.Queries.Update(QUERY_UPDATE_BY_KEY, thanhToan.ma_dat_tour, thanhToan.ngay_thanh_toan, thanhToan.hinh_thuc, thanhToan.tong_tien, thanhToan.ma_thanh_toan);
+            return result;
+        }
+
+        public static int update(string ma_dat_tour, DateTime ngay_thanh_toan, string hinh_thuc, decimal tong_tien, string ma_thanh_toan)
+        {
+            int result = DbQueries.Queries.Update(QUERY_UPDATE_BY_KEY, ma_dat_tour, ngay_thanh_toan, hinh_thuc, tong_tien, ma_thanh_toan);
+            return result;
+        }
+
+        public static int delete(ThanhToanModel thanhToan)
+        {
+            return DbQueries.Queries.Update(QUERY_DELETE_BY_KEY, thanhToan.ma_thanh_toan);
+        }
+
+        public static int delete(string id)
+        {
+            return DbQueries.Queries.Update(QUERY_DELETE_BY_KEY, id);
+        }
+
+        public static string TABLE = "ThanhToan";
+        public static string FIELD_MA_THANH_TOAN = "ma_thanh_toan";
+        public static string FIELD_MA_DAT_TOUR = "ma_dat_tour";
+        public static string FIELD_NGAY_THANH_TOAN = "ngay_thanh_toan";
+        public static string FIELD_HINH_THUC = "hinh_thuc";
+        public static string FIELD_TONG_TIEN = "tong_tien";
+
+        public static string QUERY_SELECT_ALL = $"SELECT * FROM {TABLE}";
+        public static string QUERY_SELECT_BY_KEY = $"SELECT * FROM {TABLE} WHERE {FIELD_MA_THANH_TOAN} = @p1";
+        public static string QUERY_INSERT = $"INSERT INTO {TABLE} ({FIELD_MA_THANH_TOAN}, {FIELD_MA_DAT_TOUR}, {FIELD_NGAY_THANH_TOAN}, {FIELD_HINH_THUC}, {FIELD_TONG_TIEN}) VALUES (@p1, @p2, @p3, @p4, @p5)";
+        public static string QUERY_UPDATE_BY_KEY = $"UPDATE {TABLE} SET {FIELD_MA_DAT_TOUR}=@p1, {FIELD_NGAY_THANH_TOAN}=@p2, {FIELD_HINH_THUC}=@p3, {FIELD_TONG_TIEN}=@p4 WHERE {FIELD_MA_THANH_TOAN} = @p5";
+        public static string QUERY_DELETE_BY_KEY = $"DELETE FROM {TABLE} WHERE {FIELD_MA_THANH_TOAN} = @p1";
+    public string ma_thanh_toan { get; set; } 
         public string ma_dat_tour { get; set; } 
         public DateTime ngay_thanh_toan { get; set; }  
         public string hinh_thuc { get; set; }  
