@@ -7,16 +7,16 @@ using System.Threading.Tasks;
 
 namespace Manage_tour.DbQueries
 {
-    public class TourDTQ
+    public class TourDTQModel
     {
-        public TourDTQ(SqlDataReader reader)
+        public TourDTQModel(SqlDataReader reader)
         {
             ma_tour = reader["ma_tour"].ToString();  
             ma_diem_tham_quan = reader["ma_diem_tham_quan"].ToString();  
         }
 
 
-        public TourDTQ(string Ma_tour, string Ma_diem_tham_quan)
+        public TourDTQModel(string Ma_tour, string Ma_diem_tham_quan)
         {
             ma_tour = Ma_tour;
             ma_diem_tham_quan = Ma_diem_tham_quan;

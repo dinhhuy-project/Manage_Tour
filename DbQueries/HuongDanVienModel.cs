@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Manage_tour.DbQueries
 {
-    public class HuongDanVien
+    public class HuongDanVienModel
     {
-        public HuongDanVien(SqlDataReader reader)
+        public HuongDanVienModel(SqlDataReader reader)
         {
             ma_hdv = reader["ma_hdv"].ToString();
             full_name = reader["full_name"].ToString();
@@ -17,7 +17,7 @@ namespace Manage_tour.DbQueries
             sdt = reader["sdt"].ToString();
             diachi = reader["diachi"].ToString();
         }
-        public HuongDanVien(string Ma_hdv, string Fullname, string Cccd, string Sdt, string Diachi)
+        public HuongDanVienModel(string Ma_hdv, string Fullname, string Cccd, string Sdt, string Diachi)
         {
             ma_hdv = Ma_hdv;
             full_name = Fullname;

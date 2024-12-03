@@ -48,11 +48,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DbQueries\DbConnection.cs" />
-    <Compile Include="DbQueries\DatTour.cs" />
-    <Compile Include="DbQueries\DiemThamQuan.cs" />
-    <Compile Include="DbQueries\HuongDanVien.cs" />
-    <Compile Include="DbQueries\KhachHang.cs" />
-    <Compile Include="DbQueries\NhanVien.cs" />
+    <Compile Include="DbQueries\DatTourModel.cs" />
+    <Compile Include="DbQueries\DiemThamQuanModel.cs" />
+    <Compile Include="DbQueries\HuongDanVienModel.cs" />
+    <Compile Include="DbQueries\KhachHangModel.cs" />
+    <Compile Include="DbQueries\NhanVienModel.cs" />
     <Compile Include="DbQueries\Queries.cs" />
     <Compile Include="customer.cs">
       <SubType>Component</SubType>
@@ -60,10 +60,10 @@
     <Compile Include="customer.Designer.cs">
       <DependentUpon>customer.cs</DependentUpon>
     </Compile>
-    <Compile Include="DbQueries\ThanhToan.cs" />
-    <Compile Include="DbQueries\Tour.cs" />
-    <Compile Include="DbQueries\TourDTQ.cs" />
-    <Compile Include="DbQueries\TourHDV.cs" />
+    <Compile Include="DbQueries\ThanhToanModel.cs" />
+    <Compile Include="DbQueries\TourModel.cs" />
+    <Compile Include="DbQueries\TourDTQModel.cs" />
+    <Compile Include="DbQueries\TourHDVModel.cs" />
     <Compile Include="DTQ.cs">
       <SubType>Component</SubType>
     </Compile>

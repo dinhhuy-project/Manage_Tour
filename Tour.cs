@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Manage_tour.DbQueries;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,7 +21,7 @@ namespace Manage_tour
             InitializeComponent();
             tableLayoutPanel1.Visible = false;
             AdjustDataGridView();
-            //LoadData();
+            loadData();
             dataGridView1.ClearSelection();
         }
         private bool isEditMode = false;
@@ -186,6 +188,16 @@ namespace Manage_tour
             }
 
             //SearchTours(keyword);
+        }
+
+        private void loadData()
+        {
+            // Xóa tất cả các dòng hiện tại trong DataGridView (nếu có)
+            dataGridView1.Rows.Clear();
+            foreach (object[] row in TourModel.selectByKey("tour02"))
+            {
+                dataGridView1.Rows.Add(row);
+            }
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)

@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace Manage_tour.DbQueries
 {
-    public class TourHDV
+    public class TourHDVModel
     {
-        public TourHDV(SqlDataReader reader)
+        public TourHDVModel(SqlDataReader reader)
         {
             ma_tour = reader["ma_tour"].ToString();  
             ma_hdv = reader["ma_hdv"].ToString();  
         }
-        public TourHDV(string Ma_tour, string Ma_hdv)
+        public TourHDVModel(string Ma_tour, string Ma_hdv)
         {
             ma_tour = Ma_tour;
             ma_hdv = Ma_hdv;

@@ -28,8 +28,9 @@ namespace Manage_tour
         /// Required method for Designer support - do not modify
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent(/*NhanVien nhanvien = null*/)
+        private void InitializeComponent(NhanVienModel nhanvien = null)
         {
+            nv = nhanvien;
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -352,6 +353,7 @@ namespace Manage_tour
             this.chucVuLabel.Name = "chucVuLabel";
             this.chucVuLabel.Size = new System.Drawing.Size(0, 18);
             this.chucVuLabel.TabIndex = 11;
+            this.chucVuLabel.Text = nv.chuc_vu;
             // 
             // emailLabel
             // 
@@ -363,6 +365,7 @@ namespace Manage_tour
             this.emailLabel.Name = "emailLabel";
             this.emailLabel.Size = new System.Drawing.Size(0, 18);
             this.emailLabel.TabIndex = 10;
+            this.emailLabel.Text = nv.email;
             // 
             // fullNameLabel
             // 
@@ -374,6 +377,7 @@ namespace Manage_tour
             this.fullNameLabel.Name = "fullNameLabel";
             this.fullNameLabel.Size = new System.Drawing.Size(0, 18);
             this.fullNameLabel.TabIndex = 9;
+            this.fullNameLabel.Text = nv.full_name;
             // 
             // maNVLabel
             // 
@@ -385,6 +389,7 @@ namespace Manage_tour
             this.maNVLabel.Name = "maNVLabel";
             this.maNVLabel.Size = new System.Drawing.Size(0, 18);
             this.maNVLabel.TabIndex = 8;
+            this.maNVLabel.Text = nv.id;
             // 
             // label10
             // 
@@ -540,6 +545,6 @@ namespace Manage_tour
         private System.Windows.Forms.Label fullNameLabel;
         private System.Windows.Forms.Label maNVLabel;
         private System.Windows.Forms.Label label10;
-        private NhanVien nv;
+        private NhanVienModel nv;
     }
 }

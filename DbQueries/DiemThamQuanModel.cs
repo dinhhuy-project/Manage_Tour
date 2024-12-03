@@ -7,15 +7,15 @@ using System.Threading.Tasks;
 
 namespace Manage_tour.DbQueries
 {
-    public class DiemThamQuan
+    public class DiemThamQuanModel
     {
-        public DiemThamQuan(SqlDataReader reader)
+        public DiemThamQuanModel(SqlDataReader reader)
         {
             ma_diem_tham_quan = reader["ma_diem_tham_quan"].ToString();  
             ten_dia_diem = reader["ten_dia_diem"].ToString();  
             dia_chi = reader["dia_chi"].ToString();  
         }
-        public DiemThamQuan(string Ma_diem_tham_quan, string Ten_dia_diem, string Dia_chi)
+        public DiemThamQuanModel(string Ma_diem_tham_quan, string Ten_dia_diem, string Dia_chi)
         {
             ma_diem_tham_quan = Ma_diem_tham_quan;
             ten_dia_diem = Ten_dia_diem;

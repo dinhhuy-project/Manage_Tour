@@ -54,7 +54,7 @@ namespace Manage_tour
 
         private void signInButton_Click(object sender, EventArgs e)
         {
-            NhanVien nv = null;
+            NhanVienModel nv = null;
             nv = DbQueries.Queries.logIn(signInEmailTextbox.Text, signInPasswordTextbox.Text);
             if (nv != null)
             {

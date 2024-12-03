@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Manage_tour.DbQueries
 {
-    public class NhanVien
+    public class NhanVienModel
     {
-        public NhanVien(SqlDataReader reader)
+        public NhanVienModel(SqlDataReader reader)
         {
             id = reader["id"].ToString();
             full_name = reader["full_name"].ToString();
@@ -18,7 +18,7 @@ namespace Manage_tour.DbQueries
             pass_word = reader["pass_word"].ToString();
             chuc_vu = reader["chuc_vu"].ToString();
         }
-        public NhanVien(string Id, string Fullname, string Cccd, string Email, string Password, string Chucvu)
+        public NhanVienModel(string Id, string Fullname, string Cccd, string Email, string Password, string Chucvu)
         {
             id = Id;
             full_name = Fullname;

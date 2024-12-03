@@ -6,15 +6,20 @@ using System.Text;
 using System.Threading.Tasks;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Windows.Forms;
+using System.Data.Common;
+using System.Data;
+using System.Drawing;
+using System.Collections;
+using System.Data.Odbc;
 
 namespace Manage_tour.DbQueries
 {
     internal class Queries
     {
         private static SqlConnection _connection = DbConnection.getInstance().GetSqlConnection();
-        public static NhanVien logIn(String email, String password)
+        public static NhanVienModel logIn(String email, String password)
         {
-            NhanVien nhanVien = null;
+            NhanVienModel nhanVien = null;
             try
             {
                 _connection.Open();
@@ -30,7 +35,7 @@ namespace Manage_tour.DbQueries
                     {
                         while (reader.Read())
                         {
-                            nhanVien = new NhanVien(reader);
+                            nhanVien = new NhanVienModel(reader);
                             break;
                         }
                     }
@@ -83,6 +88,101 @@ namespace Manage_tour.DbQueries
                     _connection.Close();
                 }
             }
+        }
+
+        public static ArrayList Select(string stmt, params object[] args)
+        {
+            ArrayList resultSet = new ArrayList();
+
+            try
+            {
+                _connection.Open();
+                if (_connection == null) return resultSet;
+
+                using (SqlCommand cmd = new SqlCommand(stmt, _connection))
+                {
+                    // Add parameters to the prepared statement
+                    for (int i = 0; i < args.Length; ++i)
+                    {
+                        cmd.Parameters.AddWithValue($"@p{i + 1}", args[i]);
+                    }
+
+                    // Execute query and read data
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            // Tạo một ArrayList con chứa dữ liệu của từng hàng
+                            ArrayList row = new ArrayList();
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                row.Add(reader.GetValue(i)); // Thêm giá trị của từng cột vào hàng
+                            }
+                            resultSet.Add(row.ToArray()); // Thêm hàng vào danh sách kết quả
+                        }
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine($"SQL Error: {e.Message}");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error: {e.Message}");
+            }
+            finally
+            {
+                // Đảm bảo kết nối luôn được đóng
+                if (_connection.State == System.Data.ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
+
+            return resultSet;
+        }
+
+        public static int Update(string stmt, params object[] args)
+        {
+            int totalAffectedRows = 0;
+
+            try
+            {
+                _connection.Open();
+                if (_connection == null) return 0;
+
+                // Tạo SqlCommand
+                using (SqlCommand cmd = new SqlCommand(stmt, _connection))
+                {
+                    // Thêm tham số vào câu lệnh SQL
+                    for (int i = 0; i < args.Length; ++i)
+                    {
+                        cmd.Parameters.AddWithValue($"@p{i + 1}", args[i]);
+                    }
+
+                    // Thực thi câu lệnh SQL
+                    totalAffectedRows = cmd.ExecuteNonQuery();
+                }
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine($"SQL Error: {e.Message}");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Error: {e.Message}");
+            }
+            finally
+            {
+                // Đảm bảo kết nối luôn được đóng
+                if (_connection != null && _connection.State == ConnectionState.Open)
+                {
+                    _connection.Close();
+                }
+            }
+
+            return totalAffectedRows;
         }
     }
 }

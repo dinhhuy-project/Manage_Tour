@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Manage_tour.DbQueries
 {
-    public class ThanhToan
+    public class ThanhToanModel
     {
-        public ThanhToan(SqlDataReader reader)
+        public ThanhToanModel(SqlDataReader reader)
         {
             ma_thanh_toan = reader["ma_thanh_toan"].ToString();  
             ma_dat_tour = reader["ma_dat_tour"].ToString();  
@@ -19,7 +19,7 @@ namespace Manage_tour.DbQueries
         }
 
 
-        public ThanhToan(string Ma_thanh_toan, string Ma_dat_tour, DateTime Ngay_thanh_toan, string Hinh_thuc, decimal Tong_tien)
+        public ThanhToanModel(string Ma_thanh_toan, string Ma_dat_tour, DateTime Ngay_thanh_toan, string Hinh_thuc, decimal Tong_tien)
         {
             ma_thanh_toan = Ma_thanh_toan;
             ma_dat_tour = Ma_dat_tour;

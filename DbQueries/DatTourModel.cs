@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Manage_tour.DbQueries
 {
-    public class DatTour
+    public class DatTourModel
     {
-        public DatTour(SqlDataReader reader)
+        public DatTourModel(SqlDataReader reader)
         {
             ma_dat_tour = reader["ma_dat_tour"].ToString();  
             ma_tour = reader["ma_tour"].ToString(); 
@@ -20,7 +20,7 @@ namespace Manage_tour.DbQueries
             trang_thai = reader["trang_thai"].ToString();  
         }
 
-        public DatTour(string Ma_dat_tour, string Ma_tour, string Ma_kh, DateTime Ngay_dat, int So_luong_nguoi, decimal Tong_tien, string Trang_thai)
+        public DatTourModel(string Ma_dat_tour, string Ma_tour, string Ma_kh, DateTime Ngay_dat, int So_luong_nguoi, decimal Tong_tien, string Trang_thai)
         {
             ma_dat_tour = Ma_dat_tour;
             ma_tour = Ma_tour;

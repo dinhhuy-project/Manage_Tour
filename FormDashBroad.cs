@@ -15,9 +15,9 @@ namespace Manage_tour
     {
         private Panel childPanel;
         string currentButton;
-        public FormDashBroad(NhanVien nhanVien)
+        public FormDashBroad(NhanVienModel nhanVien)
         {
-            InitializeComponent();
+            InitializeComponent(nhanVien);
             panel_thontintaikhoan.Visible = false;
         }
         protected override void OnFormClosing(FormClosingEventArgs e)

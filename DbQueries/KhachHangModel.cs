@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Manage_tour.DbQueries
 {
-    public class KhachHang
+    public class KhachHangModel
     {
-        public KhachHang(SqlDataReader reader)
+        public KhachHangModel(SqlDataReader reader)
         {
             ma_kh = reader["ma_kh"].ToString();  
             ten_kh = reader["ten_kh"].ToString(); 
@@ -18,7 +18,7 @@ namespace Manage_tour.DbQueries
             dia_chi = reader["dia_chi"].ToString(); 
         }
 
-        public KhachHang(string Ma_kh, string Ten_kh, string Sdt, string Cccd, string Dia_chi)
+        public KhachHangModel(string Ma_kh, string Ten_kh, string Sdt, string Cccd, string Dia_chi)
         {
             ma_kh = Ma_kh;
             ten_kh = Ten_kh;
