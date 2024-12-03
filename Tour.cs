@@ -38,7 +38,7 @@ namespace Manage_tour
                 string tourId = dataGridView1.Rows[e.RowIndex].Cells["TourID"].Value.ToString();
 
                 // Gọi hàm để xử lý sửa
-                //EditTour(tourId);
+                EditTour(tourId);
             }
 
             // Kiểm tra nếu cột là "Xoá"
@@ -48,7 +48,7 @@ namespace Manage_tour
                 string tourId = dataGridView1.Rows[e.RowIndex].Cells["TourID"].Value.ToString();
 
                 // Gọi hàm để xử lý xoá
-                //DeleteTour(tourId);
+                MessageBox.Show($"{DeleteTour(tourId)} tour(s) deleted", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -162,12 +162,12 @@ namespace Manage_tour
             // Kiểm tra trạng thái để thực hiện Add hoặc Update
             if (isEditMode)
             {
-                //UpdateTour(); // Cập nhật tour
+                UpdateTour(); // Cập nhật tour
                 AdjustDataGridView();
             }
             else
             {
-                //AddTour(TourID, TourName, startDateT, endDateT, PriceT); // Thêm mới tour
+                AddTour(TourID, TourName, PriceT, startDateT, endDateT); // Thêm mới tour
             }
 
             isEditMode = false;
@@ -175,6 +175,7 @@ namespace Manage_tour
             ClearInputFields();
             tableLayoutPanel1.Visible = false;
             AdjustDataGridView();
+            loadData();
         }
 
         private void Search_Click(object sender, EventArgs e)
@@ -194,10 +195,41 @@ namespace Manage_tour
         {
             // Xóa tất cả các dòng hiện tại trong DataGridView (nếu có)
             dataGridView1.Rows.Clear();
-            foreach (object[] row in TourModel.selectByKey("tour02"))
+            foreach (object[] row in TourModel.selectAll())
             {
                 dataGridView1.Rows.Add(row);
             }
+        }
+        private int DeleteTour(string id)
+        {
+            int rowAffected = TourModel.delete(id);
+            loadData();
+            return rowAffected;
+        }
+
+        private void EditTour(string tourId)
+        {
+            tableLayoutPanel1.Visible = true;
+            AdjustDataGridView();
+            isEditMode = true;
+            TourModel tourModel = TourModel.selectByKey(tourId);
+            // Điền thông tin vào các trường nhập liệu
+            txtTourID.Text = tourModel.ma_tour;
+            txtTourName.Text = tourModel.ten_tour;
+            txtPrice.Text = tourModel.gia.ToString();
+            startDate.Value = tourModel.ngay_bd;
+            endDate.Value = tourModel.ngay_kt;
+
+            // Vô hiệu hóa trường TourID để không cho phép thay đổi
+            txtTourID.Enabled = false;
+        }
+        private void UpdateTour()
+        {
+            TourModel.update(txtTourName.Text, float.Parse(txtPrice.Text), startDate.Value, endDate.Value, txtTourID.Text);
+        }
+        private void AddTour(String TourID, String TourName, float PriceT, DateTime startDateT, DateTime endDateT)
+        {
+            TourModel.insert(TourID, TourName, PriceT, startDateT, endDateT);
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)

@@ -5,19 +5,20 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Manage_tour.DbQueries
 {
     public class TourModel
     {
-        public TourModel(SqlDataReader reader)
+        public TourModel(object[] dataRow)
         {
-            ma_tour = reader["ma_tour"].ToString();  
-            ten_tour = reader["ten_tour"].ToString();  
-            gia = reader["gia"] != DBNull.Value ? Convert.ToDecimal(reader["gia"]) : 0;
-            ngay_bd = reader["ngay_bd"] != DBNull.Value ? Convert.ToDateTime(reader["ngay_bd"]) : DateTime.MinValue;
-            ngay_kt = reader["ngay_kt"] != DBNull.Value ? Convert.ToDateTime(reader["ngay_kt"]) : DateTime.MinValue;
+                ma_tour = dataRow[0].ToString();  
+                ten_tour = dataRow[1].ToString();  
+                gia = dataRow[2] != DBNull.Value ? Convert.ToDecimal(dataRow[2]) : 0;
+                ngay_bd = dataRow[3] != DBNull.Value ? Convert.ToDateTime(dataRow[3]) : DateTime.MinValue;
+                ngay_kt = dataRow[4] != DBNull.Value ? Convert.ToDateTime(dataRow[4]) : DateTime.MinValue;
         }
 
         public TourModel(string Ma_tour, string Ten_tour, string Gia, string Ngay_bd, string Ngay_kt)
@@ -37,16 +38,21 @@ namespace Manage_tour.DbQueries
         {
             return DbQueries.Queries.Select(QUERY_SELECT_ALL);
         }
-        public static ArrayList selectByKey(string id)
+        public static TourModel selectByKey(string id)
         {
-            return DbQueries.Queries.Select(QUERY_SELECT_BY_KEY, id);
+            TourModel tourModel = null;
+            foreach (object[] dataRow in DbQueries.Queries.Select(QUERY_SELECT_BY_KEY, id))
+            {
+                tourModel = new TourModel(dataRow);
+            }
+            return tourModel;
         }
         public static int insert(TourModel tourModel)
         {
             int result = DbQueries.Queries.Update(QUERY_INSERT, tourModel.ma_tour, tourModel.ten_tour, tourModel.gia, tourModel.ngay_bd, tourModel.ngay_kt);
             return result;
         }
-        public static int insert(string ma_tour, string ten_tour, float gia, string ngay_bd, string ngay_kt)
+        public static int insert(string ma_tour, string ten_tour, float gia, DateTime ngay_bd, DateTime ngay_kt)
         {
             int result = DbQueries.Queries.Update(QUERY_INSERT, ma_tour, ten_tour, gia, ngay_bd, ngay_kt);
             return result;
@@ -56,7 +62,7 @@ namespace Manage_tour.DbQueries
             int result = DbQueries.Queries.Update(QUERY_UPDATE_BY_KEY, tourModel.ten_tour, tourModel.gia, tourModel.ngay_bd, tourModel.ngay_kt, tourModel.ma_tour);
             return result;
         }
-        public static int update(string ten_tour, float gia, string ngay_bd, string ngay_kt, string ma_tour)
+        public static int update(string ten_tour, float gia, DateTime ngay_bd, DateTime ngay_kt, string ma_tour)
         {
             int result = DbQueries.Queries.Update(QUERY_UPDATE_BY_KEY, ten_tour, gia, ngay_bd, ngay_kt, ma_tour);
             return result;
@@ -65,7 +71,7 @@ namespace Manage_tour.DbQueries
         {
             return DbQueries.Queries.Update(QUERY_DELETE_BY_KEY, tourModel.ma_tour);
         }
-        public static int delete(int id)
+        public static int delete(string id)
         {
             return DbQueries.Queries.Update(QUERY_DELETE_BY_KEY, id);
         }
