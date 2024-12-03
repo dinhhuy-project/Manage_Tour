@@ -47,8 +47,22 @@ namespace Manage_tour
                 // Lấy thông tin dòng hiện tại
                 string tourId = dataGridView1.Rows[e.RowIndex].Cells["TourID"].Value.ToString();
 
-                // Gọi hàm để xử lý xoá
-                MessageBox.Show($"{DeleteTour(tourId)} tour(s) deleted", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                // Hiển thị hộp thoại xác nhận
+                DialogResult result = MessageBox.Show(
+                    $"Bạn có chắc chắn muốn xóa {tourId}?", // Nội dung thông báo
+                    "Xác nhận",                                       // Tiêu đề
+                    MessageBoxButtons.YesNo,                          // Nút Yes/No
+                    MessageBoxIcon.Question                           // Biểu tượng câu hỏi
+                );
+                // Kiểm tra phản hồi
+                if (result == DialogResult.Yes)
+                {
+                    MessageBox.Show($"{DeleteTour(tourId)} tour(s) deleted", "Notification", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning); // Gọi hàm thực hiện
+                }
+                else
+                {
+                    MessageBox.Show("Hành động đã bị hủy.", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
 
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -92,13 +106,12 @@ namespace Manage_tour
         private void AdjustDataGridView()
         {
             // Tính toán chiều cao khả dụng cho DataGridView
-            int availableHeight = 400; // 20 là khoảng cách trống phía dưới
+            int availableHeight = 350; // 20 là khoảng cách trống phía dưới
 
             if (tableLayoutPanel1.Visible)
             {
                 // Nếu bảng hiển thị, giảm chiều cao DataGridView
                 ADD.Visible = false;
-                dataGridView1.Height = availableHeight - tableLayoutPanel1.Height + 100; // Giảm thêm để có khoảng trống nút Add
             }
             else
             {
@@ -132,7 +145,7 @@ namespace Manage_tour
             // Kiểm tra nếu các trường tourID và tourName bị rỗng
             if (string.IsNullOrEmpty(TourID) || string.IsNullOrEmpty(TourName))
             {
-                    MessageBox.Show("Please enter all required information!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
+                MessageBox.Show("Please enter all required information!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning); return;
             }
 
 
@@ -184,11 +197,11 @@ namespace Manage_tour
 
             if (string.IsNullOrEmpty(keyword))
             {
-                MessageBox.Show("Please enter a search keyword!", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                loadData();
                 return;
             }
 
-            //SearchTours(keyword);
+            SearchTours(keyword);
         }
 
         private void loadData()
@@ -232,6 +245,15 @@ namespace Manage_tour
             TourModel.insert(TourID, TourName, PriceT, startDateT, endDateT);
         }
 
+        private void SearchTours(string keyword)
+        {
+            // Xóa tất cả các dòng hiện tại trong DataGridView (nếu có)
+            dataGridView1.Rows.Clear();
+            foreach (object[] row in TourModel.selectLikeKey(keyword))
+            {
+                dataGridView1.Rows.Add(row);
+            }
+        }
         private void txtSearch_TextChanged(object sender, EventArgs e)
         {
 
