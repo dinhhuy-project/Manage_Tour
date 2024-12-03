@@ -51,7 +51,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(104, 2);
+            this.panel1.Location = new System.Drawing.Point(205, 63);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(754, 62);
@@ -65,7 +65,7 @@
             this.label1.Location = new System.Drawing.Point(498, 20);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 25);
+            this.label1.Size = new System.Drawing.Size(268, 29);
             this.label1.TabIndex = 2;
             this.label1.Text = "Thông Tin Thanh Toán";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -87,7 +87,7 @@
             this.textBox1.Location = new System.Drawing.Point(20, 19);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(173, 26);
+            this.textBox1.Size = new System.Drawing.Size(173, 30);
             this.textBox1.TabIndex = 0;
             // 
             // dataGridView1
@@ -101,7 +101,7 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dataGridView1.Location = new System.Drawing.Point(104, 67);
+            this.dataGridView1.Location = new System.Drawing.Point(205, 128);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
@@ -152,16 +152,16 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(961, 449);
+            this.panel2.Size = new System.Drawing.Size(1162, 571);
             this.panel2.TabIndex = 3;
             // 
             // listpayment
             // 
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.ClientSize = new System.Drawing.Size(1162, 571);
             this.Controls.Add(this.panel2);
-            this.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Size = new System.Drawing.Size(961, 449);
+            this.Name = "listpayment";
             this.Text = "listpayment";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

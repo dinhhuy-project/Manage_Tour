@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Manage_tour.DbQueries;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,11 +16,21 @@ namespace Manage_tour
         public listbooked()
         {
             InitializeComponent();
+            loadData();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+        private void loadData()
+        {
+            // Xóa tất cả các dòng hiện tại trong DataGridView (nếu có)
+            dataGridView1.Rows.Clear();
+            foreach (object[] row in DatTourModel.selectAll())
+            {
+                dataGridView1.Rows.Add(row);
+            }
         }
     }
 }
