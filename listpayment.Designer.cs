@@ -65,7 +65,7 @@
             this.label1.Location = new System.Drawing.Point(498, 20);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(268, 29);
+            this.label1.Size = new System.Drawing.Size(215, 25);
             this.label1.TabIndex = 2;
             this.label1.Text = "Thông Tin Thanh Toán";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -87,7 +87,7 @@
             this.textBox1.Location = new System.Drawing.Point(20, 19);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(173, 30);
+            this.textBox1.Size = new System.Drawing.Size(173, 26);
             this.textBox1.TabIndex = 0;
             // 
             // dataGridView1
@@ -158,10 +158,10 @@
             // listpayment
             // 
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(1162, 571);
             this.Controls.Add(this.panel2);
+            this.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "listpayment";
+            this.Size = new System.Drawing.Size(1162, 571);
             this.Text = "listpayment";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

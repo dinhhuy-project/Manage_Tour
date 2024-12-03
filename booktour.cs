@@ -68,7 +68,6 @@ namespace Manage_tour
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.Hide();
             payment payment = new payment();
             payment.ShowDialog();
         }
