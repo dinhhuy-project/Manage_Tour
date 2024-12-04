@@ -37,10 +37,10 @@ namespace Manage_tour.DbQueries
             return DbQueries.Queries.Select(QUERY_SELECT_ALL);
         }
 
-        public static DatTourModel selectByKey(string id)
+        public static DatTourModel selectByKey(string id_mdt, string id_mt, string makh)
         {
             DatTourModel datTourModel = null;
-            foreach (object[] dataRow in DbQueries.Queries.Select(QUERY_SELECT_BY_KEY, id))
+            foreach (object[] dataRow in DbQueries.Queries.Select(QUERY_SELECT_BY_KEY, id_mdt, id_mt, makh))
             {
                 datTourModel = new DatTourModel(dataRow);
             }
@@ -109,6 +109,55 @@ namespace Manage_tour.DbQueries
             return DbQueries.Queries.Update(QUERY_DELETE_BY_KEY, id);
         }
 
+        public static bool IsMaDatTourExist(string ma_dat_tour)
+        {
+            bool exists = false;
+
+            
+            foreach (object[] dataRow in DbQueries.Queries.Select($"SELECT COUNT(*) FROM {TABLE} WHERE {FIELD_MA_DAT_TOUR} = @p1", ma_dat_tour))
+            {
+                int count = Convert.ToInt32(dataRow[0]); // Đọc giá trị đếm từ kết quả truy vấn
+                exists = count > 0; // Nếu số lượng lớn hơn 0, mã đặt tour tồn tại
+            }
+
+            return exists;
+        }
+        public static string GenerateMaDatTour()
+        {
+            string maDatTour;
+            int counter = 1; 
+
+            do
+            {
+                maDatTour = "DTour" + counter.ToString("D2"); 
+                counter++;
+            } while (IsMaDatTourExist(maDatTour)); // Kiểm tra xem mã đặt tour đã tồn tại chưa
+
+            return maDatTour; // Trả về mã đặt tour mới
+        }
+        public static bool UpdateTourStatus(string ma_dat_tour, string trang_thai)
+        {           
+            string sql = $"UPDATE {TABLE} SET {FIELD_TRANG_THAI} = @p1 WHERE {FIELD_MA_DAT_TOUR} = @p2";
+
+            try
+            {
+                int rowsAffected = DbQueries.Queries.Update(sql, trang_thai, ma_dat_tour);
+                return rowsAffected > 0; // Trả về true nếu cập nhật thành công
+            }
+            catch (Exception ex)
+            {
+                return false; // Trả về false nếu có lỗi
+            }
+        }
+        public static ArrayList SelectBySearchTerm(string searchTerm)
+        {
+            // Tạo truy vấn tìm kiếm
+            string sql = $"SELECT * FROM {TABLE} WHERE {FIELD_MA_DAT_TOUR} LIKE @p1 OR {FIELD_MA_TOUR} LIKE @p1 OR {FIELD_MA_KH} LIKE @p1";
+
+            // Thực hiện truy vấn và trả về kết quả
+            return DbQueries.Queries.Select(sql, "%" + searchTerm + "%");
+        }
+
         public static String TABLE = "DatTour";
         public static String FIELD_MA_DAT_TOUR = "ma_dat_tour";
         public static String FIELD_MA_TOUR = "ma_tour";
@@ -119,7 +168,7 @@ namespace Manage_tour.DbQueries
         public static String FIELD_TRANG_THAI = "trang_thai";
 
         public static String QUERY_SELECT_ALL = $"SELECT * FROM {TABLE}";
-        public static String QUERY_SELECT_BY_KEY = $"SELECT * FROM {TABLE} WHERE {FIELD_MA_DAT_TOUR} = @p1";
+        public static String QUERY_SELECT_BY_KEY = $"SELECT * FROM {TABLE} WHERE {FIELD_MA_DAT_TOUR} = @p1 AND {FIELD_MA_TOUR} = @p2 AND {FIELD_MA_KH} = @p3";
         public static String QUERY_INSERT = $"INSERT INTO {TABLE} ({FIELD_MA_DAT_TOUR}, {FIELD_MA_TOUR}, {FIELD_MA_KH}, {FIELD_NGAY_DAT}, {FIELD_SO_LUONG_NGUOI}, {FIELD_TONG_TIEN}, {FIELD_TRANG_THAI}) VALUES (@p1, @p2, @p3, CAST(@p4 AS DATE), @p5, @p6, @p7)";
         public static String QUERY_UPDATE_BY_KEY = $"UPDATE {TABLE} SET {FIELD_MA_TOUR}=@p1, {FIELD_MA_KH}=@p2, {FIELD_NGAY_DAT}=CAST(@p3 AS DATE), {FIELD_SO_LUONG_NGUOI}=@p4, {FIELD_TONG_TIEN}=@p5, {FIELD_TRANG_THAI}=@p6 WHERE {FIELD_MA_DAT_TOUR} = @p7";
         public static String QUERY_DELETE_BY_KEY = $"DELETE FROM {TABLE} WHERE {FIELD_MA_DAT_TOUR} = @p1";

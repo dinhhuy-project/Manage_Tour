@@ -33,10 +33,10 @@ namespace Manage_tour.DbQueries
             return DbQueries.Queries.Select(QUERY_SELECT_ALL);
         }
 
-        public static KhachHangModel selectByKey(string ma_kh)
+        public static KhachHangModel selectByKey(string id)
         {
             KhachHangModel khachHangModel = null;
-            foreach (object[] dataRow in DbQueries.Queries.Select(QUERY_SELECT_BY_KEY, ma_kh))
+            foreach (object[] dataRow in DbQueries.Queries.Select(QUERY_SELECT_BY_KEY, id))
             {
                 khachHangModel = new KhachHangModel(dataRow);
             }

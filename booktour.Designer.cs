@@ -1,4 +1,6 @@
-﻿namespace Manage_tour
+﻿using System.Windows.Forms;
+
+namespace Manage_tour
 {
     partial class booktour
     {
@@ -238,6 +240,8 @@
             this.textBox1.Size = new System.Drawing.Size(151, 30);
             this.textBox1.TabIndex = 1;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.KeyDown += new KeyEventHandler(this.textBox1_KeyDown);
+
             // 
             // label2
             // 

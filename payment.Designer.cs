@@ -31,23 +31,23 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label24 = new System.Windows.Forms.Label();
+            this.label_tongtien = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.label_nvphutrach = new System.Windows.Forms.Label();
+            this.label_ngaydat = new System.Windows.Forms.Label();
+            this.label_diachi = new System.Windows.Forms.Label();
+            this.label_cccd = new System.Windows.Forms.Label();
+            this.label_tenkhach = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.label_soluong = new System.Windows.Forms.Label();
+            this.label_gia = new System.Windows.Forms.Label();
+            this.label_tentour = new System.Windows.Forms.Label();
+            this.label_madt = new System.Windows.Forms.Label();
+            this.label_matt = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -103,23 +103,23 @@
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel2.BackColor = System.Drawing.Color.White;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Controls.Add(this.label24);
+            this.panel2.Controls.Add(this.label_tongtien);
             this.panel2.Controls.Add(this.label23);
-            this.panel2.Controls.Add(this.label22);
-            this.panel2.Controls.Add(this.label21);
-            this.panel2.Controls.Add(this.label20);
-            this.panel2.Controls.Add(this.label19);
-            this.panel2.Controls.Add(this.label18);
+            this.panel2.Controls.Add(this.label_nvphutrach);
+            this.panel2.Controls.Add(this.label_ngaydat);
+            this.panel2.Controls.Add(this.label_diachi);
+            this.panel2.Controls.Add(this.label_cccd);
+            this.panel2.Controls.Add(this.label_tenkhach);
             this.panel2.Controls.Add(this.label17);
             this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.label15);
             this.panel2.Controls.Add(this.label14);
             this.panel2.Controls.Add(this.label13);
-            this.panel2.Controls.Add(this.label12);
-            this.panel2.Controls.Add(this.label11);
-            this.panel2.Controls.Add(this.label10);
-            this.panel2.Controls.Add(this.label9);
-            this.panel2.Controls.Add(this.label8);
+            this.panel2.Controls.Add(this.label_soluong);
+            this.panel2.Controls.Add(this.label_gia);
+            this.panel2.Controls.Add(this.label_tentour);
+            this.panel2.Controls.Add(this.label_madt);
+            this.panel2.Controls.Add(this.label_matt);
             this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Controls.Add(this.label5);
@@ -132,16 +132,16 @@
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
-            // label24
+            // label_tongtien
             // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.Location = new System.Drawing.Point(778, 298);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(51, 22);
-            this.label24.TabIndex = 22;
-            this.label24.Text = "Total";
-            this.label24.Click += new System.EventHandler(this.label24_Click);
+            this.label_tongtien.AutoSize = true;
+            this.label_tongtien.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_tongtien.Location = new System.Drawing.Point(778, 298);
+            this.label_tongtien.Name = "label_tongtien";
+            this.label_tongtien.Size = new System.Drawing.Size(51, 22);
+            this.label_tongtien.TabIndex = 22;
+            this.label_tongtien.Text = "Total";
+            this.label_tongtien.Click += new System.EventHandler(this.label24_Click);
             // 
             // label23
             // 
@@ -153,55 +153,55 @@
             this.label23.TabIndex = 21;
             this.label23.Text = "Tổng Tiền   :";
             // 
-            // label22
+            // label_nvphutrach
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(794, 249);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(191, 22);
-            this.label22.TabIndex = 20;
-            this.label22.Text = "mã nhân vien hoặc tên";
+            this.label_nvphutrach.AutoSize = true;
+            this.label_nvphutrach.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nvphutrach.Location = new System.Drawing.Point(794, 249);
+            this.label_nvphutrach.Name = "label_nvphutrach";
+            this.label_nvphutrach.Size = new System.Drawing.Size(191, 22);
+            this.label_nvphutrach.TabIndex = 20;
+            this.label_nvphutrach.Text = "mã nhân vien hoặc tên";
             // 
-            // label21
+            // label_ngaydat
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.Location = new System.Drawing.Point(794, 205);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(79, 22);
-            this.label21.TabIndex = 19;
-            this.label21.Text = "ngày đặt";
+            this.label_ngaydat.AutoSize = true;
+            this.label_ngaydat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_ngaydat.Location = new System.Drawing.Point(794, 205);
+            this.label_ngaydat.Name = "label_ngaydat";
+            this.label_ngaydat.Size = new System.Drawing.Size(79, 22);
+            this.label_ngaydat.TabIndex = 19;
+            this.label_ngaydat.Text = "ngày đặt";
             // 
-            // label20
+            // label_diachi
             // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(794, 161);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(62, 22);
-            this.label20.TabIndex = 18;
-            this.label20.Text = "dia chỉ";
+            this.label_diachi.AutoSize = true;
+            this.label_diachi.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_diachi.Location = new System.Drawing.Point(794, 161);
+            this.label_diachi.Name = "label_diachi";
+            this.label_diachi.Size = new System.Drawing.Size(62, 22);
+            this.label_diachi.TabIndex = 18;
+            this.label_diachi.Text = "dia chỉ";
             // 
-            // label19
+            // label_cccd
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(794, 113);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(47, 22);
-            this.label19.TabIndex = 17;
-            this.label19.Text = "cccd";
+            this.label_cccd.AutoSize = true;
+            this.label_cccd.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_cccd.Location = new System.Drawing.Point(794, 113);
+            this.label_cccd.Name = "label_cccd";
+            this.label_cccd.Size = new System.Drawing.Size(47, 22);
+            this.label_cccd.TabIndex = 17;
+            this.label_cccd.Text = "cccd";
             // 
-            // label18
+            // label_tenkhach
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(794, 68);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(35, 22);
-            this.label18.TabIndex = 16;
-            this.label18.Text = "tên";
+            this.label_tenkhach.AutoSize = true;
+            this.label_tenkhach.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_tenkhach.Location = new System.Drawing.Point(794, 68);
+            this.label_tenkhach.Name = "label_tenkhach";
+            this.label_tenkhach.Size = new System.Drawing.Size(35, 22);
+            this.label_tenkhach.TabIndex = 16;
+            this.label_tenkhach.Text = "tên";
             // 
             // label17
             // 
@@ -256,56 +256,56 @@
             this.label13.TabIndex = 11;
             this.label13.Text = "Tên Khách                 :";
             // 
-            // label12
+            // label_soluong
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(286, 249);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(81, 22);
-            this.label12.TabIndex = 10;
-            this.label12.Text = "Só lượng";
-            this.label12.Click += new System.EventHandler(this.label12_Click);
+            this.label_soluong.AutoSize = true;
+            this.label_soluong.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_soluong.Location = new System.Drawing.Point(286, 249);
+            this.label_soluong.Name = "label_soluong";
+            this.label_soluong.Size = new System.Drawing.Size(81, 22);
+            this.label_soluong.TabIndex = 10;
+            this.label_soluong.Text = "Só lượng";
+            this.label_soluong.Click += new System.EventHandler(this.label12_Click);
             // 
-            // label11
+            // label_gia
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(286, 205);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(38, 22);
-            this.label11.TabIndex = 9;
-            this.label11.Text = "Giá";
+            this.label_gia.AutoSize = true;
+            this.label_gia.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_gia.Location = new System.Drawing.Point(286, 205);
+            this.label_gia.Name = "label_gia";
+            this.label_gia.Size = new System.Drawing.Size(38, 22);
+            this.label_gia.TabIndex = 9;
+            this.label_gia.Text = "Giá";
             // 
-            // label10
+            // label_tentour
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(286, 161);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(78, 22);
-            this.label10.TabIndex = 8;
-            this.label10.Text = "Tên tour";
+            this.label_tentour.AutoSize = true;
+            this.label_tentour.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_tentour.Location = new System.Drawing.Point(286, 161);
+            this.label_tentour.Name = "label_tentour";
+            this.label_tentour.Size = new System.Drawing.Size(78, 22);
+            this.label_tentour.TabIndex = 8;
+            this.label_tentour.Text = "Tên tour";
             // 
-            // label9
+            // label_madt
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(286, 113);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(100, 22);
-            this.label9.TabIndex = 7;
-            this.label9.Text = "Mã đặt tour";
+            this.label_madt.AutoSize = true;
+            this.label_madt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_madt.Location = new System.Drawing.Point(286, 113);
+            this.label_madt.Name = "label_madt";
+            this.label_madt.Size = new System.Drawing.Size(100, 22);
+            this.label_madt.TabIndex = 7;
+            this.label_madt.Text = "Mã đặt tour";
             // 
-            // label8
+            // label_matt
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(286, 68);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(124, 22);
-            this.label8.TabIndex = 6;
-            this.label8.Text = "Mã thanh toán";
+            this.label_matt.AutoSize = true;
+            this.label_matt.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_matt.Location = new System.Drawing.Point(286, 68);
+            this.label_matt.Name = "label_matt";
+            this.label_matt.Size = new System.Drawing.Size(124, 22);
+            this.label_matt.TabIndex = 6;
+            this.label_matt.Text = "Mã thanh toán";
             // 
             // label7
             // 
@@ -408,6 +408,7 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "Xác Nhận";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
@@ -563,23 +564,23 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.Label label_tongtien;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label_nvphutrach;
+        private System.Windows.Forms.Label label_ngaydat;
+        private System.Windows.Forms.Label label_diachi;
+        private System.Windows.Forms.Label label_cccd;
+        private System.Windows.Forms.Label label_tenkhach;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label_soluong;
+        private System.Windows.Forms.Label label_gia;
+        private System.Windows.Forms.Label label_tentour;
+        private System.Windows.Forms.Label label_madt;
+        private System.Windows.Forms.Label label_matt;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.SplitContainer splitContainer1;

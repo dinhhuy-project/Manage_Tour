@@ -80,6 +80,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -108,6 +109,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(754, 383);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Column1
             // 
@@ -158,10 +160,9 @@
             // listpayment
             // 
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(1162, 571);
             this.Controls.Add(this.panel2);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "listpayment";
+            this.Size = new System.Drawing.Size(1162, 571);
             this.Text = "listpayment";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

@@ -80,7 +80,41 @@ namespace Manage_tour.DbQueries
         {
             return DbQueries.Queries.Update(QUERY_DELETE_BY_KEY, id);
         }
+        public static bool IsMaThanhToanExist(string ma_thanh_toan)
+        {
+            bool exists = false;
 
+           
+            foreach (object[] dataRow in DbQueries.Queries.Select($"SELECT COUNT(*) FROM {TABLE} WHERE {FIELD_MA_THANH_TOAN} = @p1", ma_thanh_toan))
+            {
+                int count = Convert.ToInt32(dataRow[0]); // Đọc giá trị đếm từ kết quả truy vấn
+                exists = count > 0; // Nếu số lượng lớn hơn 0, mã đặt tour tồn tại
+            }
+
+            return exists;
+        }
+        public static string GenerateMaThanhToan()
+        {
+            string ma_thanh_toan;
+            int counter = 1; 
+
+            do
+            {
+                ma_thanh_toan = "TT" + counter.ToString("D2"); 
+                counter++; 
+            } while (IsMaThanhToanExist(ma_thanh_toan)); // Kiểm tra xem mã thanhtoan đã tồn tại chưa
+
+            return ma_thanh_toan; // Trả về mã thanhtoan mới
+        }
+
+        public static ArrayList SelectBySearchTerm(string searchTerm)
+        {
+            // Tạo truy vấn tìm kiếm
+            string sql = $"SELECT * FROM {TABLE} WHERE {FIELD_MA_THANH_TOAN} LIKE @p1 OR {FIELD_MA_DAT_TOUR} LIKE @p1";
+
+            // Thực hiện truy vấn và trả về kết quả
+            return DbQueries.Queries.Select(sql, "%" + searchTerm + "%");
+        }
         public static string TABLE = "ThanhToan";
         public static string FIELD_MA_THANH_TOAN = "ma_thanh_toan";
         public static string FIELD_MA_DAT_TOUR = "ma_dat_tour";

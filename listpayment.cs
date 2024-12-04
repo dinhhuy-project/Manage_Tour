@@ -33,5 +33,35 @@ namespace Manage_tour
             }
         }
 
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string searchTerm = textBox1.Text.Trim();
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                // Tìm kiếm theo mã đặt tour, mã tour hoặc mã khách hàng
+                LoadData_search(searchTerm);
+            }
+            else
+            {
+                // Nếu không có từ khóa tìm kiếm, tải lại tất cả dữ liệu
+                loadData();
+            }
+        }
+        private void LoadData_search(string searchTerm)
+        {
+            // Xóa tất cả các dòng hiện tại trong DataGridView (nếu có)
+            dataGridView1.Rows.Clear();
+
+            // Lấy dữ liệu từ cơ sở dữ liệu theo từ khóa tìm kiếm
+            foreach (object[] row in ThanhToanModel.SelectBySearchTerm(searchTerm))
+            {
+                dataGridView1.Rows.Add(row);
+            }
+        }
     }
 }
