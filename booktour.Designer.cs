@@ -1,4 +1,6 @@
-﻿namespace Manage_tour
+﻿using System.Windows.Forms;
+
+namespace Manage_tour
 {
     partial class booktour
     {
@@ -41,12 +43,12 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_makh = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.button_xacnhan = new System.Windows.Forms.Button();
+            this.button_cancel = new System.Windows.Forms.Button();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -118,15 +120,15 @@
             this.splitContainer1.Panel1.Controls.Add(this.textBox5);
             this.splitContainer1.Panel1.Controls.Add(this.textBox2);
             this.splitContainer1.Panel1.Controls.Add(this.textBox3);
-            this.splitContainer1.Panel1.Controls.Add(this.textBox1);
+            this.splitContainer1.Panel1.Controls.Add(this.textBox_makh);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.label13);
             this.splitContainer1.Panel2.Controls.Add(this.label12);
-            this.splitContainer1.Panel2.Controls.Add(this.button2);
-            this.splitContainer1.Panel2.Controls.Add(this.button1);
+            this.splitContainer1.Panel2.Controls.Add(this.button_xacnhan);
+            this.splitContainer1.Panel2.Controls.Add(this.button_cancel);
             this.splitContainer1.Panel2.Controls.Add(this.numericUpDown1);
             this.splitContainer1.Panel2.Controls.Add(this.label11);
             this.splitContainer1.Panel2.Controls.Add(this.label10);
@@ -229,16 +231,17 @@
             this.textBox3.Size = new System.Drawing.Size(151, 30);
             this.textBox3.TabIndex = 3;
             // 
-            // textBox1
+            // textBox_makh
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(151, 40);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(151, 30);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            this.textBox1.KeyDown += new System.Windows.Forms.KeyEventHandler(textBox1_KeyDown);
+            this.textBox_makh.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox_makh.Location = new System.Drawing.Point(151, 40);
+            this.textBox_makh.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox_makh.Name = "textBox_makh";
+            this.textBox_makh.Size = new System.Drawing.Size(151, 30);
+            this.textBox_makh.TabIndex = 1;
+            this.textBox_makh.TextChanged += new System.EventHandler(this.textBox_makh_TextChanged);
+            this.textBox_makh.KeyDown += new KeyEventHandler(this.textBox_makh_KeyDown);
+
             // 
             // label2
             // 
@@ -273,31 +276,31 @@
             this.label12.TabIndex = 7;
             this.label12.Text = "Tổng Tiền : ";
             // 
-            // button2
+            // button_xacnhan
             // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(239, 174);
-            this.button2.Margin = new System.Windows.Forms.Padding(2);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(111, 38);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Xác Nhận";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.button_xacnhan.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_xacnhan.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_xacnhan.Location = new System.Drawing.Point(239, 174);
+            this.button_xacnhan.Margin = new System.Windows.Forms.Padding(2);
+            this.button_xacnhan.Name = "button_xacnhan";
+            this.button_xacnhan.Size = new System.Drawing.Size(111, 38);
+            this.button_xacnhan.TabIndex = 6;
+            this.button_xacnhan.Text = "Xác Nhận";
+            this.button_xacnhan.UseVisualStyleBackColor = true;
+            this.button_xacnhan.Click += new System.EventHandler(this.button_xacnhan_Click);
             // 
-            // button1
+            // button_cancel
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(48, 177);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(111, 38);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Hủy";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button_cancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button_cancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_cancel.Location = new System.Drawing.Point(48, 177);
+            this.button_cancel.Margin = new System.Windows.Forms.Padding(2);
+            this.button_cancel.Name = "button_cancel";
+            this.button_cancel.Size = new System.Drawing.Size(111, 38);
+            this.button_cancel.TabIndex = 5;
+            this.button_cancel.Text = "Hủy";
+            this.button_cancel.UseVisualStyleBackColor = true;
+            this.button_cancel.Click += new System.EventHandler(this.button_cancel_Click);
             // 
             // numericUpDown1
             // 
@@ -425,7 +428,7 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_makh;
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.TextBox textBox3;
@@ -440,8 +443,8 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button_cancel;
+        private System.Windows.Forms.Button button_xacnhan;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView dataGridView1;

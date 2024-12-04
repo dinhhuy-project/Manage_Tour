@@ -37,7 +37,7 @@ namespace Manage_tour
 
         }
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
+        private void accountIcon_Paint(object sender, PaintEventArgs e)
         {
            
         }
@@ -47,7 +47,7 @@ namespace Manage_tour
 
         }
         private bool isPanelVisible = false; //theo doi bam chuot
-        private void panel2_Click(object sender, EventArgs e)
+        private void accountIcon_Click(object sender, EventArgs e)
         {
             // bam de hien thi thongtintaikhoan
             isPanelVisible = !isPanelVisible;

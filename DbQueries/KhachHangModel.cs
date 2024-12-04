@@ -33,10 +33,14 @@ namespace Manage_tour.DbQueries
             return DbQueries.Queries.Select(QUERY_SELECT_ALL);
         }
 
-        public static KhachHangModel selectByKey(string ma_kh)
+        public static ArrayList selectLikeKey(string id)
+        {
+            return DbQueries.Queries.Select(QUERY_SELECT_LIKE_KEY, '%' + id + '%');
+        }
+        public static KhachHangModel selectByKey(string id)
         {
             KhachHangModel khachHangModel = null;
-            foreach (object[] dataRow in DbQueries.Queries.Select(QUERY_SELECT_BY_KEY, ma_kh))
+            foreach (object[] dataRow in DbQueries.Queries.Select(QUERY_SELECT_BY_KEY, id))
             {
                 khachHangModel = new KhachHangModel(dataRow);
             }
@@ -89,7 +93,7 @@ namespace Manage_tour.DbQueries
         public static String QUERY_INSERT = $"INSERT INTO {TABLE} ({FIELD_MA_KH}, {FIELD_TEN_KH}, {FIELD_SDT}, {FIELD_CCCD}, {FIELD_DIA_CHI}) VALUES (@p1, @p2, @p3, @p4, @p5)";
         public static String QUERY_UPDATE_BY_KEY = $"UPDATE {TABLE} SET {FIELD_TEN_KH}=@p1, {FIELD_SDT}=@p2, {FIELD_CCCD}=@p3, {FIELD_DIA_CHI}=@p4 WHERE {FIELD_MA_KH} = @p5";
         public static String QUERY_DELETE_BY_KEY = $"DELETE FROM {TABLE} WHERE {FIELD_MA_KH} = @p1";
-
+        public static String QUERY_SELECT_LIKE_KEY = $"SELECT * FROM {TABLE} WHERE {FIELD_MA_KH} LIKE @p1 OR {FIELD_CCCD} LIKE @p1";
         public string ma_kh { get; set; }  
         public string ten_kh { get; set; }  
         public string sdt { get; set; }  

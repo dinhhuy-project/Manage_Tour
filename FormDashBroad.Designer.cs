@@ -35,7 +35,8 @@ namespace Manage_tour
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.logOutIcon = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.accountIcon = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.bookTourButton = new System.Windows.Forms.Button();
             this.listPaymentButton = new System.Windows.Forms.Button();
@@ -59,7 +60,6 @@ namespace Manage_tour
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -75,7 +75,7 @@ namespace Manage_tour
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.logOutIcon);
-            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.accountIcon);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
@@ -120,19 +120,19 @@ namespace Manage_tour
             this.logOutIcon.TabIndex = 3;
             this.logOutIcon.Click += new System.EventHandler(this.logOutIcon_Click);
             // 
-            // panel2
+            // accountIcon
             // 
-            this.panel2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.panel2.BackgroundImage = global::Manage_tour.Properties.Resources.account;
-            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.panel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.panel2.Location = new System.Drawing.Point(1131, 19);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(35, 36);
-            this.panel2.TabIndex = 2;
-            this.panel2.Click += new System.EventHandler(this.panel2_Click);
+            this.accountIcon.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.accountIcon.BackgroundImage = global::Manage_tour.Properties.Resources.user_thi;
+            this.accountIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.accountIcon.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.accountIcon.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.accountIcon.Location = new System.Drawing.Point(1131, 19);
+            this.accountIcon.Margin = new System.Windows.Forms.Padding(2);
+            this.accountIcon.Name = "accountIcon";
+            this.accountIcon.Size = new System.Drawing.Size(35, 36);
+            this.accountIcon.TabIndex = 2;
+            this.accountIcon.Click += new System.EventHandler(this.accountIcon_Click);
             // 
             // splitContainer1
             // 
@@ -466,15 +466,13 @@ namespace Manage_tour
             // 
             // label4
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Image = global::Manage_tour.Properties.Resources.account;
+            this.label4.BackgroundImage = global::Manage_tour.Properties.Resources.user_thi;
+            this.label4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.label4.Location = new System.Drawing.Point(22, 32);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label4.Margin = new System.Windows.Forms.Padding(2);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(50, 55);
+            this.label4.Size = new System.Drawing.Size(40, 41);
             this.label4.TabIndex = 1;
-            this.label4.Text = "  ";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
@@ -516,7 +514,8 @@ namespace Manage_tour
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel accountIcon;
+        private System.Windows.Forms.Panel label4;
         private System.Windows.Forms.Panel logOutIcon;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel4;
@@ -534,7 +533,6 @@ namespace Manage_tour
         private System.Windows.Forms.Button customerButton;
         private System.Windows.Forms.Panel panel_thontintaikhoan;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label7;

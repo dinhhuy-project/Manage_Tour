@@ -34,6 +34,10 @@ namespace Manage_tour.DbQueries
             return DbQueries.Queries.Select(QUERY_SELECT_ALL);
         }
 
+        public static ArrayList selectLikeKey(string id)
+        {
+            return DbQueries.Queries.Select(QUERY_SELECT_LIKE_KEY, '%' + id + '%');
+        }
         public static ThanhToanModel selectByKey(string id)
         {
             ThanhToanModel thanhToan = null;
@@ -80,7 +84,34 @@ namespace Manage_tour.DbQueries
         {
             return DbQueries.Queries.Update(QUERY_DELETE_BY_KEY, id);
         }
+        public static bool IsMaThanhToanExist(string ma_thanh_toan)
+        {
+            bool exists = false;
 
+           
+            foreach (object[] dataRow in DbQueries.Queries.Select($"SELECT COUNT(*) FROM {TABLE} WHERE {FIELD_MA_THANH_TOAN} = @p1", ma_thanh_toan))
+            {
+                int count = Convert.ToInt32(dataRow[0]); // Đọc giá trị đếm từ kết quả truy vấn
+                exists = count > 0; // Nếu số lượng lớn hơn 0, mã đặt tour tồn tại
+            }
+
+            return exists;
+        }
+        public static string GenerateMaThanhToan()
+        {
+            string ma_thanh_toan;
+            int counter = 1; 
+
+            do
+            {
+                ma_thanh_toan = "TT" + counter.ToString("D2"); 
+                counter++; 
+            } while (IsMaThanhToanExist(ma_thanh_toan)); // Kiểm tra xem mã thanhtoan đã tồn tại chưa
+
+            return ma_thanh_toan; // Trả về mã thanhtoan mới
+        }
+
+        
         public static string TABLE = "ThanhToan";
         public static string FIELD_MA_THANH_TOAN = "ma_thanh_toan";
         public static string FIELD_MA_DAT_TOUR = "ma_dat_tour";
@@ -93,7 +124,8 @@ namespace Manage_tour.DbQueries
         public static string QUERY_INSERT = $"INSERT INTO {TABLE} ({FIELD_MA_THANH_TOAN}, {FIELD_MA_DAT_TOUR}, {FIELD_NGAY_THANH_TOAN}, {FIELD_HINH_THUC}, {FIELD_TONG_TIEN}) VALUES (@p1, @p2, @p3, @p4, @p5)";
         public static string QUERY_UPDATE_BY_KEY = $"UPDATE {TABLE} SET {FIELD_MA_DAT_TOUR}=@p1, {FIELD_NGAY_THANH_TOAN}=@p2, {FIELD_HINH_THUC}=@p3, {FIELD_TONG_TIEN}=@p4 WHERE {FIELD_MA_THANH_TOAN} = @p5";
         public static string QUERY_DELETE_BY_KEY = $"DELETE FROM {TABLE} WHERE {FIELD_MA_THANH_TOAN} = @p1";
-    public string ma_thanh_toan { get; set; } 
+        public static String QUERY_SELECT_LIKE_KEY = $"SELECT * FROM {TABLE} WHERE {FIELD_MA_THANH_TOAN} LIKE @p1 OR {FIELD_MA_DAT_TOUR} LIKE @p1";
+        public string ma_thanh_toan { get; set; } 
         public string ma_dat_tour { get; set; } 
         public DateTime ngay_thanh_toan { get; set; }  
         public string hinh_thuc { get; set; }  

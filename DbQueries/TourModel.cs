@@ -49,7 +49,7 @@ namespace Manage_tour.DbQueries
         }
         public static ArrayList selectLikeKey(string id)
         {
-            return DbQueries.Queries.Select(QUERY_SELECT_LIKE_KEY, '%'+id+'%', '%'+id+'%');
+            return DbQueries.Queries.Select(QUERY_SELECT_LIKE_KEY, '%'+id+'%');
         }
         public static int insert(TourModel tourModel)
         {
@@ -93,7 +93,7 @@ namespace Manage_tour.DbQueries
         public static String QUERY_INSERT = $"INSERT INTO {TABLE} ({FIELD_MA_TOUR}, {FIELD_TEN_TOUR}, {FIELD_GIA}, {FIELD_NGAYBD}, {FIELD_NGAYKT}) VALUES (@p1, @p2, @p3, @p4, @p5)";
         public static String QUERY_UPDATE_BY_KEY = $"UPDATE {TABLE} SET {FIELD_TEN_TOUR}=@p1, {FIELD_GIA}=@p2, {FIELD_NGAYBD}=@p3, {FIELD_NGAYKT}=@p4 WHERE {FIELD_MA_TOUR} = @p5";
         public static String QUERY_DELETE_BY_KEY = $"DELETE FROM {TABLE} WHERE {FIELD_MA_TOUR} = @p1";
-        public static String QUERY_SELECT_LIKE_KEY = $"SELECT * FROM {TABLE} WHERE {FIELD_MA_TOUR} LIKE @p1 OR {FIELD_TEN_TOUR} LIKE @p2";
+        public static String QUERY_SELECT_LIKE_KEY = $"SELECT * FROM {TABLE} WHERE {FIELD_MA_TOUR} LIKE @p1 OR {FIELD_TEN_TOUR} LIKE @p1";
 
         public string ma_tour { get; set; }
         public string ten_tour { get; set; }

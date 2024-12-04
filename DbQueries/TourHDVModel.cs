@@ -28,6 +28,10 @@ namespace Manage_tour.DbQueries
             return DbQueries.Queries.Select(QUERY_SELECT_ALL);
         }
 
+        public static ArrayList selectLikeKey(string id)
+        {
+            return DbQueries.Queries.Select(QUERY_SELECT_LIKE_KEY, '%' + id + '%');
+        }
         public static TourHDVModel selectByKey(string id)
         {
             TourHDVModel tourHdv = null;
@@ -72,6 +76,7 @@ namespace Manage_tour.DbQueries
         public static string QUERY_INSERT = $"INSERT INTO {TABLE} ({FIELD_MA_TOUR}, {FIELD_MA_HDV}) VALUES (@p1, @p2)";
         public static string QUERY_UPDATE_BY_KEY = $"UPDATE {TABLE} SET {FIELD_MA_HDV}=@p1 WHERE {FIELD_MA_TOUR} = @p2";
         public static string QUERY_DELETE_BY_KEY = $"DELETE FROM {TABLE} WHERE {FIELD_MA_TOUR} = @p1";
+        public static String QUERY_SELECT_LIKE_KEY = $"SELECT * FROM {TABLE} WHERE {FIELD_MA_TOUR} LIKE @p1 OR {FIELD_MA_HDV} LIKE @p1";
         public string ma_tour { get; set; }  
         public string ma_hdv { get; set; }  
     }

@@ -33,6 +33,10 @@ namespace Manage_tour.DbQueries
             return DbQueries.Queries.Select(QUERY_SELECT_ALL);
         }
 
+        public static ArrayList selectLikeKey(string id)
+        {
+            return DbQueries.Queries.Select(QUERY_SELECT_LIKE_KEY, '%' + id + '%');
+        }
         public static HuongDanVienModel selectByKey(string id)
         {
             HuongDanVienModel huongDanVienModel = null;
@@ -109,7 +113,7 @@ namespace Manage_tour.DbQueries
         public static String QUERY_INSERT = $"INSERT INTO {TABLE} ({FIELD_MA_HDV}, {FIELD_FULL_NAME}, {FIELD_CCCD}, {FIELD_SDT}, {FIELD_DIA_CHI}) VALUES (@p1, @p2, @p3, @p4, @p5)";
         public static String QUERY_UPDATE_BY_KEY = $"UPDATE {TABLE} SET {FIELD_FULL_NAME}=@p1, {FIELD_CCCD}=@p2, {FIELD_SDT}=@p3, {FIELD_DIA_CHI}=@p4 WHERE {FIELD_MA_HDV} = @p5";
         public static String QUERY_DELETE_BY_KEY = $"DELETE FROM {TABLE} WHERE {FIELD_MA_HDV} = @p1";
-
+        public static String QUERY_SELECT_LIKE_KEY = $"SELECT * FROM {TABLE} WHERE {FIELD_MA_HDV} LIKE @p1 OR {FIELD_CCCD} LIKE @p1";
 
         public string ma_hdv { get; set; }
         public string full_name { get; set; }

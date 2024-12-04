@@ -29,6 +29,10 @@ namespace Manage_tour.DbQueries
             return DbQueries.Queries.Select(QUERY_SELECT_ALL);
         }
 
+        public static ArrayList selectLikeKey(string id)
+        {
+            return DbQueries.Queries.Select(QUERY_SELECT_LIKE_KEY, '%' + id + '%');
+        }
         public static DiemThamQuanModel selectByKey(string id)
         {
             DiemThamQuanModel diemThamQuanModel = null;
@@ -95,7 +99,7 @@ namespace Manage_tour.DbQueries
         public static String QUERY_INSERT = $"INSERT INTO {TABLE} ({FIELD_MA_DIEM_THAM_QUAN}, {FIELD_TEN_DIA_DIEM}, {FIELD_DIA_CHI}) VALUES (@p1, @p2, @p3)";
         public static String QUERY_UPDATE_BY_KEY = $"UPDATE {TABLE} SET {FIELD_TEN_DIA_DIEM}=@p1, {FIELD_DIA_CHI}=@p2 WHERE {FIELD_MA_DIEM_THAM_QUAN} = @p3";
         public static String QUERY_DELETE_BY_KEY = $"DELETE FROM {TABLE} WHERE {FIELD_MA_DIEM_THAM_QUAN} = @p1";
-
+        public static String QUERY_SELECT_LIKE_KEY = $"SELECT * FROM {TABLE} WHERE {FIELD_MA_DIEM_THAM_QUAN} LIKE @p1 OR {FIELD_TEN_DIA_DIEM} LIKE @p1";
         public string ma_diem_tham_quan { get; set; }  
         public string ten_dia_diem { get; set; }  
         public string dia_chi { get; set; }  
