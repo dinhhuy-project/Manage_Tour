@@ -51,7 +51,7 @@
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Location = new System.Drawing.Point(104, 2);
+            this.panel1.Location = new System.Drawing.Point(205, 63);
             this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(754, 62);
@@ -80,6 +80,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Search";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
@@ -101,13 +102,14 @@
             this.Column3,
             this.Column4,
             this.Column5});
-            this.dataGridView1.Location = new System.Drawing.Point(104, 67);
+            this.dataGridView1.Location = new System.Drawing.Point(205, 128);
             this.dataGridView1.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(754, 383);
             this.dataGridView1.TabIndex = 2;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // Column1
             // 
@@ -152,7 +154,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(961, 449);
+            this.panel2.Size = new System.Drawing.Size(1162, 571);
             this.panel2.TabIndex = 3;
             // 
             // listpayment
@@ -161,7 +163,7 @@
             this.Controls.Add(this.panel2);
             this.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Size = new System.Drawing.Size(961, 449);
+            this.Size = new System.Drawing.Size(1162, 571);
             this.Text = "listpayment";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

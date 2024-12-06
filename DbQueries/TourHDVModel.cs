@@ -10,17 +10,20 @@ namespace Manage_tour.DbQueries
 {
     public class TourHDVModel
     {
-        public TourHDVModel(SqlDataReader reader)
-        {
-            ma_tour = reader["ma_tour"].ToString();  
-            ma_hdv = reader["ma_hdv"].ToString();  
-        }
-
         public TourHDVModel(object[] dataRow)
         {
             ma_tour = dataRow[0].ToString();
             ma_hdv = dataRow[1].ToString();
         }
+
+<<<<<<< HEAD
+        public TourHDVModel(object[] dataRow)
+        {
+            ma_tour = dataRow[0].ToString();
+            ma_hdv = dataRow[1].ToString();
+        }
+=======
+>>>>>>> 1ee6b95ec52f249d2710167586f7f753c5beed07
 
         public TourHDVModel(string Ma_tour, string Ma_hdv)
         {
@@ -28,12 +31,16 @@ namespace Manage_tour.DbQueries
             ma_hdv = Ma_hdv;
         }
 
+<<<<<<< HEAD
         // Phương thức selectAll để lấy toàn bộ dữ liệu
+=======
+>>>>>>> 1ee6b95ec52f249d2710167586f7f753c5beed07
         public static ArrayList selectAll()
         {
             return DbQueries.Queries.Select(QUERY_SELECT_ALL);
         }
 
+<<<<<<< HEAD
         // Phương thức selectByKey để lấy dữ liệu theo khóa
         public static TourHDVModel selectByKey(string maTour, string maHDV)
         {
@@ -93,6 +100,57 @@ namespace Manage_tour.DbQueries
         public static string QUERY_DELETE_BY_KEY = $"DELETE FROM {TABLE} WHERE {FIELD_MA_TOUR} = @p1 AND {FIELD_MA_HDV} = @p2";
 
 
+=======
+        public static ArrayList selectLikeKey(string id)
+        {
+            return DbQueries.Queries.Select(QUERY_SELECT_LIKE_KEY, '%' + id + '%');
+        }
+        public static TourHDVModel selectByKey(string id)
+        {
+            TourHDVModel tourHdv = null;
+            var dataRows = DbQueries.Queries.Select(QUERY_SELECT_BY_KEY, id);
+
+            foreach (object[] dataRow in dataRows)
+            {
+                tourHdv = new TourHDVModel(dataRow);
+            }
+
+            return tourHdv;
+        }
+
+        public static int insert(TourHDVModel tourHdv)
+        {
+            int result = DbQueries.Queries.Update(QUERY_INSERT, tourHdv.ma_tour, tourHdv.ma_hdv);
+            return result;
+        }
+
+        public static int update(TourHDVModel tourHdv)
+        {
+            int result = DbQueries.Queries.Update(QUERY_UPDATE_BY_KEY, tourHdv.ma_hdv, tourHdv.ma_tour);
+            return result;
+        }
+
+        public static int delete(TourHDVModel tourHdv)
+        {
+            return DbQueries.Queries.Update(QUERY_DELETE_BY_KEY, tourHdv.ma_tour);
+        }
+
+        public static int delete(string id)
+        {
+            return DbQueries.Queries.Update(QUERY_DELETE_BY_KEY, id);
+        }
+
+        public static string TABLE = "TourHdv";
+        public static string FIELD_MA_TOUR = "ma_tour";
+        public static string FIELD_MA_HDV = "ma_hdv";
+
+        public static string QUERY_SELECT_ALL = $"SELECT * FROM {TABLE}";
+        public static string QUERY_SELECT_BY_KEY = $"SELECT * FROM {TABLE} WHERE {FIELD_MA_TOUR} = @p1";
+        public static string QUERY_INSERT = $"INSERT INTO {TABLE} ({FIELD_MA_TOUR}, {FIELD_MA_HDV}) VALUES (@p1, @p2)";
+        public static string QUERY_UPDATE_BY_KEY = $"UPDATE {TABLE} SET {FIELD_MA_HDV}=@p1 WHERE {FIELD_MA_TOUR} = @p2";
+        public static string QUERY_DELETE_BY_KEY = $"DELETE FROM {TABLE} WHERE {FIELD_MA_TOUR} = @p1";
+        public static String QUERY_SELECT_LIKE_KEY = $"SELECT * FROM {TABLE} WHERE {FIELD_MA_TOUR} LIKE @p1 OR {FIELD_MA_HDV} LIKE @p1";
+>>>>>>> 1ee6b95ec52f249d2710167586f7f753c5beed07
         public string ma_tour { get; set; }  
         public string ma_hdv { get; set; }  
     }
