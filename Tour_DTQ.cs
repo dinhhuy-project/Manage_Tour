@@ -9,6 +9,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Manage_tour.DbQueries;
 
 namespace Manage_tour
 {
@@ -19,10 +20,10 @@ namespace Manage_tour
         public Tour_DTQ()
         {
             InitializeComponent();
-            //LoadData();
             dataGridView2.ClearSelection();
             // Đăng ký sự kiện CellClick
             dataGridView2.CellClick += dataGridView2_CellClick;
+            loadDataTourDTQ();
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -34,14 +35,26 @@ namespace Manage_tour
 
                 // Lấy mã tour từ cột ma_tour
                 string tourId = row.Cells["TourID1"].Value?.ToString();
-
+                string DTQId=row.Cells["DTQID1"].Value?.ToString();
                 if (!string.IsNullOrEmpty(tourId))
                 {
                     // Gọi phương thức EditTour để tải dữ liệu chi tiết
-                    //EditTourDTQ(tourId);
+                    isEditMode = true;
+                    EditTourDTQ(tourId, DTQId);
                 }
             }
         }
+
+        private void EditTourDTQ(String tourId, String DTQId)
+        {
+            TourDTQModel TourDTQ=TourDTQModel.selectByKey(tourId,DTQId);
+
+            txtTourID.Text = TourDTQ.ma_tour;
+            txtDTQ.Text=TourDTQ.ma_diem_tham_quan;
+
+            txtTourID.Enabled=false;
+        }
+
         private void Tour_DTQ_Load(object sender, EventArgs e)
         {
 
@@ -68,17 +81,26 @@ namespace Manage_tour
             // Kiểm tra trạng thái để thực hiện Add hoặc Update
             if (isEditMode)
             {
-                //UpdateTourDTQ(); // Cập nhật tour
+                UpdateTourDTQ(); // Cập nhật tour
             }
             else
             {
-                //AddTourDTQ(TourID, DTQID); // Thêm mới tour
+                AddTourDTQ(TourID, DTQID); // Thêm mới tour
             }
 
             isEditMode = false;
             txtTourID.Enabled = true;
             ClearInputFields();
-            
+            loadDataTourDTQ();
+        }
+
+        private void UpdateTourDTQ()
+        {
+            TourDTQModel.update(txtDTQ.Text, txtTourID.Text);
+        }
+        private void AddTourDTQ(String TourID, String DTQID)
+        {
+            TourDTQModel.insert(TourID, DTQID);
         }
 
         private void ClearInputFields()
@@ -124,6 +146,8 @@ namespace Manage_tour
         {
             ClearInputFields();
             txtTourID.Enabled = true;
+            isEditMode = false;
+            loadDataTourDTQ();
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -133,7 +157,7 @@ namespace Manage_tour
             {
                 // Lấy thông tin từ hàng được chọn
                 string tourId = dataGridView2.Rows[e.RowIndex].Cells["TourID1"].Value.ToString();
-
+                string DTQid = dataGridView2.Rows[e.RowIndex].Cells["DTQID1"].Value.ToString();
                 // Xác nhận xoá
                 var confirmResult = MessageBox.Show("Are you sure to delete this item?", "Confirm Delete",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
@@ -141,14 +165,31 @@ namespace Manage_tour
                 if (confirmResult == DialogResult.Yes)
                 {
                     // Gọi hàm xoá
-                    //DeleteTour(tourId);
+                    MessageBox.Show($"{DeleteTourDTQ(tourId, DTQid)} tourDTQ(s) deleted", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+        }
+
+        private int DeleteTourDTQ(string tourId, string DTQid)
+        {
+            int rowAffected = TourDTQModel.delete(tourId, DTQid);
+            loadDataTourDTQ();
+            return rowAffected;
         }
 
         private void txtKeyword_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void loadDataTourDTQ()
+        {
+            // Xóa tất cả các dòng hiện tại trong DataGridView (nếu có)
+            dataGridView2.Rows.Clear();
+            foreach (object[] row in TourDTQModel.selectAll())
+            {
+                dataGridView2.Rows.Add(row);
+            }
         }
     }
 }

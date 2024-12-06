@@ -10,6 +10,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Manage_tour.DbQueries;
 
 namespace Manage_tour
 {
@@ -21,7 +22,7 @@ namespace Manage_tour
             InitializeComponent();
             tableLayoutPanel1.Visible = false;
             AdjustDataGridView();
-            //LoadData();
+            loadDataKh();
             dataGridView1.ClearSelection();
         }
 
@@ -58,10 +59,10 @@ namespace Manage_tour
             if (dataGridView1.Columns["Edit"] != null && e.ColumnIndex == dataGridView1.Columns["Edit"].Index && e.RowIndex >= 0)
             {
                 // Lấy thông tin dòng hiện tại
-                string ID = dataGridView1.Rows[e.RowIndex].Cells["CustomerID"].Value.ToString();
+                string KhID = dataGridView1.Rows[e.RowIndex].Cells["CustomerID"].Value.ToString();
 
                 // Gọi hàm để xử lý sửa
-                //EditCustomer(ID);
+                EditCustomer(KhID);
             }
 
             // Kiểm tra nếu cột là "Xoá"
@@ -72,6 +73,7 @@ namespace Manage_tour
 
                 // Gọi hàm để xử lý xoá
                 //DeleteCustomer(ID);
+                MessageBox.Show($"{DeleteCustomer(ID)} customer(s) deleted", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
 
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -79,7 +81,40 @@ namespace Manage_tour
             dataGridView1.RowHeadersVisible = false;
         }
 
- 
+        private int DeleteCustomer(string id)
+        {
+            int rowAffected = KhachHangModel.delete(id);
+            loadDataKh();
+            return rowAffected;
+        }
+
+        private void EditCustomer(string KhId)
+        {
+            tableLayoutPanel1.Visible = true;
+            AdjustDataGridView();
+            isEditMode = true;
+            KhachHangModel kh = KhachHangModel.selectByKey(KhId);
+            // Điền thông tin vào các trường nhập liệu
+            txtCustomerID.Text = kh.ma_kh;
+            txtCustomerName.Text = kh.ten_kh;
+            txtPhoneNumber.Text = kh.sdt;
+            txtCCCD.Text = kh.cccd;
+            txtAddress.Text = kh.dia_chi;
+
+            // Vô hiệu hóa trường TourID để không cho phép thay đổi
+            txtCustomerID.Enabled = false;
+        }
+
+        private void loadDataKh()
+        {
+            // Xóa tất cả các dòng hiện tại trong DataGridView (nếu có)
+            dataGridView1.Rows.Clear();
+            foreach (object[] row in KhachHangModel.selectAll())
+            {
+                dataGridView1.Rows.Add(row);
+            }
+        }
+
         private void ClearInputFields()
         {
             txtCustomerID.Text = string.Empty;
@@ -108,7 +143,7 @@ namespace Manage_tour
             }
 
             // Cập nhật vị trí nút Add dựa trên DataGridView
-            ADD.Top = dataGridView1.Bottom + 5; // Cách DataGridView 10px
+            ADD.Top = dataGridView1.Bottom + 5; 
 
             ClearInputFields();
         }
@@ -129,12 +164,12 @@ namespace Manage_tour
 
             if (isEditMode)
             {
-                //UpdateCustomer();
+                UpdateCustomer();
                 AdjustDataGridView();
             }
             else
             {
-                //AddCustomer(ID, CustomerName, PhoneNumber, CCCD, Address);
+                AddCustomer(ID, CustomerName, PhoneNumber, CCCD, Address);
             }
 
             isEditMode = false;
@@ -142,7 +177,17 @@ namespace Manage_tour
             ClearInputFields();
             tableLayoutPanel1.Visible = false;
             AdjustDataGridView();
+            loadDataKh();
         }
+        private void UpdateCustomer()
+        {
+            KhachHangModel.update(txtCustomerName.Text, txtPhoneNumber.Text, txtCCCD.Text, txtAddress.Text, txtCustomerID.Text);
+        }
+        private void AddCustomer(String ID, String CustomerName,String PhoneNumber, String CCCD,String Address)
+        {
+            KhachHangModel.insert(ID, CustomerName, PhoneNumber, CCCD, Address);
+        }
+
 
         private void Search_Click(object sender, EventArgs e)
         {
@@ -156,6 +201,7 @@ namespace Manage_tour
 
             //SearchCustomer(keyword);
         }
+
 
         private void ADD_Click_1(object sender, EventArgs e)
         {

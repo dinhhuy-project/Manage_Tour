@@ -51,7 +51,7 @@ namespace Manage_tour.DbQueries
         {
             int result = DbQueries.Queries.Update(QUERY_INSERT, tourModel.ma_tour, tourModel.ten_tour, tourModel.gia, tourModel.ngay_bd, tourModel.ngay_kt);
             return result;
-        }
+        }   
         public static int insert(string ma_tour, string ten_tour, float gia, DateTime ngay_bd, DateTime ngay_kt)
         {
             int result = DbQueries.Queries.Update(QUERY_INSERT, ma_tour, ten_tour, gia, ngay_bd, ngay_kt);

@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Manage_tour.DbQueries;
 
 namespace Manage_tour
 {
@@ -18,7 +19,7 @@ namespace Manage_tour
         public Tour_HDV()
         {
             InitializeComponent();
-            //LoadData();
+            loadDataTourHDV();
             dataGridView2.ClearSelection();
             // Đăng ký sự kiện CellClick
             dataGridView2.CellClick += dataGridView2_CellClick;
@@ -34,13 +35,24 @@ namespace Manage_tour
 
                 // Lấy mã tour từ cột ma_tour
                 string tourId = row.Cells["TourID1"].Value?.ToString();
+                string hdvId = row.Cells["GuideID1"].Value?.ToString();
 
                 if (!string.IsNullOrEmpty(tourId))
                 {
-                    // Gọi phương thức EditTour để tải dữ liệu chi tiết
-                    //EditTourHDV(tourId);
+                    isEditMode=true;
+                    EditTourHDV(tourId,hdvId);
                 }
             }
+        }
+
+        private void EditTourHDV(String tourId, String hdvId)
+        {
+            TourHDVModel TourHDV = TourHDVModel.selectByKey(tourId, hdvId);
+
+            txtTourID.Text = TourHDV.ma_tour;
+            txtGuideID.Text = TourHDV.ma_hdv;
+
+            txtTourID.Enabled = false;
         }
 
         private void splitContainer1_Panel1_Paint(object sender, PaintEventArgs e)
@@ -79,17 +91,26 @@ namespace Manage_tour
             // Kiểm tra trạng thái để thực hiện Add hoặc Update
             if (isEditMode)
             {
-                //UpdateTourHDV(); // Cập nhật tour
+                UpdateTourHDV(); // Cập nhật tour
             }
             else
             {
-                //AddTourHDV(TourID, GuideID); // Thêm mới tour
+                AddTourHDV(TourID, GuideID); // Thêm mới tour
             }
 
             isEditMode = false;
             txtTourID.Enabled = true;
             ClearInputFields();
+            loadDataTourHDV();
+        }
 
+        private void UpdateTourHDV()
+        {
+            TourHDVModel.update(txtGuideID.Text, txtTourID.Text);
+        }
+        private void AddTourHDV(String TourID, String GuideID)
+        {
+            TourHDVModel.insert(TourID, GuideID);
         }
 
         private void ClearInputFields()
@@ -114,7 +135,8 @@ namespace Manage_tour
         {
             ClearInputFields();
             txtTourID.Enabled = true;
-            //LoadData();
+            isEditMode = false;
+            loadDataTourHDV();
         }
 
         private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -124,16 +146,32 @@ namespace Manage_tour
             {
                 // Lấy thông tin từ hàng được chọn
                 string tourId = dataGridView2.Rows[e.RowIndex].Cells["TourID1"].Value.ToString();
-
+                string GuideId = dataGridView2.Rows[e.RowIndex].Cells["GuideID1"].Value.ToString();
                 // Xác nhận xoá
                 var confirmResult = MessageBox.Show("Are you sure to delete this item?", "Confirm Delete",
                     MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
                 if (confirmResult == DialogResult.Yes)
                 {
-                    // Gọi hàm xoá
-                    //DeleteTourHDV(tourId);
+                    MessageBox.Show($"{DeleteTourHDV(tourId, GuideId)} tourDTQ(s) deleted", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
+            }
+        }
+
+        private int DeleteTourHDV(string tourId, string GuideId)
+        {
+            int rowAffected = TourHDVModel.delete(tourId, GuideId);
+            loadDataTourHDV();
+            return rowAffected;
+        }
+
+        private void loadDataTourHDV()
+        {
+            // Xóa tất cả các dòng hiện tại trong DataGridView (nếu có)
+            dataGridView2.Rows.Clear();
+            foreach (object[] row in TourHDVModel.selectAll())
+            {
+                dataGridView2.Rows.Add(row);
             }
         }
     }

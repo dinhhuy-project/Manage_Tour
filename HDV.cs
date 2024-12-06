@@ -5,9 +5,11 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Manage_tour.DbQueries;
 
 namespace Manage_tour
 {
@@ -25,7 +27,7 @@ namespace Manage_tour
             dataGridViewHDV.CellContentClick += dataGridViewHDV_CellContentClick;
         }
 
-        
+
 
         private void SearchHDV_Click(object sender, EventArgs e)
         {
@@ -50,7 +52,7 @@ namespace Manage_tour
 
                 // Gọi hàm để xử lý sửa
 
-                //EditHDV(GuideID);
+                EditHDV(GuideID);
             }
 
             // Kiểm tra nếu cột là "Xoá"
@@ -59,21 +61,30 @@ namespace Manage_tour
                 // Lấy thông tin dòng hiện tại
                 string GuideID = dataGridViewHDV.Rows[e.RowIndex].Cells["GuideID"].Value.ToString();
 
-                DialogResult result = MessageBox.Show("Are you sure you want to delete this attraction?",
-                         "Delete Confirmation",
-                         MessageBoxButtons.YesNo,
-                         MessageBoxIcon.Warning);
-
-
-                if (result == DialogResult.Yes)
-                {
-                    //DeleteHDV(GuideID);
-                }
+                MessageBox.Show($"{DeleteHDV(GuideID)} Guide(s) deleted", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
 
             }
 
         }
+
+        private void EditHDV(String GuideID)
+        {
+            tableLayoutPanel1.Visible = true;
+            AdjustDataGridView();
+            isEditMode = true;
+            HuongDanVienModel HDV = HuongDanVienModel.selectByKey(GuideID);
+
+            txtGuideID.Text = HDV.ma_hdv;
+            txtFullName.Text = HDV.full_name;
+            txtCCCD.Text = HDV.cccd;
+            //txtPhoneNumber.Text = HDV.sdt;
+            //txtAddress.Text = HDV.diachi;
+
+            txtGuideID.Enabled = false;
+        }
+
+
         private void AdjustDataGridView()
         {
             // Tính toán chiều cao khả dụng cho DataGridView
@@ -102,6 +113,8 @@ namespace Manage_tour
             txtGuideID.Text = String.Empty;
             txtFullName.Text = String.Empty;
             txtCCCD.Text = String.Empty;
+            //txtPhoneNumber.Text = String.Empty;
+            //txtAddress.Text = String.Empty;
         }
 
         private void Cancel_Click(object sender, EventArgs e)
@@ -115,7 +128,8 @@ namespace Manage_tour
             String GuideID = txtGuideID.Text;
             String FullName = txtFullName.Text;
             String CCCD = txtCCCD.Text;
-
+            //String PhoneNumber = txtPhoneNumber.Text;
+            //String Address = txtAddress.Text;
 
             if (string.IsNullOrEmpty(GuideID) || string.IsNullOrEmpty(FullName) || string.IsNullOrEmpty(CCCD))
             {
@@ -132,7 +146,7 @@ namespace Manage_tour
             }
             else
             {
-                //AddHDV(GuideID, FullName, CCCD); // Thêm mới tour
+               // AddHDV(GuideID, FullName, CCCD, PhoneNumber, Address); // Thêm mới tour
             }
 
             isEditMode = false;
@@ -140,8 +154,35 @@ namespace Manage_tour
             ClearInputFields();
             tableLayoutPanel1.Visible = false;
             AdjustDataGridView();
+
         }
 
+        //private void UpdateHDV()
+        //{
+        //    HuongDanVienModel.update(txtFullName.Text, txtCCCD.Text, txtPhoneNumber, txtAddress, txtGuideID.Text);
+        //}
+        //private void AddHDV(String GuideID, String FullName, String CCCD, String PhoneNumber, String Address)
+        //{
+        //    HuongDanVienModel.insert(GuideID, FullName, CCCD, PhoneNumber, Address);
+        //}
+
+
+        private int DeleteHDV(string id)
+        {
+            int rowAffected = HuongDanVienModel.delete(id);
+            loadData();
+            return rowAffected;
+        }
+
+        private void loadData()
+        {
+            // Xóa tất cả các dòng hiện tại trong DataGridView (nếu có)
+            dataGridViewHDV.Rows.Clear();
+            foreach (object[] row in HuongDanVienModel.selectAll())
+            {
+                dataGridViewHDV.Rows.Add(row);
+            }
+        }
         private void ADD_Click(object sender, EventArgs e)
         {
             tableLayoutPanel1.Visible = true;

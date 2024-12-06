@@ -9,6 +9,7 @@ using System.Runtime.InteropServices.ComTypes;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Manage_tour.DbQueries;
 
 namespace Manage_tour
 {
@@ -21,7 +22,7 @@ namespace Manage_tour
             InitializeComponent();
             tableLayoutPanel1.Visible = false;
             AdjustDataGridView();
-            //LoadData();
+            loadDataDTQ();
             dataGridViewDTQ.ClearSelection();
         }
 
@@ -53,7 +54,7 @@ namespace Manage_tour
 
                 // Gọi hàm để xử lý sửa
 
-                //EditDTQ(DTQID);
+                EditDTQ(DTQID);
             }
 
             // Kiểm tra nếu cột là "Xoá"
@@ -62,22 +63,27 @@ namespace Manage_tour
                 // Lấy thông tin dòng hiện tại
                 string DTQID = dataGridViewDTQ.Rows[e.RowIndex].Cells["DTQID"].Value.ToString();
 
-                DialogResult result = MessageBox.Show("Are you sure you want to delete this attraction?",
-                         "Delete Confirmation",
-                         MessageBoxButtons.YesNo,
-                         MessageBoxIcon.Warning);
+                MessageBox.Show($"{DeleteTour(DTQID)} DTQ deleted", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
 
-
-                if (result == DialogResult.Yes)
-                {
-                    //DeleteDTQ(DTQID);
-                }
-                
                 
             }
 
             if (e.RowIndex < 0) return;
 
+        }
+
+        private void EditDTQ(string DTQID)
+        {
+            tableLayoutPanel1.Visible = true;
+            AdjustDataGridView();
+            isEditMode = true;
+            DiemThamQuanModel DTQ= DiemThamQuanModel.selectByKey(DTQID);
+
+            txtDTQID.Text = DTQ.ma_diem_tham_quan;
+            txtDTQName.Text= DTQ.ten_dia_diem;
+            txtAddress.Text = DTQ.dia_chi;
+
+            txtDTQID.Enabled = false;
         }
 
         private void AdjustDataGridView()
@@ -133,12 +139,12 @@ namespace Manage_tour
             // Kiểm tra trạng thái để thực hiện Add hoặc Update
             if (isEditMode)
             {
-                //UpdateDTQ(); // Cập nhật tour
+                UpdateDTQ(); // Cập nhật tour
                 AdjustDataGridView();
             }
             else
             {
-                //AddDTQ(DTQID, DTQName, Address); // Thêm mới tour
+                AddDTQ(DTQID, DTQName, Address); // Thêm mới tour
             }
 
             isEditMode = false;
@@ -146,6 +152,34 @@ namespace Manage_tour
             ClearInputFields();
             tableLayoutPanel1.Visible = false;
             AdjustDataGridView();
+            loadDataDTQ();
+        }
+
+        private void UpdateDTQ()
+        {
+            DiemThamQuanModel.update(txtDTQName.Text, txtAddress.Text, txtDTQID.Text);
+        }
+
+        private void AddDTQ(String DTQID, String DTQName, String Address)
+        {
+            DiemThamQuanModel.insert(DTQID, DTQName, Address);
+        }
+
+        private int DeleteTour(string idDTQ)
+        {
+            int rowAffected = DiemThamQuanModel.delete(idDTQ);
+            loadDataDTQ();
+            return rowAffected;
+        }
+
+        private void loadDataDTQ()
+        {
+            // Xóa tất cả các dòng hiện tại trong DataGridView (nếu có)
+            dataGridViewDTQ.Rows.Clear();
+            foreach (object[] row in DiemThamQuanModel.selectAll())
+            {
+                dataGridViewDTQ.Rows.Add(row);
+            }
         }
         private void ADD_Click(object sender, EventArgs e)
         {
@@ -156,6 +190,31 @@ namespace Manage_tour
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void dataGridViewDTQ_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            // Kiểm tra nếu cột là "Sửa"
+            if (dataGridViewDTQ.Columns["Edit"] != null && e.ColumnIndex == dataGridViewDTQ.Columns["Edit"].Index && e.RowIndex >= 0)
+            {
+                // Lấy thông tin dòng hiện tại
+                string DTQID = dataGridViewDTQ.Rows[e.RowIndex].Cells["DTQID"].Value.ToString();
+
+                // Gọi hàm để xử lý sửa
+
+                EditDTQ(DTQID);
+            }
+
+            // Kiểm tra nếu cột là "Xoá"
+            if (dataGridViewDTQ.Columns["Del"] != null && e.ColumnIndex == dataGridViewDTQ.Columns["Del"].Index && e.RowIndex >= 0)
+            {
+                // Lấy thông tin dòng hiện tại
+                string DTQID = dataGridViewDTQ.Rows[e.RowIndex].Cells["DTQID"].Value.ToString();
+
+                MessageBox.Show($"{DeleteTour(DTQID)} DTQ deleted", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+
+            }
         }
     }
 }
