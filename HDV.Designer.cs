@@ -35,6 +35,10 @@
             this.Cancel = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtFullName = new System.Windows.Forms.TextBox();
             this.txtCCCD = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -66,9 +70,9 @@
             this.panel1.Controls.Add(this.SearchHDV);
             this.panel1.Controls.Add(this.ADD);
             this.panel1.Controls.Add(this.dataGridViewHDV);
-            this.panel1.Location = new System.Drawing.Point(1, 2);
+            this.panel1.Location = new System.Drawing.Point(374, 37);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(739, 555);
+            this.panel1.Size = new System.Drawing.Size(739, 614);
             this.panel1.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -85,7 +89,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 68.86793F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 31.13208F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(736, 104);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(736, 163);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
             // Cancel
@@ -93,7 +97,7 @@
             this.Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Cancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.Cancel.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Cancel.Location = new System.Drawing.Point(499, 74);
+            this.Cancel.Location = new System.Drawing.Point(499, 124);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(75, 27);
             this.Cancel.TabIndex = 9;
@@ -106,7 +110,7 @@
             this.Save.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.Save.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.Save.Font = new System.Drawing.Font("Times New Roman", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Save.Location = new System.Drawing.Point(130, 74);
+            this.Save.Location = new System.Drawing.Point(130, 124);
             this.Save.Name = "Save";
             this.Save.Size = new System.Drawing.Size(77, 27);
             this.Save.TabIndex = 8;
@@ -117,6 +121,10 @@
             // groupBox1
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.groupBox1, 2);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtFullName);
             this.groupBox1.Controls.Add(this.txtCCCD);
             this.groupBox1.Controls.Add(this.label5);
@@ -126,10 +134,46 @@
             this.groupBox1.Font = new System.Drawing.Font("Times New Roman", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(730, 63);
+            this.groupBox1.Size = new System.Drawing.Size(730, 106);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Guide information";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox2.Location = new System.Drawing.Point(394, 71);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(124, 26);
+            this.textBox2.TabIndex = 19;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(316, 74);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(60, 19);
+            this.label4.TabIndex = 18;
+            this.label4.Text = "Address";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(116, 71);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(124, 26);
+            this.textBox1.TabIndex = 17;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(9, 74);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 19);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Phone Number";
             // 
             // txtFullName
             // 
@@ -189,7 +233,7 @@
             // 
             this.txtSearch.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.txtSearch.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSearch.Location = new System.Drawing.Point(238, 9);
+            this.txtSearch.Location = new System.Drawing.Point(238, 18);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(239, 26);
             this.txtSearch.TabIndex = 3;
@@ -200,7 +244,7 @@
             this.SearchHDV.BackColor = System.Drawing.Color.MediumTurquoise;
             this.SearchHDV.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.SearchHDV.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SearchHDV.Location = new System.Drawing.Point(483, 7);
+            this.SearchHDV.Location = new System.Drawing.Point(483, 18);
             this.SearchHDV.Name = "SearchHDV";
             this.SearchHDV.Size = new System.Drawing.Size(75, 28);
             this.SearchHDV.TabIndex = 2;
@@ -213,7 +257,7 @@
             this.ADD.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.ADD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.ADD.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.ADD.Location = new System.Drawing.Point(683, 406);
+            this.ADD.Location = new System.Drawing.Point(684, 419);
             this.ADD.Name = "ADD";
             this.ADD.Size = new System.Drawing.Size(52, 26);
             this.ADD.TabIndex = 1;
@@ -255,7 +299,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridViewHDV.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewHDV.GridColor = System.Drawing.Color.Teal;
-            this.dataGridViewHDV.Location = new System.Drawing.Point(0, 50);
+            this.dataGridViewHDV.Location = new System.Drawing.Point(0, 63);
             this.dataGridViewHDV.MultiSelect = false;
             this.dataGridViewHDV.Name = "dataGridViewHDV";
             this.dataGridViewHDV.ReadOnly = true;
@@ -320,7 +364,7 @@
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.Controls.Add(this.panel1);
             this.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Size = new System.Drawing.Size(740, 565);
+            this.Size = new System.Drawing.Size(1516, 705);
             this.Text = "HDV";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -356,5 +400,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewImageColumn Del;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label4;
     }
 }

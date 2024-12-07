@@ -11,11 +11,7 @@ namespace Manage_tour.DbQueries
     internal class DbConnection
     {
         //sửa db ở đây để kết nối
-<<<<<<< HEAD
-        private readonly string _connectionString = "Data Source=DESKTOP-C2UG3F0\\SQLEXPRESS01;Initial Catalog=dulich_thi;Persist Security Info=True;User ID=sa;Password=123";
-=======
-        private readonly string _connectionString = "Data Source=DIEN-DIEN\\SQLEXPRESS;Initial Catalog=dulich_thi;Persist Security Info=True;User ID=sa;Password=123";
->>>>>>> 1ee6b95ec52f249d2710167586f7f753c5beed07
+        private readonly string _connectionString = "Data Source=IKIENKINZERO\\SQLEXPRESS;Initial Catalog=dulich_thi;Persist Security Info=True;User ID=sa;Password=123456";
         public SqlConnection connection;
         public DbConnection() 
         {

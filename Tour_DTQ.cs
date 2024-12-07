@@ -47,11 +47,7 @@ namespace Manage_tour
 
         private void EditTourDTQ(String tourId, String DTQId)
         {
-            TourDTQModel TourDTQ=TourDTQModel.selectByKey(tourId,DTQId);
-
-            txtTourID.Text = TourDTQ.ma_tour;
-            txtDTQ.Text=TourDTQ.ma_diem_tham_quan;
-
+            TourDTQModel.update(tourId,DTQId);
             txtTourID.Enabled=false;
         }
 
@@ -172,7 +168,7 @@ namespace Manage_tour
 
         private int DeleteTourDTQ(string tourId, string DTQid)
         {
-            int rowAffected = TourDTQModel.delete(tourId, DTQid);
+            int rowAffected = TourDTQModel.delete(tourId);
             loadDataTourDTQ();
             return rowAffected;
         }

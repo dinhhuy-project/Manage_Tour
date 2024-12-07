@@ -47,11 +47,7 @@ namespace Manage_tour
 
         private void EditTourHDV(String tourId, String hdvId)
         {
-            TourHDVModel TourHDV = TourHDVModel.selectByKey(tourId, hdvId);
-
-            txtTourID.Text = TourHDV.ma_tour;
-            txtGuideID.Text = TourHDV.ma_hdv;
-
+            TourHDVModel.update(tourId,hdvId);
             txtTourID.Enabled = false;
         }
 
@@ -160,7 +156,7 @@ namespace Manage_tour
 
         private int DeleteTourHDV(string tourId, string GuideId)
         {
-            int rowAffected = TourHDVModel.delete(tourId, GuideId);
+            int rowAffected = TourHDVModel.delete(tourId);
             loadDataTourHDV();
             return rowAffected;
         }
