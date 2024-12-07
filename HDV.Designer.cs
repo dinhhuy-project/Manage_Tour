@@ -35,9 +35,9 @@
             this.Cancel = new System.Windows.Forms.Button();
             this.Save = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txtAddress = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtFullName = new System.Windows.Forms.TextBox();
             this.txtCCCD = new System.Windows.Forms.TextBox();
@@ -70,7 +70,7 @@
             this.panel1.Controls.Add(this.SearchHDV);
             this.panel1.Controls.Add(this.ADD);
             this.panel1.Controls.Add(this.dataGridViewHDV);
-            this.panel1.Location = new System.Drawing.Point(374, 37);
+            this.panel1.Location = new System.Drawing.Point(7, 23);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(739, 614);
             this.panel1.TabIndex = 2;
@@ -121,9 +121,9 @@
             // groupBox1
             // 
             this.tableLayoutPanel1.SetColumnSpan(this.groupBox1, 2);
-            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.txtAddress);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.txtPhoneNumber);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.txtFullName);
             this.groupBox1.Controls.Add(this.txtCCCD);
@@ -139,13 +139,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Guide information";
             // 
-            // textBox2
+            // txtAddress
             // 
-            this.textBox2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(394, 71);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(124, 26);
-            this.textBox2.TabIndex = 19;
+            this.txtAddress.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtAddress.Location = new System.Drawing.Point(394, 71);
+            this.txtAddress.Name = "txtAddress";
+            this.txtAddress.Size = new System.Drawing.Size(124, 26);
+            this.txtAddress.TabIndex = 19;
             // 
             // label4
             // 
@@ -157,13 +157,13 @@
             this.label4.TabIndex = 18;
             this.label4.Text = "Address";
             // 
-            // textBox1
+            // txtPhoneNumber
             // 
-            this.textBox1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(116, 71);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(124, 26);
-            this.textBox1.TabIndex = 17;
+            this.txtPhoneNumber.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPhoneNumber.Location = new System.Drawing.Point(116, 71);
+            this.txtPhoneNumber.Name = "txtPhoneNumber";
+            this.txtPhoneNumber.Size = new System.Drawing.Size(124, 26);
+            this.txtPhoneNumber.TabIndex = 17;
             // 
             // label2
             // 
@@ -306,7 +306,7 @@
             this.dataGridViewHDV.RowHeadersVisible = false;
             this.dataGridViewHDV.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewHDV.ShowEditingIcon = false;
-            this.dataGridViewHDV.Size = new System.Drawing.Size(739, 350);
+            this.dataGridViewHDV.Size = new System.Drawing.Size(736, 350);
             this.dataGridViewHDV.TabIndex = 0;
             // 
             // GuideID
@@ -362,9 +362,9 @@
             // HDV
             // 
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.ClientSize = new System.Drawing.Size(758, 641);
             this.Controls.Add(this.panel1);
-            this.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Size = new System.Drawing.Size(1516, 705);
+            this.Name = "HDV";
             this.Text = "HDV";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
@@ -400,9 +400,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Address;
         private System.Windows.Forms.DataGridViewImageColumn Del;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtPhoneNumber;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txtAddress;
         private System.Windows.Forms.Label label4;
     }
 }

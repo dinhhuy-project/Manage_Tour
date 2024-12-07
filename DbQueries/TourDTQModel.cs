@@ -32,10 +32,10 @@ namespace Manage_tour.DbQueries
         {
             return DbQueries.Queries.Select(QUERY_SELECT_LIKE_KEY, '%' + id + '%');
         }
-        public static TourDTQModel selectByKey(string id)
+        public static TourDTQModel selectByKey(string id, string idDTQ)
         {
             TourDTQModel tourDTQ = null;
-            var dataRows = DbQueries.Queries.Select(QUERY_SELECT_BY_KEY, id);
+            var dataRows = DbQueries.Queries.Select(QUERY_SELECT_BY_KEY, id , idDTQ);
 
             foreach (object[] dataRow in dataRows)
             {
@@ -65,32 +65,32 @@ namespace Manage_tour.DbQueries
             return result;
         }
 
-        public static int update(string ma_diem_tham_quan, string ma_tour)
+        public static int update(string ma_diem_tham_quan_new, string ma_tour , string ma_diem_tham_quan)
         {
-            int result = DbQueries.Queries.Update(QUERY_UPDATE_BY_KEY, ma_diem_tham_quan, ma_tour);
+            int result = DbQueries.Queries.Update(QUERY_UPDATE_BY_KEY, ma_diem_tham_quan_new, ma_tour, ma_diem_tham_quan);
             return result;
         }
 
         public static int delete(TourDTQModel tourDTQ)
         {
-            return DbQueries.Queries.Update(QUERY_DELETE_BY_KEY, tourDTQ.ma_tour);
+            return DbQueries.Queries.Update(QUERY_DELETE_BY_KEY, tourDTQ.ma_tour , tourDTQ.ma_diem_tham_quan);
         }
 
-        public static int delete(string id)
+        public static int delete(string id, string idDTQ)
         {
-            return DbQueries.Queries.Update(QUERY_DELETE_BY_KEY, id);
+            return DbQueries.Queries.Update(QUERY_DELETE_BY_KEY, id, idDTQ);
         }
 
-        public static string TABLE = "TourDTQ";
+        public static string TABLE = "Tour_DiemThamQuan";
         public static string FIELD_MA_TOUR = "ma_tour";
         public static string FIELD_MA_DIEM_THAM_QUAN = "ma_diem_tham_quan";
 
 
         public static string QUERY_SELECT_ALL = $"SELECT * FROM {TABLE}";
-        public static string QUERY_SELECT_BY_KEY = $"SELECT * FROM {TABLE} WHERE {FIELD_MA_TOUR} = @p1";
+        public static string QUERY_SELECT_BY_KEY = $"SELECT * FROM {TABLE} WHERE {FIELD_MA_TOUR} = @p1 AND {FIELD_MA_DIEM_THAM_QUAN}=@p2";
         public static string QUERY_INSERT = $"INSERT INTO {TABLE} ({FIELD_MA_TOUR}, {FIELD_MA_DIEM_THAM_QUAN}) VALUES (@p1, @p2)";
-        public static string QUERY_UPDATE_BY_KEY = $"UPDATE {TABLE} SET {FIELD_MA_DIEM_THAM_QUAN}=@p1 WHERE {FIELD_MA_TOUR} = @p2";
-        public static string QUERY_DELETE_BY_KEY = $"DELETE FROM {TABLE} WHERE {FIELD_MA_TOUR} = @p1";
+        public static string QUERY_UPDATE_BY_KEY = $"UPDATE {TABLE} SET {FIELD_MA_DIEM_THAM_QUAN}=@p1 WHERE {FIELD_MA_TOUR} = @p2 AND {FIELD_MA_DIEM_THAM_QUAN}=@p3";
+        public static string QUERY_DELETE_BY_KEY = $"DELETE FROM {TABLE} WHERE {FIELD_MA_TOUR} = @p1 AND {FIELD_MA_DIEM_THAM_QUAN}=@p2" ;
         public static String QUERY_SELECT_LIKE_KEY = $"SELECT * FROM {TABLE} WHERE {FIELD_MA_TOUR} LIKE @p1 OR {FIELD_MA_DIEM_THAM_QUAN} LIKE @p1";
         public string ma_tour { get; set; }  
         public string ma_diem_tham_quan { get; set; }  

@@ -199,7 +199,17 @@ namespace Manage_tour
                 return;
             }
 
-            //SearchCustomer(keyword);
+            SearchCustomer(keyword);
+        }
+
+        private void SearchCustomer(string keyword)
+        {
+            // Xóa tất cả các dòng hiện tại trong DataGridView (nếu có)
+            dataGridView1.Rows.Clear();
+            foreach (object[] row in KhachHangModel.selectLikeKey(keyword))
+            {
+                dataGridView1.Rows.Add(row);
+            }
         }
 
 

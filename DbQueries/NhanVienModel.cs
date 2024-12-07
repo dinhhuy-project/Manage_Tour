@@ -45,6 +45,11 @@ namespace Manage_tour.DbQueries
             return DbQueries.Queries.Select(QUERY_SELECT_ALL);
         }
 
+        public static ArrayList selectLikeKey(string id)
+        {
+            return DbQueries.Queries.Select(QUERY_SELECT_LIKE_KEY, '%' + id + '%');
+        }
+
         // Phương thức tìm kiếm nhân viên theo ID
         public static NhanVienModel selectByKey(string id)
         {
@@ -111,19 +116,20 @@ namespace Manage_tour.DbQueries
         }
 
         // Các biến liên quan đến bảng và truy vấn SQL
-        public static string TABLE = "NhanVien";
-        public static string FIELD_ID = "id";
-        public static string FIELD_FULL_NAME = "full_name";
-        public static string FIELD_CCCD = "cccd";
-        public static string FIELD_EMAIL = "email";
-        public static string FIELD_PASSWORD = "pass_word";
-        public static string FIELD_CHUC_VU = "chuc_vu";
+        public static String TABLE = "NhanVien";
+        public static String FIELD_ID = "id";
+        public static String FIELD_FULL_NAME = "full_name";
+        public static String FIELD_CCCD = "cccd";
+        public static String FIELD_EMAIL = "email";
+        public static String FIELD_PASSWORD = "pass_word";
+        public static String FIELD_CHUC_VU = "chuc_vu";
 
-        public static string QUERY_SELECT_ALL = $"SELECT * FROM {TABLE}";
-        public static string QUERY_SELECT_BY_KEY = $"SELECT * FROM {TABLE} WHERE {FIELD_ID} = @p1";
-        public static string QUERY_INSERT = $"INSERT INTO {TABLE} ({FIELD_ID}, {FIELD_FULL_NAME}, {FIELD_CCCD}, {FIELD_EMAIL}, {FIELD_PASSWORD}, {FIELD_CHUC_VU}) VALUES (@p1, @p2, @p3, @p4, @p5, @p6)";
-        public static string QUERY_UPDATE_BY_KEY = $"UPDATE {TABLE} SET {FIELD_FULL_NAME}=@p1, {FIELD_CCCD}=@p2, {FIELD_EMAIL}=@p3, {FIELD_CHUC_VU}=@p4 WHERE {FIELD_ID}=@p5";
-        public static string QUERY_DELETE_BY_KEY = $"DELETE FROM {TABLE} WHERE {FIELD_ID}=@p1";
+        public static String QUERY_SELECT_ALL = $"SELECT * FROM {TABLE}";
+        public static String QUERY_SELECT_BY_KEY = $"SELECT * FROM {TABLE} WHERE {FIELD_ID} = @p1";
+        public static String QUERY_INSERT = $"INSERT INTO {TABLE} ({FIELD_ID}, {FIELD_FULL_NAME}, {FIELD_CCCD}, {FIELD_EMAIL}, {FIELD_PASSWORD}, {FIELD_CHUC_VU}) VALUES (@p1, @p2, @p3, @p4, @p5, @p6)";
+        public static String QUERY_UPDATE_BY_KEY = $"UPDATE {TABLE} SET {FIELD_FULL_NAME}=@p1, {FIELD_CCCD}=@p2, {FIELD_EMAIL}=@p3, {FIELD_CHUC_VU}=@p4 WHERE {FIELD_ID}=@p5";
+        public static String QUERY_DELETE_BY_KEY = $"DELETE FROM {TABLE} WHERE {FIELD_ID}=@p1";
+        public static String QUERY_SELECT_LIKE_KEY = $"SELECT * FROM {TABLE} WHERE {FIELD_ID} LIKE @p1 OR {FIELD_FULL_NAME} LIKE @p1 OR {FIELD_CCCD} LIKE @p1";
 
 
         public string id { get; set; }

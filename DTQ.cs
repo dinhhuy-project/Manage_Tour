@@ -36,7 +36,17 @@ namespace Manage_tour
                 return;
             }
 
-            //Search(keyword);
+            Search(keyword);
+        }
+
+        private void Search(string keyword)
+        {
+            // Xóa tất cả các dòng hiện tại trong DataGridView (nếu có)
+            dataGridViewDTQ.Rows.Clear();
+            foreach (object[] row in DiemThamQuanModel.selectLikeKey(keyword))
+            {
+                dataGridViewDTQ.Rows.Add(row);
+            }
         }
 
         private void txtSearch_TextChanged(object sender, EventArgs e)

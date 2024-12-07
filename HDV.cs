@@ -22,7 +22,7 @@ namespace Manage_tour
             InitializeComponent();
             tableLayoutPanel1.Visible = false;
             AdjustDataGridView();
-            //LoadData();
+            loadData();
             dataGridViewHDV.ClearSelection();
             dataGridViewHDV.CellContentClick += dataGridViewHDV_CellContentClick;
         }
@@ -39,7 +39,17 @@ namespace Manage_tour
                 return;
             }
 
-            //Search(keyword);
+            Search(keyword);
+        }
+
+        private void Search(string keyword)
+        {
+            // Xóa tất cả các dòng hiện tại trong DataGridView (nếu có)
+            dataGridViewHDV.Rows.Clear();
+            foreach (object[] row in HuongDanVienModel.selectLikeKey(keyword))
+            {
+                dataGridViewHDV.Rows.Add(row);
+            }
         }
 
         private void dataGridViewHDV_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -78,8 +88,8 @@ namespace Manage_tour
             txtGuideID.Text = HDV.ma_hdv;
             txtFullName.Text = HDV.full_name;
             txtCCCD.Text = HDV.cccd;
-            //txtPhoneNumber.Text = HDV.sdt;
-            //txtAddress.Text = HDV.diachi;
+            txtPhoneNumber.Text = HDV.sdt;
+            txtAddress.Text = HDV.diachi;
 
             txtGuideID.Enabled = false;
         }
@@ -113,8 +123,8 @@ namespace Manage_tour
             txtGuideID.Text = String.Empty;
             txtFullName.Text = String.Empty;
             txtCCCD.Text = String.Empty;
-            //txtPhoneNumber.Text = String.Empty;
-            //txtAddress.Text = String.Empty;
+            txtPhoneNumber.Text = String.Empty;
+            txtAddress.Text = String.Empty;
         }
 
         private void Cancel_Click(object sender, EventArgs e)
@@ -128,8 +138,8 @@ namespace Manage_tour
             String GuideID = txtGuideID.Text;
             String FullName = txtFullName.Text;
             String CCCD = txtCCCD.Text;
-            //String PhoneNumber = txtPhoneNumber.Text;
-            //String Address = txtAddress.Text;
+            String PhoneNumber = txtPhoneNumber.Text;
+            String Address = txtAddress.Text;
 
             if (string.IsNullOrEmpty(GuideID) || string.IsNullOrEmpty(FullName) || string.IsNullOrEmpty(CCCD))
             {
@@ -141,12 +151,12 @@ namespace Manage_tour
             // Kiểm tra trạng thái để thực hiện Add hoặc Update
             if (isEditMode)
             {
-                //UpdateHDV(); // Cập nhật tour
+                UpdateHDV(); // Cập nhật tour
                 AdjustDataGridView();
             }
             else
             {
-               // AddHDV(GuideID, FullName, CCCD, PhoneNumber, Address); // Thêm mới tour
+                AddHDV(GuideID, FullName, CCCD, PhoneNumber, Address); // Thêm mới tour
             }
 
             isEditMode = false;
@@ -154,17 +164,17 @@ namespace Manage_tour
             ClearInputFields();
             tableLayoutPanel1.Visible = false;
             AdjustDataGridView();
-
+            loadData();
         }
 
-        //private void UpdateHDV()
-        //{
-        //    HuongDanVienModel.update(txtFullName.Text, txtCCCD.Text, txtPhoneNumber, txtAddress, txtGuideID.Text);
-        //}
-        //private void AddHDV(String GuideID, String FullName, String CCCD, String PhoneNumber, String Address)
-        //{
-        //    HuongDanVienModel.insert(GuideID, FullName, CCCD, PhoneNumber, Address);
-        //}
+        private void UpdateHDV()
+        {
+            HuongDanVienModel.update(txtFullName.Text, txtCCCD.Text, txtPhoneNumber.Text, txtAddress.Text, txtGuideID.Text);
+        }
+        private void AddHDV(String GuideID, String FullName, String CCCD, String PhoneNumber, String Address)
+        {
+            HuongDanVienModel.insert(GuideID, FullName, CCCD, PhoneNumber, Address);
+        }
 
 
         private int DeleteHDV(string id)

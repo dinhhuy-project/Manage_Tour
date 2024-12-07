@@ -137,5 +137,28 @@ namespace Manage_tour
         {
             ClearInputFields();
         }
+
+        private void Search_Click(object sender, EventArgs e)
+        {
+            string keyword = txtSearch.Text.Trim();
+
+            if (string.IsNullOrEmpty(keyword))
+            {
+                loadData();
+                return;
+            }
+
+            SearchEmployee(keyword);
+        }
+
+        private void SearchEmployee(string keyword)
+        {
+            // Xóa tất cả các dòng hiện tại trong DataGridView (nếu có)
+            dataGridView1.Rows.Clear();
+            foreach (object[] row in NhanVienModel.selectLikeKey(keyword))
+            {
+                dataGridView1.Rows.Add(row[0], row[1], row[2], row[3], row[5]);
+            }
+        }
     }
 }

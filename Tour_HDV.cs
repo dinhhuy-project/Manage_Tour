@@ -15,7 +15,7 @@ namespace Manage_tour
     public partial class Tour_HDV : Panel
     {
         private bool isEditMode = false;
-
+        private string Old_HDV;
         public Tour_HDV()
         {
             InitializeComponent();
@@ -36,7 +36,7 @@ namespace Manage_tour
                 // Lấy mã tour từ cột ma_tour
                 string tourId = row.Cells["TourID1"].Value?.ToString();
                 string hdvId = row.Cells["GuideID1"].Value?.ToString();
-
+                Old_HDV = hdvId;
                 if (!string.IsNullOrEmpty(tourId))
                 {
                     isEditMode=true;
@@ -47,7 +47,10 @@ namespace Manage_tour
 
         private void EditTourHDV(String tourId, String hdvId)
         {
-            TourHDVModel.update(tourId,hdvId);
+            TourHDVModel tourHDV = TourHDVModel.selectByKey(tourId, hdvId);
+            txtGuideID.Text = tourHDV.ma_hdv;
+            txtTourID.Text = tourHDV.ma_tour;
+             
             txtTourID.Enabled = false;
         }
 
@@ -102,7 +105,7 @@ namespace Manage_tour
 
         private void UpdateTourHDV()
         {
-            TourHDVModel.update(txtGuideID.Text, txtTourID.Text);
+            TourHDVModel.update(txtGuideID.Text, txtTourID.Text,Old_HDV);
         }
         private void AddTourHDV(String TourID, String GuideID)
         {
@@ -125,8 +128,19 @@ namespace Manage_tour
                 return;
             }
 
-            //SearchID(keyword);
+            SearchID(keyword);
         }
+
+        private void SearchID(string keyword)
+        {
+            // Xóa tất cả các dòng hiện tại trong DataGridView (nếu có)
+            dataGridView2.Rows.Clear();
+            foreach (object[] row in TourHDVModel.selectLikeKey(keyword))
+            {
+                dataGridView2.Rows.Add(row);
+            }
+        }
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             ClearInputFields();
@@ -156,7 +170,7 @@ namespace Manage_tour
 
         private int DeleteTourHDV(string tourId, string GuideId)
         {
-            int rowAffected = TourHDVModel.delete(tourId);
+            int rowAffected = TourHDVModel.delete(tourId,GuideId);
             loadDataTourHDV();
             return rowAffected;
         }

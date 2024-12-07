@@ -16,6 +16,7 @@ namespace Manage_tour
     public partial class Tour_DTQ : Panel
     {
         private bool isEditMode = false;
+        private string Old_DTQ = null;
 
         public Tour_DTQ()
         {
@@ -36,19 +37,26 @@ namespace Manage_tour
                 // Lấy mã tour từ cột ma_tour
                 string tourId = row.Cells["TourID1"].Value?.ToString();
                 string DTQId=row.Cells["DTQID1"].Value?.ToString();
+                Old_DTQ = DTQId;
                 if (!string.IsNullOrEmpty(tourId))
                 {
                     // Gọi phương thức EditTour để tải dữ liệu chi tiết
                     isEditMode = true;
-                    EditTourDTQ(tourId, DTQId);
+                    EditTourDTQ(tourId,DTQId);
                 }
             }
         }
 
-        private void EditTourDTQ(String tourId, String DTQId)
+        private void EditTourDTQ(String tourId, String DTQid)
         {
-            TourDTQModel.update(tourId,DTQId);
+            TourDTQModel TourDTQ= TourDTQModel.selectByKey(tourId,DTQid);
+
+            txtTourID.Text = TourDTQ.ma_tour;
+            txtDTQ.Text = TourDTQ.ma_diem_tham_quan;
+
             txtTourID.Enabled=false;
+
+            
         }
 
         private void Tour_DTQ_Load(object sender, EventArgs e)
@@ -92,7 +100,7 @@ namespace Manage_tour
 
         private void UpdateTourDTQ()
         {
-            TourDTQModel.update(txtDTQ.Text, txtTourID.Text);
+            TourDTQModel.update(txtDTQ.Text, txtTourID.Text,Old_DTQ);
         }
         private void AddTourDTQ(String TourID, String DTQID)
         {
@@ -130,7 +138,17 @@ namespace Manage_tour
                 return;
             }
 
-            //SearchID(keyword);
+            SearchID(keyword);
+        }
+
+        private void SearchID(string keyword)
+        {
+            // Xóa tất cả các dòng hiện tại trong DataGridView (nếu có)
+            dataGridView2.Rows.Clear();
+            foreach (object[] row in TourDTQModel.selectLikeKey(keyword))
+            {
+                dataGridView2.Rows.Add(row);
+            }
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
@@ -168,8 +186,9 @@ namespace Manage_tour
 
         private int DeleteTourDTQ(string tourId, string DTQid)
         {
-            int rowAffected = TourDTQModel.delete(tourId);
+            int rowAffected = TourDTQModel.delete(tourId,DTQid);
             loadDataTourDTQ();
+            ClearInputFields();
             return rowAffected;
         }
 
