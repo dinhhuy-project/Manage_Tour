@@ -1,4 +1,6 @@
-﻿namespace Manage_tour
+﻿using System.Windows.Forms;
+
+namespace Manage_tour
 {
     partial class HDV
     {
@@ -350,6 +352,8 @@
             this.Del.HeaderText = "Del";
             this.Del.Name = "Del";
             this.Del.ReadOnly = true;
+            this.Del.Image = global::Manage_tour.Properties.Resources.Group_68;
+            this.Del.ImageLayout = DataGridViewImageCellLayout.Zoom;
             // 
             // Edit
             // 
@@ -358,13 +362,15 @@
             this.Edit.Name = "Edit";
             this.Edit.ReadOnly = true;
             this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Edit.Image = global::Manage_tour.Properties.Resources.Group_6;
+            this.Edit.ImageLayout = DataGridViewImageCellLayout.Zoom;
             // 
             // HDV
             // 
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(758, 641);
             this.Controls.Add(this.panel1);
-            this.Name = "HDV";
+            this.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Size = new System.Drawing.Size(758, 641);
             this.Text = "HDV";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

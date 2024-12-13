@@ -462,7 +462,7 @@ namespace Manage_tour
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(104, 18);
             this.label5.TabIndex = 2;
-            this.label5.Text = "Tên Nhân Viên";
+            this.label5.Text = nv.full_name;
             // 
             // label4
             // 

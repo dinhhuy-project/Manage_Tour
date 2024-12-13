@@ -1,4 +1,6 @@
-﻿namespace Manage_tour
+﻿using System.Windows.Forms;
+
+namespace Manage_tour
 {
     partial class DTQ
     {
@@ -309,6 +311,8 @@
             this.Del.HeaderText = "Del";
             this.Del.Name = "Del";
             this.Del.ReadOnly = true;
+            this.Del.Image = global::Manage_tour.Properties.Resources.Group_68;
+            this.Del.ImageLayout = DataGridViewImageCellLayout.Zoom;
             // 
             // Edit
             // 
@@ -317,6 +321,8 @@
             this.Edit.Name = "Edit";
             this.Edit.ReadOnly = true;
             this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Edit.Image = global::Manage_tour.Properties.Resources.Group_6;
+            this.Edit.ImageLayout = DataGridViewImageCellLayout.Zoom;
             // 
             // DTQ
             // 

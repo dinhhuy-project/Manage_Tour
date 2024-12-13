@@ -1,4 +1,6 @@
-﻿namespace Manage_tour
+﻿using System.Windows.Forms;
+
+namespace Manage_tour
 {
     partial class Tour_DTQ
     {
@@ -279,6 +281,8 @@
             this.DEL1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.DEL1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.DEL1.Width = 50;
+            this.DEL1.Image = global::Manage_tour.Properties.Resources.Group_68;
+            this.DEL1.ImageLayout = DataGridViewImageCellLayout.Zoom;
             // 
             // panel2
             // 

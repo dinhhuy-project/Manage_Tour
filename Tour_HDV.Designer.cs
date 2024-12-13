@@ -1,4 +1,6 @@
-﻿namespace Manage_tour
+﻿using System.Windows.Forms;
+
+namespace Manage_tour
 {
     partial class Tour_HDV
     {
@@ -220,6 +222,8 @@
             this.DEL1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.DEL1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.DEL1.Width = 50;
+            this.DEL1.Image = global::Manage_tour.Properties.Resources.Group_68;
+            this.DEL1.ImageLayout = DataGridViewImageCellLayout.Zoom;
             // 
             // panel2
             // 
@@ -254,7 +258,6 @@
             this.txtKeyword.Name = "txtKeyword";
             this.txtKeyword.Size = new System.Drawing.Size(209, 26);
             this.txtKeyword.TabIndex = 1;
-            this.txtKeyword.UseWaitCursor = true;
             this.txtKeyword.TextChanged += new System.EventHandler(this.txtKeyword_TextChanged);
             // 
             // groupBox1

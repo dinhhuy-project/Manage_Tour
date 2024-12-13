@@ -1,4 +1,6 @@
-﻿namespace Manage_tour
+﻿using System.Windows.Forms;
+
+namespace Manage_tour
 {
     partial class Employee
     {
@@ -341,6 +343,8 @@
             this.Del.HeaderText = "Del";
             this.Del.Name = "Del";
             this.Del.ReadOnly = true;
+            this.Del.Image = global::Manage_tour.Properties.Resources.Group_68;
+            this.Del.ImageLayout = DataGridViewImageCellLayout.Zoom;
             // 
             // Employee
             // 
