@@ -30,8 +30,8 @@ namespace Manage_tour
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -41,6 +41,24 @@ namespace Manage_tour
             this.label2 = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.box = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.Addresstxt = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.NameDTQtxt = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.DTQIDtxt = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.EDtxt = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.SDtxt = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Pricetxt = new System.Windows.Forms.Label();
+            this.TourNametxt = new System.Windows.Forms.Label();
+            this.TourIDtxt = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.TourID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DTQID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -111,6 +129,7 @@ namespace Manage_tour
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.box.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -120,7 +139,7 @@ namespace Manage_tour
             this.panel1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panel1.Controls.Add(this.splitContainer1);
             this.panel1.Controls.Add(this.panel2);
-            this.panel1.Location = new System.Drawing.Point(0, 1);
+            this.panel1.Location = new System.Drawing.Point(105, 12);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(683, 448);
             this.panel1.TabIndex = 0;
@@ -137,6 +156,7 @@ namespace Manage_tour
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.box);
             this.splitContainer1.Panel2.Controls.Add(this.dataGridView2);
             this.splitContainer1.Panel2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.splitContainer1.Panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.splitContainer1_Panel2_Paint);
@@ -223,6 +243,190 @@ namespace Manage_tour
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.button1_Click);
             // 
+            // box
+            // 
+            this.box.BackColor = System.Drawing.Color.Silver;
+            this.box.Controls.Add(this.button1);
+            this.box.Controls.Add(this.label20);
+            this.box.Controls.Add(this.Addresstxt);
+            this.box.Controls.Add(this.label18);
+            this.box.Controls.Add(this.NameDTQtxt);
+            this.box.Controls.Add(this.label16);
+            this.box.Controls.Add(this.DTQIDtxt);
+            this.box.Controls.Add(this.label14);
+            this.box.Controls.Add(this.EDtxt);
+            this.box.Controls.Add(this.label12);
+            this.box.Controls.Add(this.SDtxt);
+            this.box.Controls.Add(this.label10);
+            this.box.Controls.Add(this.label9);
+            this.box.Controls.Add(this.Pricetxt);
+            this.box.Controls.Add(this.TourNametxt);
+            this.box.Controls.Add(this.TourIDtxt);
+            this.box.Controls.Add(this.label5);
+            this.box.Font = new System.Drawing.Font("Times New Roman", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.box.Location = new System.Drawing.Point(-1, 0);
+            this.box.Name = "box";
+            this.box.Size = new System.Drawing.Size(452, 398);
+            this.box.TabIndex = 1;
+            this.box.TabStop = false;
+            this.box.Text = "Detail Information";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(383, 358);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(63, 32);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "Close";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(33, 272);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(82, 21);
+            this.label20.TabIndex = 16;
+            this.label20.Text = "Address :";
+            // 
+            // Addresstxt
+            // 
+            this.Addresstxt.AutoSize = true;
+            this.Addresstxt.Location = new System.Drawing.Point(188, 272);
+            this.Addresstxt.Name = "Addresstxt";
+            this.Addresstxt.Size = new System.Drawing.Size(79, 21);
+            this.Addresstxt.TabIndex = 15;
+            this.Addresstxt.Text = "Tour ID :";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(31, 240);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(106, 21);
+            this.label18.TabIndex = 14;
+            this.label18.Text = "Name DTQ :";
+            // 
+            // NameDTQtxt
+            // 
+            this.NameDTQtxt.AutoSize = true;
+            this.NameDTQtxt.Location = new System.Drawing.Point(188, 240);
+            this.NameDTQtxt.Name = "NameDTQtxt";
+            this.NameDTQtxt.Size = new System.Drawing.Size(79, 21);
+            this.NameDTQtxt.TabIndex = 13;
+            this.NameDTQtxt.Text = "Tour ID :";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(32, 205);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(82, 21);
+            this.label16.TabIndex = 12;
+            this.label16.Text = "DTQ ID :";
+            // 
+            // DTQIDtxt
+            // 
+            this.DTQIDtxt.AutoSize = true;
+            this.DTQIDtxt.Location = new System.Drawing.Point(188, 205);
+            this.DTQIDtxt.Name = "DTQIDtxt";
+            this.DTQIDtxt.Size = new System.Drawing.Size(79, 21);
+            this.DTQIDtxt.TabIndex = 11;
+            this.DTQIDtxt.Text = "Tour ID :";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(31, 171);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(88, 21);
+            this.label14.TabIndex = 10;
+            this.label14.Text = "End Date :";
+            // 
+            // EDtxt
+            // 
+            this.EDtxt.AutoSize = true;
+            this.EDtxt.Location = new System.Drawing.Point(188, 171);
+            this.EDtxt.Name = "EDtxt";
+            this.EDtxt.Size = new System.Drawing.Size(79, 21);
+            this.EDtxt.TabIndex = 9;
+            this.EDtxt.Text = "Tour ID :";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(32, 137);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(93, 21);
+            this.label12.TabIndex = 8;
+            this.label12.Text = "Start Date :";
+            this.label12.Click += new System.EventHandler(this.label12_Click);
+            // 
+            // SDtxt
+            // 
+            this.SDtxt.AutoSize = true;
+            this.SDtxt.Location = new System.Drawing.Point(188, 135);
+            this.SDtxt.Name = "SDtxt";
+            this.SDtxt.Size = new System.Drawing.Size(79, 21);
+            this.SDtxt.TabIndex = 7;
+            this.SDtxt.Text = "Tour ID :";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(31, 69);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(103, 21);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Tour Name :";
+            this.label10.Click += new System.EventHandler(this.label10_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(33, 103);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(57, 21);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Price :";
+            // 
+            // Pricetxt
+            // 
+            this.Pricetxt.AutoSize = true;
+            this.Pricetxt.Location = new System.Drawing.Point(188, 103);
+            this.Pricetxt.Name = "Pricetxt";
+            this.Pricetxt.Size = new System.Drawing.Size(79, 21);
+            this.Pricetxt.TabIndex = 4;
+            this.Pricetxt.Text = "Tour ID :";
+            // 
+            // TourNametxt
+            // 
+            this.TourNametxt.AutoSize = true;
+            this.TourNametxt.Location = new System.Drawing.Point(188, 69);
+            this.TourNametxt.Name = "TourNametxt";
+            this.TourNametxt.Size = new System.Drawing.Size(79, 21);
+            this.TourNametxt.TabIndex = 3;
+            this.TourNametxt.Text = "Tour ID :";
+            // 
+            // TourIDtxt
+            // 
+            this.TourIDtxt.AutoSize = true;
+            this.TourIDtxt.Location = new System.Drawing.Point(188, 35);
+            this.TourIDtxt.Name = "TourIDtxt";
+            this.TourIDtxt.Size = new System.Drawing.Size(79, 21);
+            this.TourIDtxt.TabIndex = 2;
+            this.TourIDtxt.Text = "Tour ID :";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(31, 35);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(79, 21);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Tour ID :";
+            // 
             // dataGridView2
             // 
             this.dataGridView2.AllowUserToAddRows = false;
@@ -231,31 +435,32 @@ namespace Manage_tour
             this.dataGridView2.AllowUserToResizeRows = false;
             this.dataGridView2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dataGridView2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.Padding = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TourID1,
             this.DTQID1,
             this.DEL1});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Times New Roman", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle10;
             this.dataGridView2.Location = new System.Drawing.Point(0, 0);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(0);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(448, 398);
@@ -267,22 +472,26 @@ namespace Manage_tour
             this.TourID1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.TourID1.HeaderText = "TourID";
             this.TourID1.Name = "TourID1";
+            this.TourID1.ReadOnly = true;
+            this.TourID1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             // 
             // DTQID1
             // 
             this.DTQID1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.DTQID1.HeaderText = "DTQID";
             this.DTQID1.Name = "DTQID1";
+            this.DTQID1.ReadOnly = true;
             // 
             // DEL1
             // 
             this.DEL1.HeaderText = "Del";
+            this.DEL1.Image = global::Manage_tour.Properties.Resources.Group_68;
+            this.DEL1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.DEL1.Name = "DEL1";
+            this.DEL1.ReadOnly = true;
             this.DEL1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.DEL1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.DEL1.Width = 50;
-            this.DEL1.Image = global::Manage_tour.Properties.Resources.Group_68;
-            this.DEL1.ImageLayout = DataGridViewImageCellLayout.Zoom;
             // 
             // panel2
             // 
@@ -725,9 +934,9 @@ namespace Manage_tour
             // Tour_DTQ
             // 
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.ClientSize = new System.Drawing.Size(879, 526);
             this.Controls.Add(this.panel1);
-            this.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Size = new System.Drawing.Size(684, 461);
+            this.Name = "Tour_DTQ";
             this.panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
@@ -735,6 +944,8 @@ namespace Manage_tour
             this.splitContainer1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.box.ResumeLayout(false);
+            this.box.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -829,8 +1040,26 @@ namespace Manage_tour
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button btnSearch;
         private System.Windows.Forms.TextBox txtKeyword;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TourID1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DTQID1;
-        private System.Windows.Forms.DataGridViewImageColumn DEL1;
+        private GroupBox box;
+        private Label label5;
+        private Label label20;
+        private Label Addresstxt;
+        private Label label18;
+        private Label NameDTQtxt;
+        private Label label16;
+        private Label DTQIDtxt;
+        private Label label14;
+        private Label EDtxt;
+        private Label label12;
+        private Label SDtxt;
+        private Label label10;
+        private Label label9;
+        private Label Pricetxt;
+        private Label TourNametxt;
+        private Label TourIDtxt;
+        private Button button1;
+        private DataGridViewTextBoxColumn TourID1;
+        private DataGridViewTextBoxColumn DTQID1;
+        private DataGridViewImageColumn DEL1;
     }
 }

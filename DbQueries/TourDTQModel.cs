@@ -32,6 +32,12 @@ namespace Manage_tour.DbQueries
         {
             return DbQueries.Queries.Select(QUERY_SELECT_LIKE_KEY, '%' + id + '%');
         }
+
+        public static ArrayList select(string tourId, string DTQId)
+        {
+            return DbQueries.Queries.Select(QUERY, tourId,DTQId);
+        }
+
         public static TourDTQModel selectByKey(string id, string idDTQ)
         {
             TourDTQModel tourDTQ = null;
@@ -91,7 +97,8 @@ namespace Manage_tour.DbQueries
         public static string QUERY_INSERT = $"INSERT INTO {TABLE} ({FIELD_MA_TOUR}, {FIELD_MA_DIEM_THAM_QUAN}) VALUES (@p1, @p2)";
         public static string QUERY_UPDATE_BY_KEY = $"UPDATE {TABLE} SET {FIELD_MA_DIEM_THAM_QUAN}=@p1 WHERE {FIELD_MA_TOUR} = @p2 AND {FIELD_MA_DIEM_THAM_QUAN}=@p3";
         public static string QUERY_DELETE_BY_KEY = $"DELETE FROM {TABLE} WHERE {FIELD_MA_TOUR} = @p1 AND {FIELD_MA_DIEM_THAM_QUAN}=@p2" ;
-        public static String QUERY_SELECT_LIKE_KEY = $"SELECT * FROM {TABLE} WHERE {FIELD_MA_TOUR} LIKE @p1 OR {FIELD_MA_DIEM_THAM_QUAN} LIKE @p1";
+        public static string QUERY_SELECT_LIKE_KEY = $"SELECT * FROM {TABLE} WHERE {FIELD_MA_TOUR} LIKE @p1 OR {FIELD_MA_DIEM_THAM_QUAN} LIKE @p1";
+        public static string QUERY = $"SELECT tour.*, DiemThamQuan.* FROM Tour, Tour_DiemThamQuan, DiemThamQuan WHERE Tour.ma_tour = Tour_DiemThamQuan.ma_tour AND Tour_DiemThamQuan.ma_diem_tham_quan = DiemThamQuan.ma_diem_tham_quan AND Tour.ma_tour = @p1 AND DiemThamQuan.ma_diem_tham_quan=@p2";
         public string ma_tour { get; set; }  
         public string ma_diem_tham_quan { get; set; }  
     }

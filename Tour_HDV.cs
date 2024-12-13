@@ -24,6 +24,8 @@ namespace Manage_tour
             // Đăng ký sự kiện CellClick
             dataGridView2.CellClick += dataGridView2_CellClick;
             dataGridView2.CellContentClick += dataGridView2_CellContentClick;
+            dataGridView2.CellDoubleClick += dataGridView2_CellDoubleClick;
+            box.Hide();
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -43,6 +45,44 @@ namespace Manage_tour
                     EditTourHDV(tourId,hdvId);
                 }
             }
+        }
+
+        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Lấy thông tin từ dòng được chọn
+                DataGridViewRow row = dataGridView2.Rows[e.RowIndex];
+                string t = row.Cells["TourID1"].Value?.ToString();
+                string h = row.Cells["GuideID1"].Value?.ToString();
+
+                if (!string.IsNullOrEmpty(t) && !string.IsNullOrEmpty(h))
+                {
+                    // Gọi hàm truy vấn để lấy thông tin từ 3 bảng
+
+                    box.Show();
+                    LoadTourInfo(t, h);
+                }
+            }
+        }
+
+        private void LoadTourInfo(string t, string h)
+        {
+            foreach (object[] cell in TourHDVModel.select(t, h))
+            {
+                TourIDtxt.Text = cell[0]?.ToString();
+                TourNametxt.Text = cell[1]?.ToString();
+                Pricetxt.Text = cell[2]?.ToString();
+                SDtxt.Text = cell[3] != null ? Convert.ToDateTime(cell[3]).ToString("dd/MM/yyyy") : "";
+                EDtxt.Text = cell[4] != null ? Convert.ToDateTime(cell[4]).ToString("dd/MM/yyyy") : "";
+                GuideIDtxt.Text = cell[5]?.ToString();
+                GuideNametxt.Text = cell[6]?.ToString();
+                CCCDtxt.Text = cell[7]?.ToString();
+                PhoneNumbertxt.Text = cell[8]?.ToString();
+                Addresstxt.Text = cell[9]?.ToString();
+            }
+
         }
 
         private void EditTourHDV(String tourId, String hdvId)
@@ -183,6 +223,11 @@ namespace Manage_tour
             {
                 dataGridView2.Rows.Add(row);
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            box.Hide();
         }
     }
 }

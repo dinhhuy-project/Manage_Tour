@@ -13,22 +13,26 @@ using Manage_tour.DbQueries;
 
 namespace Manage_tour
 {
-    public partial class Tour_DTQ : Panel
+    public partial class Tour_DTQ : Panel    
     {
         private bool isEditMode = false;
         private string Old_DTQ = null;
-
+        
         public Tour_DTQ()
         {
             InitializeComponent();
             dataGridView2.ClearSelection();
             // Đăng ký sự kiện CellClick
+            
+            dataGridView2.CellDoubleClick += dataGridView2_CellDoubleClick;
             dataGridView2.CellClick += dataGridView2_CellClick;
+            box.Hide();
             loadDataTourDTQ();
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            
             if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
             {
                 // Lấy hàng hiện tại
@@ -47,10 +51,51 @@ namespace Manage_tour
             }
         }
 
+        private void dataGridView2_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Lấy thông tin từ dòng được chọn
+                DataGridViewRow row = dataGridView2.Rows[e.RowIndex];
+                string t = row.Cells["TourID1"].Value?.ToString();
+                string d = row.Cells["DTQID1"].Value?.ToString();
+
+                if (!string.IsNullOrEmpty(t) && !string.IsNullOrEmpty(d))
+                {
+                    // Gọi hàm truy vấn để lấy thông tin từ 3 bảng
+                    
+                    box.Show();
+                    LoadTourInfo(t, d);
+                }
+            }
+        }
+
+        private void LoadTourInfo(string t , string d)
+        {
+            foreach (object[] cell in TourDTQModel.select(t, d)) {
+                TourIDtxt.Text = cell[0]?.ToString(); 
+                TourNametxt.Text = cell[1]?.ToString();
+                Pricetxt.Text = cell[2]?.ToString(); 
+                SDtxt.Text = cell[3] != null ? Convert.ToDateTime(cell[3]).ToString("dd/MM/yyyy") : "";
+                EDtxt.Text = cell[4] != null ? Convert.ToDateTime(cell[4]).ToString("dd/MM/yyyy") : ""; 
+                DTQIDtxt.Text = cell[5]?.ToString(); 
+                NameDTQtxt.Text = cell[6]?.ToString(); 
+                Addresstxt.Text = cell[7]?.ToString(); 
+            }
+            
+        }
+
+
+
         private void EditTourDTQ(String tourId, String DTQid)
         {
             TourDTQModel TourDTQ= TourDTQModel.selectByKey(tourId,DTQid);
-
+            if (TourDTQ == null)
+            {
+                MessageBox.Show("Tour data not found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             txtTourID.Text = TourDTQ.ma_tour;
             txtDTQ.Text = TourDTQ.ma_diem_tham_quan;
 
@@ -182,6 +227,7 @@ namespace Manage_tour
                     MessageBox.Show($"{DeleteTourDTQ(tourId, DTQid)} tourDTQ(s) deleted", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+            
         }
 
         private int DeleteTourDTQ(string tourId, string DTQid)
@@ -205,6 +251,21 @@ namespace Manage_tour
             {
                 dataGridView2.Rows.Add(row);
             }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            box.Hide();
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
