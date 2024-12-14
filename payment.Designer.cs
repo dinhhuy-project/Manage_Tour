@@ -81,7 +81,7 @@
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(86)))), ((int)(((byte)(108)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(1, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(758, 63);
             this.panel1.TabIndex = 0;
@@ -129,7 +129,7 @@
             this.panel2.Controls.Add(this.label3);
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(1, 67);
-            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(758, 277);
             this.panel2.TabIndex = 1;
@@ -165,9 +165,8 @@
             this.label_nvphutrach.Location = new System.Drawing.Point(596, 202);
             this.label_nvphutrach.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label_nvphutrach.Name = "label_nvphutrach";
-            this.label_nvphutrach.Size = new System.Drawing.Size(156, 18);
+            this.label_nvphutrach.Size = new System.Drawing.Size(0, 18);
             this.label_nvphutrach.TabIndex = 20;
-            this.label_nvphutrach.Text = "mã nhân vien hoặc tên";
             // 
             // label_ngaydat
             // 
@@ -220,9 +219,8 @@
             this.label17.Location = new System.Drawing.Point(419, 202);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(155, 18);
+            this.label17.Size = new System.Drawing.Size(0, 18);
             this.label17.TabIndex = 15;
-            this.label17.Text = "Nhân Viên Phụ Trách :";
             // 
             // label16
             // 
@@ -403,7 +401,7 @@
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.splitContainer1.Location = new System.Drawing.Point(1, 349);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(2);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -428,15 +426,17 @@
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.RosyBrown;
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.System;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(155, 220);
-            this.button2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button2.Margin = new System.Windows.Forms.Padding(2);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(118, 37);
             this.button2.TabIndex = 5;
             this.button2.Text = "Xác Nhận";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
@@ -444,7 +444,7 @@
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(8, 220);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(115, 37);
             this.button1.TabIndex = 4;
@@ -459,7 +459,7 @@
             this.panel_chuyenkhoan.Controls.Add(this.checkBox_bidv);
             this.panel_chuyenkhoan.Controls.Add(this.label26);
             this.panel_chuyenkhoan.Location = new System.Drawing.Point(2, 98);
-            this.panel_chuyenkhoan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel_chuyenkhoan.Margin = new System.Windows.Forms.Padding(2);
             this.panel_chuyenkhoan.Name = "panel_chuyenkhoan";
             this.panel_chuyenkhoan.Size = new System.Drawing.Size(278, 85);
             this.panel_chuyenkhoan.TabIndex = 3;
@@ -471,7 +471,7 @@
             this.checkBox_viettinbank.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBox_viettinbank.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox_viettinbank.Location = new System.Drawing.Point(145, 45);
-            this.checkBox_viettinbank.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox_viettinbank.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox_viettinbank.Name = "checkBox_viettinbank";
             this.checkBox_viettinbank.Size = new System.Drawing.Size(112, 22);
             this.checkBox_viettinbank.TabIndex = 2;
@@ -485,7 +485,7 @@
             this.checkBox_bidv.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBox_bidv.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox_bidv.Location = new System.Drawing.Point(25, 45);
-            this.checkBox_bidv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox_bidv.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox_bidv.Name = "checkBox_bidv";
             this.checkBox_bidv.Size = new System.Drawing.Size(60, 22);
             this.checkBox_bidv.TabIndex = 1;
@@ -510,7 +510,7 @@
             this.checkBox_chuyenkhoan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBox_chuyenkhoan.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox_chuyenkhoan.Location = new System.Drawing.Point(147, 57);
-            this.checkBox_chuyenkhoan.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox_chuyenkhoan.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox_chuyenkhoan.Name = "checkBox_chuyenkhoan";
             this.checkBox_chuyenkhoan.Size = new System.Drawing.Size(124, 22);
             this.checkBox_chuyenkhoan.TabIndex = 2;
@@ -524,7 +524,7 @@
             this.checkBox_tienmat.Cursor = System.Windows.Forms.Cursors.Hand;
             this.checkBox_tienmat.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBox_tienmat.Location = new System.Drawing.Point(27, 57);
-            this.checkBox_tienmat.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.checkBox_tienmat.Margin = new System.Windows.Forms.Padding(2);
             this.checkBox_tienmat.Name = "checkBox_tienmat";
             this.checkBox_tienmat.Size = new System.Drawing.Size(84, 22);
             this.checkBox_tienmat.TabIndex = 1;
@@ -550,7 +550,7 @@
             this.panel_bidv.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_bidv.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.panel_bidv.Location = new System.Drawing.Point(112, 5);
-            this.panel_bidv.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel_bidv.Margin = new System.Windows.Forms.Padding(2);
             this.panel_bidv.Name = "panel_bidv";
             this.panel_bidv.Size = new System.Drawing.Size(266, 276);
             this.panel_bidv.TabIndex = 0;
@@ -562,7 +562,7 @@
             this.panel_viettinbank.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_viettinbank.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.panel_viettinbank.Location = new System.Drawing.Point(112, 5);
-            this.panel_viettinbank.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel_viettinbank.Margin = new System.Windows.Forms.Padding(2);
             this.panel_viettinbank.Name = "panel_viettinbank";
             this.panel_viettinbank.Size = new System.Drawing.Size(266, 276);
             this.panel_viettinbank.TabIndex = 0;
@@ -576,7 +576,7 @@
             this.Controls.Add(this.splitContainer1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "payment";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "payment";

@@ -1,4 +1,5 @@
 ﻿using Manage_tour.DbQueries;
+using System.Drawing;
 
 namespace Manage_tour
 {
@@ -250,6 +251,13 @@ namespace Manage_tour
             this.employeeButton.Text = "Nhân Sự";
             this.employeeButton.UseVisualStyleBackColor = true;
             this.employeeButton.Click += new System.EventHandler(this.employeeButton_Click);
+            if (nv.chuc_vu != "Quản Lý")
+            {
+                this.employeeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+                this.employeeButton.BackColor = Color.Gray;
+                this.employeeButton.ForeColor = Color.LightGray;
+                this.employeeButton.Enabled = false;
+            }
             // 
             // DTQButton
             // 

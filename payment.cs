@@ -252,7 +252,7 @@ namespace Manage_tour
                     writer.WriteLine($"{datTourModel.ma_dat_tour}," +
                         $"{datTourModel.ma_tour}," +
                         $"{datTourModel.ma_kh}," +
-                        $"{datTourModel.ngay_dat}," +
+                        $"{datTourModel.ngay_dat.ToString("dd/MM/yyyy")}," +
                         $"{datTourModel.so_luong_nguoi}," +
                         $"{datTourModel.tong_tien}," +
                         $"{datTourModel.trang_thai}");
