@@ -210,6 +210,8 @@ namespace Manage_tour
             dataGridView1.Rows.Clear();
             foreach (object[] row in TourModel.selectAll())
             {
+                row[3] = ((DateTime)row[3]).Date.ToString("dd/MM/yyyy");
+                row[4] = ((DateTime)row[4]).Date.ToString("dd/MM/yyyy");
                 dataGridView1.Rows.Add(row);
             }
         }

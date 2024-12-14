@@ -29,6 +29,7 @@ namespace Manage_tour
             dataGridView1.Rows.Clear();
             foreach (object[] row in ThanhToanModel.selectAll())
             {
+                row[2] = ((DateTime)row[2]).Date.ToString("dd/MM/yyyy");
                 dataGridView1.Rows.Add(row);
             }
         }
