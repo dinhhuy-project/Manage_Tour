@@ -237,7 +237,7 @@ namespace Manage_tour
             filePath = Path.Combine(exportPath, filePath);
             try
             {
-                using (StreamWriter writer = new StreamWriter(filePath))
+                using (StreamWriter writer = new StreamWriter(filePath, false, new UTF8Encoding(true)))
                 {
                     // Ghi tiêu đề cột
                     writer.WriteLine($"{DatTourModel.FIELD_MA_DAT_TOUR}," +
