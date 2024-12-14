@@ -240,8 +240,7 @@ namespace Manage_tour
             this.textBox_makh.Size = new System.Drawing.Size(151, 30);
             this.textBox_makh.TabIndex = 1;
             this.textBox_makh.TextChanged += new System.EventHandler(this.textBox_makh_TextChanged);
-            this.textBox_makh.KeyDown += new KeyEventHandler(this.textBox_makh_KeyDown);
-
+            this.textBox_makh.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_makh_KeyDown);
             // 
             // label2
             // 
@@ -372,6 +371,7 @@ namespace Manage_tour
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(758, 340);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
@@ -381,21 +381,21 @@ namespace Manage_tour
             this.Column1.HeaderText = "Mã Tour";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
-            this.Column1.Width = 125;
+            this.Column1.Width = 240;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Tên Tour";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
-            this.Column2.Width = 125;
+            this.Column2.Width = 240;
             // 
             // Column3
             // 
             this.Column3.HeaderText = "Giá";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
-            this.Column3.Width = 125;
+            this.Column3.Width = 240;
             // 
             // booktour
             // 
@@ -448,8 +448,8 @@ namespace Manage_tour
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private DataGridViewTextBoxColumn Column1;
+        private DataGridViewTextBoxColumn Column2;
+        private DataGridViewTextBoxColumn Column3;
     }
 }
