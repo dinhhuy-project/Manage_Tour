@@ -64,13 +64,13 @@ namespace Manage_tour
             this.TourIDtxt = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.TourID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GuideID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DEL1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnSearch = new System.Windows.Forms.Button();
             this.txtKeyword = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.TourID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GuideID1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DEL1 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -449,6 +449,31 @@ namespace Manage_tour
             this.dataGridView2.Size = new System.Drawing.Size(445, 398);
             this.dataGridView2.TabIndex = 0;
             // 
+            // TourID1
+            // 
+            this.TourID1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TourID1.HeaderText = "TourID";
+            this.TourID1.Name = "TourID1";
+            this.TourID1.ReadOnly = true;
+            // 
+            // GuideID1
+            // 
+            this.GuideID1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.GuideID1.HeaderText = "GuideID";
+            this.GuideID1.Name = "GuideID1";
+            this.GuideID1.ReadOnly = true;
+            // 
+            // DEL1
+            // 
+            this.DEL1.HeaderText = "Del";
+            this.DEL1.Image = global::Manage_tour.Properties.Resources.Group_68;
+            this.DEL1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.DEL1.Name = "DEL1";
+            this.DEL1.ReadOnly = true;
+            this.DEL1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.DEL1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.DEL1.Width = 50;
+            // 
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -493,37 +518,12 @@ namespace Manage_tour
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "groupBox1";
             // 
-            // TourID1
-            // 
-            this.TourID1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.TourID1.HeaderText = "TourID";
-            this.TourID1.Name = "TourID1";
-            this.TourID1.ReadOnly = true;
-            // 
-            // GuideID1
-            // 
-            this.GuideID1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.GuideID1.HeaderText = "GuideID";
-            this.GuideID1.Name = "GuideID1";
-            this.GuideID1.ReadOnly = true;
-            // 
-            // DEL1
-            // 
-            this.DEL1.HeaderText = "Del";
-            this.DEL1.Image = global::Manage_tour.Properties.Resources.Group_68;
-            this.DEL1.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.DEL1.Name = "DEL1";
-            this.DEL1.ReadOnly = true;
-            this.DEL1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.DEL1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.DEL1.Width = 50;
-            // 
             // Tour_HDV
             // 
             this.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.ClientSize = new System.Drawing.Size(879, 526);
             this.Controls.Add(this.panel1);
-            this.Name = "Tour_HDV";
+            this.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Size = new System.Drawing.Size(879, 526);
             this.Text = "Tour_HDV";
             this.panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.ResumeLayout(false);

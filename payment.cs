@@ -4,8 +4,11 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
@@ -198,7 +201,20 @@ namespace Manage_tour
                 if (ThanhToanModel.insert(newPayment) > 0) // Gọi phương thức insert để lưu thông tin
                 {
                     DatTourModel.UpdateTourStatus(madatTour,"Đã Thanh Toán");
-                    MessageBox.Show("Thanh toán thành công!");
+                    // Hiển thị hộp thoại xác nhận
+                    DialogResult result = MessageBox.Show(
+                        "Xuất hóa đơn?",                                  // Nội dung thông báo
+                        "Thanh toán thành công",                          // Tiêu đề
+                        MessageBoxButtons.YesNo,                          // Nút Yes/No
+                        MessageBoxIcon.Question                           // Biểu tượng câu hỏi
+                    );
+
+                    // Kiểm tra phản hồi
+                    if (result == DialogResult.Yes)
+                    {
+                        string filePath = "DatTour.csv";
+                        ExportInvoiceToCsv(filePath, DatTourModel.selectByKey(madatTour));
+                    }
                     this.Dispose(); // Đóng form thanh toán
                 }
                 else
@@ -209,6 +225,99 @@ namespace Manage_tour
             catch (Exception ex)
             {
                 MessageBox.Show("Lỗi khi lưu thanh toán: " + ex.Message);
+            }
+        }
+        public static void ExportInvoiceToCsv(string filePath, DatTourModel datTourModel)
+        {
+            string exportPath = Path.GetFullPath("exports");
+            if (!Directory.Exists(exportPath))
+            {
+                Directory.CreateDirectory(exportPath);
+            }
+            filePath = Path.Combine(exportPath, filePath);
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(filePath))
+                {
+                    // Ghi tiêu đề cột
+                    writer.WriteLine($"{DatTourModel.FIELD_MA_DAT_TOUR}," +
+                        $"{DatTourModel.FIELD_MA_TOUR}," +
+                        $"{DatTourModel.FIELD_MA_KH}," +
+                        $"{DatTourModel.FIELD_NGAY_DAT}," +
+                        $"{DatTourModel.FIELD_SO_LUONG_NGUOI}," +
+                        $"{DatTourModel.FIELD_TONG_TIEN}," +
+                        $"{DatTourModel.FIELD_TRANG_THAI}");
+
+                    // Ghi dữ liệu hóa đơn
+                    writer.WriteLine($"{datTourModel.ma_dat_tour}," +
+                        $"{datTourModel.ma_tour}," +
+                        $"{datTourModel.ma_kh}," +
+                        $"{datTourModel.ngay_dat}," +
+                        $"{datTourModel.so_luong_nguoi}," +
+                        $"{datTourModel.tong_tien}," +
+                        $"{datTourModel.trang_thai}");
+                }
+
+                Console.WriteLine("Hóa đơn đã được xuất thành công!");
+                OpenFileExplorer(filePath);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi khi xuất hóa đơn: {ex.Message}");
+            }
+        }
+        public static void OpenFileExplorer(string filePath)
+        {
+            if (string.IsNullOrEmpty(filePath))
+            {
+                Console.WriteLine("Đường dẫn không hợp lệ.");
+                return;
+            }
+
+            // Kiểm tra hệ điều hành
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                // Windows: Sử dụng explorer để mở
+                RunProcess("explorer.exe", $"/select,\"{filePath}\"");
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+            {
+                // macOS: Sử dụng `open` để mở
+                RunProcess("open", $"-R \"{filePath}\"");
+            }
+            else if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux))
+            {
+                // Linux: Sử dụng `xdg-open` để mở thư mục chứa file
+                string directory = Path.GetDirectoryName(filePath);
+                if (directory != null)
+                {
+                    RunProcess("xdg-open", directory);
+                }
+                else
+                {
+                    Console.WriteLine("Không thể xác định thư mục.");
+                }
+            }
+            else
+            {
+                Console.WriteLine("Hệ điều hành không được hỗ trợ.");
+            }
+        }
+
+        private static void RunProcess(string command, string arguments)
+        {
+            try
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = command,
+                    Arguments = arguments,
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Lỗi khi chạy lệnh: {ex.Message}");
             }
         }
     }
